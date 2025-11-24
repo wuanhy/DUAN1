@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Ký Tài Khoản - Elite Travel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+    html {
+        height: 100%;
+    }
+
+    body {
+        height: 100%;
+        background-image: linear-gradient(to right, #e3f2ff, #fff0f5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        overflow-y: auto;
+        /* Cho phép cuộn nếu màn hình nhỏ */
+        padding: 20px;
+        /* Thêm padding để không bị sát mép khi cuộn */
+    }
+
+    .register-card {
+        max-width: 400px;
+        width: 100%;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        background-color: white;
+        border-radius: 15px;
+    }
+
+    .btn-custom-blue {
+        background-color: #007bff;
+        border-color: #007bff;
+        border-radius: 25px;
+        font-weight: bold;
+        padding: 10px 0;
+        transition: background-color 0.3s;
+    }
+
+    .btn-custom-blue:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+
+    .text-custom-info {
+        color: #6f42c1 !important;
+        font-weight: bold;
+    }
+
+    .form-control.rounded-pill {
+        height: 45px;
+    }
+    </style>
+</head>
+
+<body>
+
+    <div class="card register-card p-4 mx-auto">
+        <div class="card-body">
+            <div class="text-center mb-4">
+                <img src="<?= BASE_URL . 'public/image/logo.png' ?>" alt="Elite Travel Logo" height="50">
+            </div>
+
+            <h5 class="card-title text-center fw-bold mb-4">Đăng ký tài khoản</h5>
+
+            <form id="registerForm" action="<?= BASE_URL ?>?act=register" method="post" novalidate>
+                <div class="mb-3">
+                    <input type="email" id="email" name="email" class="form-control rounded-pill py-2"
+                        placeholder="Email" value="<?= htmlspecialchars($old['email'] ?? '') ?>">
+                    <p id="emailError" class="text-danger small mt-1"><?= $errors['email'] ?? '' ?></p>
+                </div>
+
+                <div class="mb-3">
+                    <input type="text" id="name" name="name" class="form-control rounded-pill py-2"
+                        placeholder="Họ và Tên" value="<?= htmlspecialchars($old['name'] ?? '') ?>">
+                    <p id="nameError" class="text-danger small mt-1"><?= $errors['name'] ?? '' ?></p>
+                </div>
+
+                <div class="mb-3">
+                    <input type="tel" id="phone" name="phone" class="form-control rounded-pill py-2"
+                        placeholder="Số điện thoại" value="<?= htmlspecialchars($old['phone'] ?? '') ?>">
+                    <p id="phoneError" class="text-danger small mt-1"><?= $errors['phone'] ?? '' ?></p>
+                </div>
+
+                <div class="mb-3">
+                    <input type="text" id="address" name="address" class="form-control rounded-pill py-2"
+                        placeholder="Địa chỉ liên hệ" value="<?= htmlspecialchars($old['address'] ?? '') ?>">
+                    <p id="addressError" class="text-danger small mt-1"><?= $errors['address'] ?? '' ?></p>
+                </div>
+
+                <div class="mb-3">
+                    <input type="password" id="password" name="password" class="form-control rounded-pill py-2"
+                        placeholder="Mật khẩu">
+                    <p id="passwordError" class="text-danger small mt-1"><?= $errors['password'] ?? '' ?></p>
+                </div>
+
+                <div class="mb-4">
+                    <input type="password" id="repass" name="repass" class="form-control rounded-pill py-2"
+                        placeholder="Xác nhận Mật khẩu">
+                    <p id="repassError" class="text-danger small mt-1"><?= $errors['repass'] ?? '' ?></p>
+                </div>
+
+                <?php if (!empty($errors['register'])) : ?>
+                <div class="alert alert-danger">
+                    <?= $errors['register'] ?>
+                </div>
+                <?php endif; ?>
+
+                <button type="submit" class="btn btn-custom-blue w-100">Đăng Ký</button>
+
+                <p class="text-center mt-4 small">
+                    Đã có tài khoản?
+                    <a href="<?= BASE_URL . '?act=login' ?>" class="text-custom-info text-decoration-none">Đăng nhập
+                        ngay</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
