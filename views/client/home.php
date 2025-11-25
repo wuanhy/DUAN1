@@ -25,6 +25,8 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mb-2 mb-lg-0 mx-auto">
                         <li class="nav-item"><a class="nav-link mx-3 text-dark"
+                                href="<?= BASE_URL . '?act=welcome' ?>">Trang chủ</a></li>
+                        <li class="nav-item"><a class="nav-link mx-3 text-dark"
                                 href="<?= BASE_URL . '?act=about' ?>">Các địa điểm du lịch</a></li>
                         <li class="nav-item"><a class="nav-link mx-3 text-dark"
                                 href="<?= BASE_URL . '?act=introduction'?>">Giới thiệu</a></li>

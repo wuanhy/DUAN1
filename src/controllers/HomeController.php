@@ -32,7 +32,10 @@ class HomeController
                 $user = new User();
                 $check = $user->checkLogin($email, $password);
 
-                if ($check) {
+                 if ($check) {
+                if ($check['status'] == 0) {
+                    $errors['login'] = "Tài khoản đã bị khóa.";
+                } else {
                     $_SESSION['userLogin'] = [
                         'id' => $check['id'],
                         'name' => $check['name'],
@@ -40,13 +43,16 @@ class HomeController
                         'role' => $check['role'],
                     ];
 
-                if ($check['role'] == 1) {
-                    header("Location:" . BASE_URL . '?act=admin-dashboard');
-                    exit();
+                    if ($check['role'] == 1) {
+                        $_SESSION['success'] = "Đăng nhập thành công!";
+                        header("Location:" . BASE_URL . '?act=admin-dashboard');
+                        exit();
+                    } else {
+                        header("Location:" . BASE_URL .'?action=');
+                        exit();
+                    }
                 }
-                header("Location:" . BASE_URL .'?act=');
-                exit();
-            } else {
+        } else {
                 $errors['login'] = "Đăng nhập thất bại, email hoặc mật khẩu không đúng.";
             }
         }
@@ -70,7 +76,6 @@ class HomeController
     public function register(){
         startSession();
         $errors = [];
-        $old = [];
         if($_SERVER["REQUEST_METHOD"]=="POST"){
             $old = $_POST;
 
@@ -115,6 +120,7 @@ class HomeController
                     $_POST['phone'],
                     $_POST['role'] ?? 0
                 );
+                $_SESSION['success'] = "Đăng ký thành công!";
                 header("Location: " . BASE_URL . "?act=login");
                 exit();
             }
@@ -139,4 +145,5 @@ class HomeController
         $view = 'client/faq';
         require_once block_path('main');
     }
+   
 }

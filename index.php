@@ -1,7 +1,11 @@
 <?php
 
+use Src\Controllers\BlogController;
+use Src\Controllers\TuorController;
+session_start();
 use Src\Controllers\DashboardController;
 use Src\Controllers\HomeController;
+use Src\Controllers\UserController;
 
 // Nạp cấu hình chung của ứng dụng
 
@@ -15,14 +19,28 @@ require_once __DIR__ . '/src/helpers/helpers.php'; // Helper chứa các hàm tr
 require_once __DIR__ . '/src/models/BaseModel.php';
 require_once __DIR__ . '/src/models/User.php';
 require_once __DIR__ . '/src/models/blog.php';
+require_once __DIR__ . '/src/models/Time.php';
+
 
 // Nạp các file chứa controller
 require_once __DIR__ . '/src/controllers/HomeController.php';
 require_once __DIR__ . '/src/controllers/DashboardController.php';
+require_once __DIR__ . '/src/controllers/UserController.php';
+require_once __DIR__ . '/src/controllers/BlogController.php';
+require_once __DIR__ . '/src/controllers/TuorController.php';
+
+
+
 
 // Khởi tạo các controller
 $homeController = new HomeController();
 $dashboardController = new DashboardController();
+$userController = new UserController();
+$blogController = new BlogController();
+$tuorController = new TuorController();
+
+
+
 
 // Xác định route dựa trên tham số act (mặc định là trang chủ '/')
 $act = $_GET['act'] ?? '/';
@@ -38,5 +56,24 @@ match ($act) {
     'faq'          => $homeController->faq(),
     'admin-dashboard' => $dashboardController->index(),
     'logout'       => $homeController->logout(),
+
+    //blog
+    'admin-list-blog' =>$blogController->index(),
+    'admin-create-blog' =>$blogController->create(),
+    'admin-update-blog' =>$blogController->update(),
+    'admin-delete-blog' =>$blogController->delete(),
+
+    //user
+    'admin-list-user' =>$userController->index(),
+    'admin-create-user' =>$userController->create(),
+    'admin-update-user' =>$userController->update(),
+    'admin-delete-user' =>$userController->delete(),
+
+    'admin-list-time' =>$tuorController->index(),
+    'admin-create-time' =>$tuorController->create(),
+    'admin-update-time' =>$tuorController->update(),
+    'admin-delete-time' =>$tuorController->delete(),
+
+
     default        => require_once BASE_PATH . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'not_found.php',
 };

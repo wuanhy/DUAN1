@@ -18,9 +18,21 @@
             <div class="container-fluid px-5">
                 <a class="navbar-brand" href="#"><img src="<?= BASE_URL . 'public/image/logo.png' ?>"
                         alt="Elite Travel Logo" height="50"></a>
+                        <?php
+                         if(!isset($_SESSION['userLogin'])){
+                            header("Location: " .BASE_URL .'?act=login');
+                         }
+                         ?>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                         <?php 
+                            if(isset($_SESSION['userLogin'])) :?>
+                                <span class="me-3 fw-semibold text-black">
+                                    Xin chao , <?= htmlspecialchars($_SESSION['userLogin']['name']) ?>
+                                </span>
+                            <?php endif; ?>
             </div>
         </nav>
     </header>
@@ -97,7 +109,7 @@
                                 class="bi bi-chevron-down ms-auto sidebar-icon-toggle"></i>
                         </a>
                         <div class="collapse list-unstyled ps-3" id="collapseBlog" data-bs-parent="#sidebarMenu">
-                            <a class="nav-link text-muted py-2" href="#">Danh sách bài viết</a>
+                            <a class="nav-link text-muted py-2" href="<?=BASE_URL .'?act=admin-list-blog'  ?>">Danh sách bài viết</a>
                             <a class="nav-link text-muted py-2" href="#">Thêm bài mới</a>
                         </div>
                     </li>
@@ -110,7 +122,7 @@
                             <i class="bi bi-chevron-down ms-auto sidebar-icon-toggle"></i>
                         </a>
                         <div class="collapse list-unstyled ps-3" id="collapseTransport" data-bs-parent="#sidebarMenu">
-                            <a class="nav-link text-muted py-2" href="#">Danh sách thời giản Tuor</a>
+                            <a class="nav-link text-muted py-2" href="<?=BASE_URL .'?act=admin-list-time' ?>">Danh sách thời gian Tuor</a>
                             <a class="nav-link text-muted py-2" href="#">Thêm thời gian tuor</a>
                         </div>
                     </li>
@@ -124,8 +136,7 @@
                             <i class="bi bi-chevron-down ms-auto sidebar-icon-toggle"></i>
                         </a>
                         <div class="collapse list-unstyled ps-3" id="collapseAccount" data-bs-parent="#sidebarMenu">
-                            <a class="nav-link text-muted py-2" href="#">Tài khoản khách hàng</a>
-                            <a class="nav-link text-muted py-2" href="#">Tài khoản nhân viên</a>
+                            <a class="nav-link text-muted py-2" href="<?=BASE_URL .'?act=admin-list-user' ?>">Tài khoản nhân viên</a>
                             <a class="nav-link text-muted py-2" href="#">Phân công HDV</a>
                         </div>
                     </li>

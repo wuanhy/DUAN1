@@ -16,7 +16,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light shadow-sm fixed-top custom-gradient-navbar" id="main-navbar">
             <div class="container-fluid px-5">
-                <a class="navbar-brand" href="#"><img src="<?= BASE_URL . 'public/image/logotour.png' ?>"
+                <a class="navbar-brand" href="#"><img src="<?= BASE_URL . 'public/image/logo.png' ?>"
                         alt="Elite Travel Logo" height="50"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
@@ -24,6 +24,8 @@
 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mb-2 mb-lg-0 mx-auto">
+                        <li class="nav-item"><a class="nav-link mx-3 text-dark"
+                                href="<?= BASE_URL . '?act=welcome' ?>">Trang chủ</a></li>
                         <li class="nav-item"><a class="nav-link mx-3 text-dark"
                                 href="<?= BASE_URL . '?act=about' ?>">Các địa điểm du lịch</a></li>
                         <li class="nav-item"><a class="nav-link mx-3 text-dark"
