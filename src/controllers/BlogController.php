@@ -9,6 +9,14 @@ class BlogController{
         $view = 'admin/list_blog';
         require_once block_path('main');
     }
+    public function blog(){
+    $blog = new Blog();
+    $listdata = $blog->getAll();
+
+    $view = 'client/blog';
+    require_once block_path('main');
+}
+
     public function create(){
         
     }

@@ -1,7 +1,7 @@
 <?php
 
 use Src\Controllers\BlogController;
-use Src\Controllers\TuorController;
+use Src\Controllers\TransController;
 session_start();
 use Src\Controllers\DashboardController;
 use Src\Controllers\HomeController;
@@ -19,7 +19,7 @@ require_once __DIR__ . '/src/helpers/helpers.php'; // Helper chứa các hàm tr
 require_once __DIR__ . '/src/models/BaseModel.php';
 require_once __DIR__ . '/src/models/User.php';
 require_once __DIR__ . '/src/models/blog.php';
-require_once __DIR__ . '/src/models/Time.php';
+require_once __DIR__ . '/src/models/Trans.php';
 
 
 // Nạp các file chứa controller
@@ -27,7 +27,8 @@ require_once __DIR__ . '/src/controllers/HomeController.php';
 require_once __DIR__ . '/src/controllers/DashboardController.php';
 require_once __DIR__ . '/src/controllers/UserController.php';
 require_once __DIR__ . '/src/controllers/BlogController.php';
-require_once __DIR__ . '/src/controllers/TuorController.php';
+require_once __DIR__ . '/src/controllers/TransController.php';
+
 
 
 
@@ -37,7 +38,8 @@ $homeController = new HomeController();
 $dashboardController = new DashboardController();
 $userController = new UserController();
 $blogController = new BlogController();
-$tuorController = new TuorController();
+$transController = new TransController();
+
 
 
 
@@ -52,7 +54,7 @@ match ($act) {
     'register'     => $homeController->register(),
     'about'        => $homeController->about(),
     'introduction' => $homeController->introduction(),
-    'blog'         => $homeController->blog(),
+    'blog'         => $blogController->blog(),
     'faq'          => $homeController->faq(),
     'admin-dashboard' => $dashboardController->index(),
     'logout'       => $homeController->logout(),
@@ -69,10 +71,11 @@ match ($act) {
     'admin-update-user' =>$userController->update(),
     'admin-delete-user' =>$userController->delete(),
 
-    'admin-list-time' =>$tuorController->index(),
-    'admin-create-time' =>$tuorController->create(),
-    'admin-update-time' =>$tuorController->update(),
-    'admin-delete-time' =>$tuorController->delete(),
+    
+    'admin-list-trans' =>$transController->index(),
+    'admin-create-trans' =>$transController->create(),
+    'admin-update-trans' =>$transController->update(),
+    'admin-delete-trans' =>$transController->delete(),
 
 
     default        => require_once BASE_PATH . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'not_found.php',

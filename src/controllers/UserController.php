@@ -54,7 +54,7 @@ class UserController{
                 $_POST['phone'],
                 $_POST['address'],
 );
-
+            $_SESSION['success']="Thêm thành công";
             header("Location: " . BASE_URL . "?act=admin-list-user");
             exit();
         }
@@ -80,13 +80,6 @@ public function update(){
                      $errors['email'] = "Email không hợp lệ."; 
                 } 
             }
-            if (empty($_POST['password'])) { 
-                $errors['password'] = "Vui lòng nhập mật khẩu."; 
-            } else { 
-                if (strlen($_POST['password']) < 6) { 
-                    $errors['password'] = "Mật khẩu phải từ 6 ký tự trở lên."; 
-                }
-            }
 
             if (empty($_POST['phone'])) { 
                 $errors['phone'] = "Vui lòng nhập số điện thoại."; 
@@ -100,12 +93,11 @@ public function update(){
                 $_GET['id'],
                 $_POST['name'],
                 $_POST['email'],
-                $_POST['password'],
                 $_POST['phone'],
                 $_POST['address'],
                 $_POST['status'],
 );
-
+            $_SESSION['success']="Sửa thành công";
             header("Location: " . BASE_URL . "?act=admin-list-user");
             exit();
         }
@@ -117,6 +109,7 @@ public function update(){
 public function delete(){
     $user = new User();
     $user->delete($_GET['id']);
+    $_SESSION['success']="Xóa thành công";
     header("Location:" . BASE_URL .'?act=admin-list-user');
     exit();
 }

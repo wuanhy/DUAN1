@@ -9,12 +9,13 @@
 
 </head>
 <body>
-    <div class="containerr">
+    <div class="container">
     <div class="row">
         <div class="col-2">
             <?php include "views/admin/sidebar.php"; ?>
         </div>
-        <div class="col-10 content-box" style="padding-top: 100px;  ">
+        <div class="col-10" style="padding-top: 100px;  ">
+        <div class="update-user-container">
             <form action="<?= BASE_URL .'?act=admin-update-user&id=' . ($data['id']) ?>" method="post">
          <div class="d-flex justify-content-end mb-3"> 
                     <a href="<?=BASE_URL .'?act=admin-list-user' ?>" class="btn btn-primary">Quay lai</a> 
@@ -31,12 +32,6 @@
         <input type="email" name="email" class="form-control"
                value="<?= htmlspecialchars($old['email'] ?? $data['email'] ) ?>">
         <small class="text-danger"><?= $errors['email'] ?? '' ?></small>
-    </div>
-
-    <div class="mb-3">
-        <label class="form-label">Password</label>
-        <input type="password" name="password" class="form-control" value="<?= htmlspecialchars($old['password'] ?? $data['password'] ) ?>">
-        <small class="text-danger"><?= $errors['password'] ?? '' ?></small>
     </div>
 
     <div class="mb-3">
@@ -67,5 +62,21 @@
         </div>
         </div>
 </div>
+</div>
+<style>
+    body {
+   background: linear-gradient(to right, #CFE8FF, #FAD4EC);
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+
+.update-user-container,
+.container,
+.wrapper {
+    background-color: transparent !important;
+}
+</style>
 </body>
 </html>

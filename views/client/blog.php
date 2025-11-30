@@ -9,7 +9,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
     <link rel="stylesheet" href="public/css/style.css">
 </head>
 
@@ -47,172 +46,35 @@
         <div class="d-flex justify-content-center py-3">
             <img src="<?=BASE_URL .'public/image/logo.jpg' ?>" alt="">
         </div>
-        <section class="main-blog-content py-5 custom-blue-bg">
-            <div class="container">
-                <div class="row">
+<h2 class="mb-4 text-center fw-bold">Bài viết mới nhất</h2>
+<div class="row g-4">
+    <?php foreach($listdata as $b): ?>
+        <div class="col-lg-4 col-md-6 mb-4">
+            <a href="<?= BASE_URL . '?act=blog_detail&id=' . $b['id'] ?>" class="blog-card-link text-decoration-none">
+                <div class="card blog-post-card shadow-sm">
+                    <img src="<?=BASE_URL . 'public/image/'. $b['image'] ?>" 
+                        class="card-img-top blog-thumb" 
+                        alt="<?= $b['tieu_de'] ?>">
 
-                    <div class="col-lg-9">
-                        <div class="row">
+                    <div class="card-body text-center">
+                        <h5 class="card-title fw-bold mt-1 blog-title">
+                            <?= htmlspecialchars($b['tieu_de']) ?>
+                        </h5>
 
-                            <div class="col-lg-4 col-md-6 mb-4">
-                                <a href="<?= BASE_URL . '?act=blog_detail&id=1' ?>" class="blog-card-link">
-                                    <div class="card blog-post-card shadow-sm">
-                                        <img src="<?=BASE_URL .'public/image/camranh.png' ?>"
-                                            class="card-img-top blog-thumb" alt="Cam Ranh">
-                                        <div class="card-body">
-                                            <h5 class="card-title fw-bold mt-1">Cam Ranh - Thiên đường biển đảo của miền
-                                                Trung</h5>
-                                            <p class="card-text blog-summary">Nằm ở tỉnh Khánh Hòa, cách thành phố Nha
-                                                Trang khoảng 60km, Cam Ranh đang trở thành điểm đến lý tưởng cho du
-                                                khách trong và ngoài nước...</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="col-lg-4 col-md-6 mb-4">
-                                <a href="<?= BASE_URL . '?act=blog_detail&id=2' ?>" class="blog-card-link">
-                                    <div class="card blog-post-card shadow-sm">
-                                        <img src="<?=BASE_URL .'public/image/tb.png' ?>" class="card-img-top blog-thumb"
-                                            alt="Sapa">
-                                        <div class="card-body">
-                                            <h5 class="card-title fw-bold mt-1">Khám phá Sapa: Thị trấn trong sương mờ
-                                            </h5>
-                                            <p class="card-text blog-summary">Chỉ cách Hà Nội khoảng 80km, Sapa từ lâu
-                                                đã là địa điểm du lịch lý tưởng cho những ai muốn tìm một chốn nghỉ
-                                                dưỡng, tránh xa khói bụi đô thị...</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="col-lg-4 col-md-6 mb-4">
-                                <a href="<?= BASE_URL . '?act=blog_detail&id=10' ?>" class="blog-card-link">
-                                    <div class="card blog-post-card shadow-sm">
-                                        <img src="<?=BASE_URL .'public/image/halong.png' ?>"
-                                            class="card-img-top blog-thumb" alt="Vịnh Hạ Long">
-                                        <div class="card-body">
-                                            <h5 class="card-title fw-bold mt-1">Hạ Long - Kỳ quan thiên nhiên thế giới
-                                            </h5>
-                                            <p class="card-text blog-summary">Hạ Long: Vịnh tuyệt đẹp với núi đá vôi,
-                                                đảo nhỏ kỳ vĩ, nước biển xanh biếc, thiên nhiên hùng vĩ, di sản thế
-                                                giới, thu hút du khách từ khắp nơi...</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="col-lg-4 col-md-6 mb-4">
-                                <a href="<?= BASE_URL . '?act=blog_detail&id=4' ?>" class="blog-card-link">
-                                    <div class="card blog-post-card shadow-sm">
-                                        <img src="<?=BASE_URL .'public/image/pq.png' ?>" class="card-img-top blog-thumb"
-                                            alt="Phú Quốc">
-                                        <div class="card-body">
-                                            <h5 class="card-title fw-bold mt-1">Phú Quốc - Thiên đường nghỉ dưỡng biển
-                                                đảo</h5>
-                                            <p class="card-text blog-summary">Phú Quốc: Hòn đảo ngọc xinh đẹp với bãi
-                                                biển trắng mịn, nước biển trong xanh, rừng nguyên sinh rộng lớn...</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="col-lg-4 col-md-6 mb-4">
-                                <a href="<?= BASE_URL . '?act=blog_detail&id=11' ?>" class="blog-card-link">
-                                    <div class="card blog-post-card shadow-sm">
-                                        <img src="<?=BASE_URL .'public/image/catba.png' ?>"
-                                            class="card-img-top blog-thumb" alt="Phong Nha">
-                                        <div class="card-body">
-                                            <h5 class="card-title fw-bold mt-1">Khám Phá về Cát Bà - Du lịch sinh thái
-                                            </h5>
-                                            <p class="card-text blog-summary">Cát Bà – hòn đảo thiên đường của Vịnh Hạ
-                                                Long, biển xanh mênh mông, núi đá vôi hùng vĩ...</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="col-lg-4 col-md-6 mb-4">
-                                <a href="<?= BASE_URL . '?act=blog_detail&id=12' ?>" class="blog-card-link">
-                                    <div class="card blog-post-card shadow-sm">
-                                        <img src="<?=BASE_URL .'public/image/ch.png' ?>" class="card-img-top blog-thumb"
-                                            alt="Đà Lạt">
-                                        <div class="card-body">
-                                            <h5 class="card-title fw-bold mt-1">Chùa Hương miền đất Phật giữa chốn bống
-                                                lai tiên cảnh</h5>
-                                            <p class="card-text blog-summary">Chùa Hương – miền đất Phật yên bình, núi
-                                                non trùng điệp, suối nước trong xanh, hương trầm lan tỏa ...</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-
-                        </div>
+                        <p class="card-text blog-summary">
+                            <?= strip_tags($b['noi_dung']) ?>
+                        </p>
+                        <p class="blog-author">
+                            <?= strip_tags($b['author_name']) ?>
+                        </p>
+                        
                     </div>
-                    <div class="col-lg-3">
-                        <aside class="sidebar p-3 rounded shadow-sm bg-white">
-                            <h2 class="h5 mb-3 text-dark border-bottom pb-2">Bài viết nổi bật</h2>
 
-                            <a href="#" class="sidebar-post-link d-flex align-items-center mb-3">
-                                <img src="<?=BASE_URL .'public/image/hg.png' ?>" alt="Hà Nội"
-                                    class="sidebar-thumb me-3">
-                                <div>
-                                    <p class="mb-0 sidebar-title">Hà Nội - Trái tim của Việt Nam</p>
-                                </div>
-                            </a>
-                            <a href="#" class="sidebar-post-link d-flex align-items-center mb-3">
-                                <img src="<?=BASE_URL .'public/image/camranh.png' ?>" alt="Cam Ranh"
-                                    class="sidebar-thumb me-3">
-                                <div>
-                                    <p class="mb-0 sidebar-title">Cam Ranh - Thiên đường biển đảo</p>
-                                </div>
-                            </a>
-                            <a href="#" class="sidebar-post-link d-flex align-items-center mb-3">
-                                <img src="<?=BASE_URL .'public/image/nhatrang.png' ?>" alt="Nha Trang"
-                                    class="sidebar-thumb me-3">
-                                <div>
-                                    <p class="mb-0 sidebar-title">Nha Trang - Thành phố biển xinh đẹp</p>
-                                </div>
-                            </a>
-                            <a href="#" class="sidebar-post-link d-flex align-items-center mb-3">
-                                <img src="<?=BASE_URL .'public/image/danang.png' ?>" alt="Đà Nẵng"
-                                    class="sidebar-thumb me-3">
-                                <div>
-                                    <p class="mb-0 sidebar-title">Đà Nẵng - Di sản thiên nhiên</p>
-                                </div>
-                            </a>
-                            <a href="#" class="sidebar-post-link d-flex align-items-center mb-3">
-                                <img src="<?=BASE_URL .'public/image/pq.png' ?>" alt="Đà Nẵng"
-                                    class="sidebar-thumb me-3">
-                                <div>
-                                    <p class="mb-0 sidebar-title">Phú Quốc - Thiên đường nghỉ dưỡng biển đảo</p>
-                                </div>
-                            </a>
-                            <a href="#" class="sidebar-post-link d-flex align-items-center mb-3">
-                                <img src="<?=BASE_URL .'public/image/ch.png' ?>" alt="Đà Nẵng"
-                                    class="sidebar-thumb me-3">
-                                <div>
-                                    <p class="mb-0 sidebar-title">Chùa Hương miền đất Phật giữa chốn bống lai tiên cảnh
-                                    </p>
-                                </div>
-                            </a>
-                            <a href="#" class="sidebar-post-link d-flex align-items-center mb-3">
-                                <img src="<?=BASE_URL .'public/image/halong.png' ?>" alt="Đà Nẵng"
-                                    class="sidebar-thumb me-3">
-                                <div>
-                                    <p class="mb-0 sidebar-title">Hạ Long - Kỳ quan thiên nhiên thế giới</p>
-                                </div>
-                            </a>
-                        </aside>
-                    </div>
                 </div>
-            </div>
-        </section>
-
-        <div class="floating-chat-btn">
-            <i class="fas fa-comment"></i>
+            </a>
         </div>
-
+    <?php endforeach; ?>
+</div>
     </main>
     <footer class="footer-section pt-5 pb-3 text-white">
         <div class="container">
@@ -288,6 +150,44 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="<?= BASE_URL . 'public/js/main.js' ?>"></script>
+    <style>
+        
+.blog-thumb {
+    height: 220px;      
+    width: 100%;
+    object-fit: cover;   
+    border-radius: 6px 6px 0 0;
+}
+.blog-post-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2); 
+}
+.blog-post-card {
+    height: 100%;
+    margin-left: 30px;
+    margin-right: 30px;
+
+
+}
+.blog-summary {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 70px; 
+}
+
+.blog-author {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+}
+.blog-title:hover {
+        color: #007bff;
+    transition: color 0.3s ease; 
+}
+
+    </style>
 </body>
 
 </html>

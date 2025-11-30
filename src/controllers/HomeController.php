@@ -137,10 +137,7 @@ class HomeController
         $view = 'client/introduction';
         require_once block_path('main');
     }
-    public function blog(){
-        $view = 'client/blog';
-        require_once block_path('main');
-    }
+    
     public function faq(){
         $view = 'client/faq';
         require_once block_path('main');

@@ -5,66 +5,119 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-        <link rel="stylesheet" href="public/css/style.css"> 
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="public/css/style.css">
 </head>
 <body>
-    <div class="containerr">
-    <div class="row">
-        <div class="col-2">
-            <?php include "views/admin/sidebar.php"; ?>
-        </div>
-        <div class="col-10 content-box" style="padding-top: 100px;  ">
-            <form action="<?= BASE_URL .'?act=admin-list-user' ?>" method="post"> 
-                <div class="d-flex justify-content-end mb-3"> 
-                    <a href="<?=BASE_URL .'?act=admin-create-user' ?>" class="btn btn-primary">Tạo tài khoản HDV</a> 
+    <div class="main-container">
+        <div class="row">
+            <div class="col-2">
+                <?php include "views/admin/sidebar.php"; ?>
+            </div>
+
+            <div class="col-10" style="padding-top: 100px;">
+                <div class="list-user-container">
+                    <form action="<?= BASE_URL .'?act=admin-list-user' ?>" method="post">
+                        
+                        <div class="d-flex justify-content-end mb-3">
+                            <a href="<?= BASE_URL .'?act=admin-create-user' ?>" class="btn btn-primary btn-sm">
+                                Tạo tài khoản HDV
+                            </a>
+                        </div>
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Tên Nhân Viên</th>
+                                    <th>Email</th>
+                                    <th>Số điện thoại</th>
+                                    <th>Địa chỉ</th>
+                                    <th>Ngày tạo</th>
+                                    <th>Trạng Thái</th>
+                                    <th>Hành Động</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($listdata as $key => $value): ?>
+                                    <tr>
+                                        <td><?= $key + 1 ?></td>
+                                        <td><?= $value['name'] ?></td>
+                                        <td><?= $value['email'] ?></td>
+                                        <td><?= $value['phone'] ?></td>
+                                        <td><?= $value['address'] ?></td>
+                                        <td><?= $value['create_at'] ?></td>
+
+                                        <td>
+                                            <?php if ($value['status'] == 1): ?>
+                                                <span class="badge bg-success bg-opacity-25 text-success p-2 rounded-pill">Hoạt động</span>
+                                            <?php else: ?>
+                                                <span class="badge bg-danger bg-opacity-25 text-danger p-2 rounded-pill">Vô hiệu hóa</span>
+                                            <?php endif; ?>
+                                        </td>
+
+                                        <td>
+                                            <a href="<?= BASE_URL .'?act=admin-update-user&id=' . $value['id'] ?>" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i>Sửa</a>
+
+                                            <?php if ($_SESSION['userLogin']['id'] != $value['id']): ?>
+                                                <a href="<?= BASE_URL .'?act=admin-delete-user&id=' . $value['id'] ?>"
+                                                class="btn btn-outline-danger btn-sm"
+                                                onclick="return confirm('Bạn có muốn xóa không?')"><i class="bi bi-trash-fill"></i>
+                                                    Xóa
+                                                </a>
+                                            <?php endif; ?>
+                                        </td>
+                                    </tr>
+                                <?php endforeach ?>
+                            </tbody>
+                        </table>
+
+                    </form>
                 </div>
-                <table class="table"> 
-                    <thead> 
-                        <tr>
-                            <th>ID</th> 
-                            <th>Tên Nhân Viên</th>
-                            <th>Email</th> 
-                            <th>Password</th> 
-                            <th>Số điện thoại</th>
-                            <th>Địa chỉ</th>
-                            <th>Trạng Thái</th>
-                            <th>Hành Động</th> 
-                        </tr> 
-                    </thead> 
-                    <tbody> 
-                        <?php foreach($listdata as $key=>$value) :?> 
-                            <tr > 
-                                <td><?=$key + 1?></td> 
-                                <td><?=$value['name']?></td> 
-                                <td><?=$value['email']?></td> 
-                                <td><?=$value['password']?></td> 
-                                <td><?=$value['phone']?></td> 
-                                <td><?= $value['address'] ?></td>
-                                <td>
-                                    <?php if($value['status'] == 1): ?>
-                                        <span class="text-success">Hoạt động</span>
-                                    <?php else: ?>
-                                        <span class="text-danger">Vô hiệu hóa</span>
-                                    <?php endif; ?>
-                                </td>
-                                <td> 
-                                <a href="<?=BASE_URL .'?act=admin-update-user&id=' . $value['id']?>" class="btn btn-warning">Sua</a> 
-                                
-                                <?php if($_SESSION['userLogin']['id'] != $value['id']): ?>
-                                    <a href="<?=BASE_URL .'?act=admin-delete-user&id=' . $value['id']?>" 
-                                    class="btn btn-danger" 
-                                    onclick="return confirm('Bạn có muốn xóa không?')">
-                                    Xóa
-                                    </a>
-                                <?php endif; ?>
-                            </td> 
-                        </tr> <?php endforeach ?> 
-                    </tbody> 
-                </table> 
-            </form>
+            </div>
         </div>
-        </div>
-</div>
+    </div>
+    <style>
+body {
+   background: linear-gradient(to right, #CFE8FF, #FAD4EC);
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+
+.list-user-container,
+.container,
+.wrapper {
+    background-color: transparent !important;
+}
+
+table {
+    background-color: white; 
+}
+    </style>
+    <?php if(!empty($_SESSION['success'])) :?>
+    <script>
+        setTimeout(()=>{
+            Swal.fire({
+            toast : true,
+            position : 'top-end',
+            icon: 'success',
+            title : '<?= $_SESSION['success'] ?>',
+            showConfirmButton : false,
+            timer : 2000,
+            timerProgressBar:true,
+            didOpen:(toast)=>{
+                const progress = toast.querySelector('.swal2-timer-progress-bar');
+                if(progress){
+                    progress.style.background='#28a745';
+                }
+            }
+            });
+
+        },100);
+    </script>
+<?php unset($_SESSION['success']); ?>
+<?php endif; ?>
 </body>
 </html>

@@ -8,15 +8,16 @@
     <link rel="stylesheet" href="public/css/style.css"> 
 </head>
 <body>
-    <div class="containerr">
+    <div class="container">
     <div class="row">
         <div class="col-2">
             <?php include "views/admin/sidebar.php"; ?>
         </div>
-        <div class="col-10 content-box" style="padding-top: 100px;  ">
+        <div class="col-10" style="padding-top: 100px;  ">
+        <div class="list-user-container">
             <form action="<?= BASE_URL .'?act=admin-create-user' ?>" method="post" enctype="multipart/form-data"> 
                 <div class="d-flex justify-content-end mb-3"> 
-                    <a href="<?=BASE_URL .'?act=admin-list-user' ?>" class="btn btn-primary">Quay lai</a> 
+                    <a href="<?=BASE_URL .'?act=admin-list-user' ?>" class="btn btn-primary btn-sm">Quay lai</a> 
                 </div>
 
             <div class="mb-3">
@@ -105,6 +106,22 @@
             </form>
         </div>
         </div>
+        </div>
 </div>
+<style>
+    body {
+   background: linear-gradient(to right, #CFE8FF, #FAD4EC);
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+
+.list-user-container,
+.container,
+.wrapper {
+    background-color: transparent !important;
+}
+</style>
 </body>
 </html>

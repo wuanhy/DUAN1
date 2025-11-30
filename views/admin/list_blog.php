@@ -8,12 +8,13 @@
     <link rel="stylesheet" href="public/css/style.css"> 
 </head>
 <body>
-    <div class="containerr">
+    <div class="container">
     <div class="row">
         <div class="col-2">
             <?php include "views/admin/sidebar.php"; ?>
         </div>
-        <div class="col-10 content-box" style="padding-top: 100px;  ">
+        <div class="col-10" style="padding-top: 100px;  ">
+            <div class="list-blog-container">
             <form action="<?= BASE_URL .'?act=admin-list-blog' ?>" method="post"> 
                 <div class="d-flex justify-content-end mb-3"> 
                     <a href="<?=BASE_URL .'?action=admin-create-blog' ?>" class="btn btn-primary">Thêm Blog</a> 
@@ -46,15 +47,39 @@
                                 <td><?= $value['status'] ?></td>
                                 <td><?=$value['created_at'] ?></td> 
                                 <td> 
-                                <a href="<?=BASE_URL .'?act=admin-update-blog&id=' . $value['id']?>" class="btn btn-danger">Sua</a> 
-                                <a href="<?=BASE_URL .'?act=admin-delete-blog&id=' . $value['id']?>" class="btn btn-warning" onclick="return confirm('Ban co muon xoa khong')">Xoa</a> 
+                                <a href="<?=BASE_URL .'?act=admin-update-blog&id=' . $value['id']?>" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i>Sua</a> 
+                                <a href="<?=BASE_URL .'?act=admin-delete-blog&id=' . $value['id']?>"class="btn btn-outline-danger btn-sm" onclick="return confirm('Ban co muon xoa khong')"><i class="bi bi-trash-fill"></i>Xoa</a> 
                             </td> 
                         </tr> <?php endforeach ?> 
                     </tbody> 
                 </table> 
             </form>
         </div>
-        </div>
+    </div>
+    </div>
 </div>
+<style>
+body {
+   background: linear-gradient(to right, #CFE8FF, #FAD4EC);
+    min-height: 100vh;
+}
+
+
+.list-blog-container,
+.container,
+.wrapper {
+    background-color: transparent !important;
+}
+
+table {
+    background-color: white; 
+}
+.table th {
+    white-space: nowrap; 
+}
+table td:nth-child(3) { 
+    max-width: 300px;            
+}
+    </style>
 </body>
 </html>

@@ -34,6 +34,7 @@
                                 </span>
                             <?php endif; ?>
             </div>
+            </div>
         </nav>
     </header>
     <aside class="sidebar bg-white w-64 border-r border-gray-200 flex flex-col h-full overflow-y-auto">
@@ -117,13 +118,13 @@
                         <a class="nav-link text-dark d-flex align-items-center" href="#collapseTransport"
                             data-bs-toggle="collapse" role="button" aria-expanded="false"
                             aria-controls="collapseTransport">
-                            <i class="bi bi-heart-fill me-2"></i>
-                            Quản Lý Thời Gian Tour
+                            <i class="bi bi-bus-front-fill me-2"></i>
+                            Quản Lý Phương Tiện
                             <i class="bi bi-chevron-down ms-auto sidebar-icon-toggle"></i>
                         </a>
                         <div class="collapse list-unstyled ps-3" id="collapseTransport" data-bs-parent="#sidebarMenu">
-                            <a class="nav-link text-muted py-2" href="<?=BASE_URL .'?act=admin-list-time' ?>">Danh sách thời gian Tuor</a>
-                            <a class="nav-link text-muted py-2" href="#">Thêm thời gian tuor</a>
+                            <a class="nav-link text-muted py-2" href="<?=BASE_URL .'?act=admin-list-trans' ?>">Danh sách phương tiện</a>
+                            <a class="nav-link text-muted py-2" href="<?=BASE_URL .'?act=admin-create-trans' ?>">Thêm phương tiện</a>
                         </div>
                     </li>
 

@@ -48,7 +48,7 @@ class User extends BaseModel{
         return $stmt -> fetch(PDO::FETCH_ASSOC);
     }
     public function create($name,$email,$password,$phone,$address){
-        $sql = "INSERT INTO user (name,email,password,phone,address) VALUES(:name,:email,:password,:phone,:address)";
+        $sql = "INSERT INTO tb_user (name,email,password,phone,address) VALUES(:name,:email,:password,:phone,:address)";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([
             ":name"=>$name,
@@ -59,14 +59,13 @@ class User extends BaseModel{
         ]);
 
     }
-    public function update($id, $name, $email, $password, $phone, $address, $status){
-        $sql = "UPDATE `tb_user` SET `name`=:name,`email`=:email,`password`=:password,`phone`=:phone,`address`=:address,`status`=:status WHERE id = :id";
+    public function update($id, $name, $email, $phone, $address, $status){
+        $sql = "UPDATE `tb_user` SET `name`=:name,`email`=:email,`phone`=:phone,`address`=:address,`status`=:status WHERE id = :id";
         $stmt = $this -> pdo -> prepare($sql);
         $stmt -> execute([
             ':id' => $id,
             ':name' => $name,
             ':email' => $email,
-            ':password' => md5($password),
             ':phone' => $phone,
             ':address' => $address,
             ':status'=>$status,
@@ -78,6 +77,13 @@ class User extends BaseModel{
         $stmt -> execute([
             ':id' => $id,
         ]);
+    }
+    public function isAdmin(){
+        return isset($this->role) && $this->role == 1;
+    }
+    
+    public function isGuide(){
+        return isset($this->role) && $this->role == 2;
     }
     
 }
