@@ -25,16 +25,18 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mb-2 mb-lg-0 mx-auto">
                         <li class="nav-item"><a class="nav-link mx-3 text-dark"
-                                href="<?= BASE_URL . '?act=about' ?>">Các địa điểm du lịch</a></li>
+                                href="<?= BASE_URL . 'welcome' ?>">Trang chủ</a></li>
                         <li class="nav-item"><a class="nav-link mx-3 text-dark"
-                                href="<?= BASE_URL . '?act=introduction'?>">Giới thiệu</a></li>
+                                href="<?= BASE_URL . 'about' ?>">Các địa điểm du lịch</a></li>
                         <li class="nav-item"><a class="nav-link mx-3 text-dark"
-                                href="<?= BASE_URL . '?act=blog'?>">Blog</a></li>
-                        <li class="nav-item"><a class="nav-link mx-3 text-dark" href="<?= BASE_URL . '?act=faq'?>">Các
+                                href="<?= BASE_URL . 'introduction'?>">Giới thiệu</a></li>
+                        <li class="nav-item"><a class="nav-link mx-3 text-dark"
+                                href="<?= BASE_URL . 'blog'?>">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link mx-3 text-dark" href="<?= BASE_URL . 'faq'?>">Các
                                 câu hỏi thường gặp</a></li>
                     </ul>
 
-                    <a href="<?=BASE_URL .'?act=login' ?>" class="btn btn-primary fw-bold rounded-pill px-4">Đăng
+                    <a href="<?=BASE_URL .'login' ?>" class="btn btn-primary fw-bold rounded-pill px-4">Đăng
                         nhập</a>
                 </div>
             </div>
