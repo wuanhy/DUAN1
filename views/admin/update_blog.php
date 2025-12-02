@@ -68,6 +68,13 @@
                     </select>
            <small class="text-danger"><?= $errors['category_id'] ?? '' ?></small>
     </div>
+    
+    <div class="mb-3">
+    <label class="form-label fw-semibold">Ngày xuất bản</label>
+    <input type="date" name="created_at" class="form-control"
+           value="<?= htmlspecialchars($old['created_at'] ?? $data['created_at']) ?>">
+    <small class="text-danger"><?= $errors['created_at'] ?? '' ?></small>
+    </div>
 
     <div class="mb-3">
     <label class="form-label fw-semibold">Trạng thái</label>
