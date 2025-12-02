@@ -11,7 +11,7 @@ class User extends BaseModel{
         ]);
         return $stmt -> fetch(PDO::FETCH_ASSOC);
     }
-    public function register($name, $email, $password, $phone, $role = "0", $address = ""){
+    public function register($name, $email, $password, $phone, $role = "1", $address = ""){
         $sql = "INSERT INTO tb_user(name, email, password, phone, address, role) VALUES (:name, :email, :password, :phone, :address, :role)";  
         $stmt = $this -> pdo -> prepare($sql);
         $stmt -> execute([
@@ -68,4 +68,11 @@ class User extends BaseModel{
         ]);
     }
     
+    // public function isAdmin(){
+    //     return isset($this->role) && $this->role == 1;
+    // }
+    
+    // public function isGuide(){
+    //     return isset($this->role) && $this->role == 2;
+    // }
 }

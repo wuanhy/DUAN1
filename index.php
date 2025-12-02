@@ -2,7 +2,11 @@
 
 use Src\Controllers\DashboardController;
 use Src\Controllers\HomeController;
+use Src\Controllers\ScheduleController;
 use Src\Controllers\TourController;
+use Src\Controllers\TourStatisticsController;
+use Src\Controllers\TuorStatisticsController;
+
 
 // Nạp cấu hình chung của ứng dụng
 
@@ -17,16 +21,26 @@ require_once __DIR__ . '/src/models/BaseModel.php';
 require_once __DIR__ . '/src/models/User.php';
 require_once __DIR__ . '/src/models/blog.php';
 require_once __DIR__ . '/src/models/TourModel.php';
+require_once __DIR__ . '/src/models/Category.php';
+require_once __DIR__ . '/src/models/ScheduleModel.php';
+require_once __DIR__ . '/src/models/TourStatisticsModel.php';
+
 
 // Nạp các file chứa controller
 require_once __DIR__ . '/src/controllers/HomeController.php';
 require_once __DIR__ . '/src/controllers/DashboardController.php';
 require_once __DIR__ . '/src/controllers/TourController.php';
+require_once __DIR__ . '/src/controllers/TourController.php';
+require_once __DIR__ . '/src/controllers/ScheduleController.php';
+require_once __DIR__ . '/src/controllers/TourStatisticsController.php';
 
 // Khởi tạo các controller
 $homeController = new HomeController();
 $dashboardController = new DashboardController();
 $tourController = new TourController();
+$scheduleController = new ScheduleController();
+$tourStatisticsController = new TourStatisticsController();
+
 // Xác định route dựa trên tham số act (mặc định là trang chủ '/')
 $act = $_GET['act'] ?? '/';
 
@@ -41,8 +55,23 @@ match ($act) {
     'faq'          => $homeController->faq(),
     'admin-dashboard' => $dashboardController->index(),
     'logout'       => $homeController->logout(),
-    'thongKe'    => $tourController->thongKe(),
-    'add-lich'     => $tourController->addLich(),
-    'store-lich'   => $tourController->storeLich(),
+
+    'admin-thongKe' => $tourStatisticsController-> thongKe(),
+    
+    
+    
+
+    'admin-tourlist' => $tourController-> adminTourList(),
+    'admin-addtour' => $tourController-> adminAddTour(),
+    'admin-edittour' => $tourController-> adminEditTour(),
+    'admin-delete-tour' => $tourController-> adminDeleteTour(),
+
+    'admin-scheduletour' => $scheduleController-> adminScheduleTour(),
+    'admin-addscheduletour' => $scheduleController-> adminAddScheduleTour(),
+    'admin-delete-schedule' => $scheduleController -> adminDeleteSchedule(),
+    'admin-edit-schedule' => $scheduleController -> adminEditSchedule(),
+
+    'admin-bookinglist' => $tourController-> adminBookingList(),
+    'admin-refundmanage' => $tourController-> adminRefundManage(),
     default        => require_once BASE_PATH . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'not_found.php',
 };

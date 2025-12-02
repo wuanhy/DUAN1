@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <div class="containerr">
+    <div class="container">
         <div class="row g-0">
             <div class="col-3">
                 <?php 
@@ -42,7 +42,7 @@
                         </div>
 
                         <div>
-                            <a href="index.php?act=add-lich" class="btn btn-primary btn-sm rounded-pill shadow-sm">
+                            <a href="<?= BASE_URL. '' ?>" class="btn btn-primary btn-sm rounded-pill shadow-sm">
                                 <i class="bi bi-plus-circle me-1"></i> Tạo Lịch Mới
                             </a>
                         </div>
@@ -50,15 +50,15 @@
                 </div>
 
                 <div class="mb-4 filter-group">
-                    <a href="index.php?act=thongKe&type=sap_dien_ra"
+                    <a href="<?= BASE_URL. 'admin-thongKe?type=sap_dien_ra' ?>"
                         class="btn btn-sm <?= ($_GET['type'] ?? 'sap_dien_ra') == 'sap_dien_ra' ? 'btn-primary' : 'btn-light border' ?>">
                         <i class="bi bi-hourglass-split"></i> Sắp diễn ra
                     </a>
-                    <a href="index.php?act=thongKe&type=dang_dien_ra"
+                    <a href="<?= BASE_URL. 'admin-thongKe?type=dang_dien_ra' ?>"
                         class="btn btn-sm <?= ($_GET['type'] ?? '') == 'dang_dien_ra' ? 'btn-success text-white' : 'btn-light border' ?>">
                         <i class="bi bi-play-circle-fill"></i> Đang diễn ra
                     </a>
-                    <a href="index.php?act=thongKe&type=da_hoan_thanh"
+                    <a href="<?= BASE_URL. 'admin-thongKe?type=da_hoan_thanh' ?>"
                         class="btn btn-sm <?= ($_GET['type'] ?? '') == 'da_hoan_thanh' ? 'btn-secondary' : 'btn-light border' ?>">
                         <i class="bi bi-check-circle-fill"></i> Đã hoàn thành
                     </a>
@@ -128,13 +128,13 @@
                                         </td>
 
                                         <td class="text-end pe-4">
-                                            <a href="index.php?act=sua-lich&id=<?= $tour['lkh_id'] ?>"
+                                            <a href="<?= BASE_URL . 'sua-lich&id=' .    $tour['lkh_id'] ?>"
                                                 class="btn btn-warning btn-sm rounded-circle shadow-sm me-1"
                                                 title="Sửa">
                                                 <i class="bi bi-pencil-square text-white"></i>
                                             </a>
 
-                                            <a href="index.php?act=xoa-lich&id=<?= $tour['lkh_id'] ?>"
+                                            <a href="<?= BASE_URL . 'xoa-lich&id=' . $tour['lkh_id'] ?>"
                                                 class="btn btn-danger btn-sm rounded-circle shadow-sm"
                                                 onclick="return confirm('Bạn chắc chắn muốn xóa lịch này?')"
                                                 title="Xóa">

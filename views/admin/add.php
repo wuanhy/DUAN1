@@ -26,7 +26,7 @@
                     </div>
 
                     <div class="card-body p-4">
-                        <form action="index.php?act=store-lich" method="POST">
+                        <form action="<?= BASE_URL . 'store-lich' ?>" method="POST">
 
                             <div class="mb-4">
                                 <label class="form-label fw-bold text-muted">Chọn Tour Mẫu</label>

@@ -170,7 +170,7 @@
                 </div>
             </div>
         </div>
-    </div>
+        <<<<<<< HEAD </div>
 </section>
 <section class="destinations-section py-5">
     <div class="container pt-5">
@@ -462,6 +462,3 @@
     </div>
 </section>
 <?php require_once 'views/layouts/blocks/footer.php'; ?>
-</body>
-
-</html>

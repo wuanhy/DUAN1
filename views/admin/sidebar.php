@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <title>Elite Travel - Trang Quản Trị</title>
+    <title>Elite Travel - Trang chủ</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -46,8 +46,10 @@
                             <i class="bi bi-chevron-down ms-auto sidebar-icon-toggle"></i>
                         </a>
                         <div class="collapse list-unstyled ps-3" id="collapseTour" data-bs-parent="#sidebarMenu">
-                            <a class="nav-link text-muted py-2" href="#">Danh sách Tour</a>
-                            <a class="nav-link text-muted py-2" href="#">Thêm Tour mới</a>
+                            <a class="nav-link text-muted py-2" href="<?= BASE_URL . 'admin-tourlist' ?>">Danh sách
+                                Tour</a>
+                            <a class="nav-link text-muted py-2" href="<?= BASE_URL . 'admin-addtour' ?>">Thêm Tour
+                                mới</a>
                         </div>
                     </li>
 
@@ -60,8 +62,11 @@
                             <i class="bi bi-chevron-down ms-auto sidebar-icon-toggle"></i>
                         </a>
                         <div class="collapse list-unstyled ps-3" id="collapseSchedule" data-bs-parent="#sidebarMenu">
-                            <a class="nav-link text-muted py-2" href="#">Danh sách Lịch trình các chuyến Tour</a>
-                            <a class="nav-link text-muted py-2" href="#">Thêm Lịch trình các chuyến Tour</a>
+                            <a class="nav-link text-muted py-2" href="<?= BASE_URL . 'admin-scheduletour' ?>">Danh
+                                sách Lịch trình các chuyến Tuor</a>
+                            <a class="nav-link text-muted py-2" href="<?= BASE_URL . 'admin-addscheduletour' ?>">Thêm
+                                Lịch trình các chuyến
+                                Tuor</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -72,14 +77,16 @@
                             Quản Lý Đặt Chỗ
                             <i class="bi bi-chevron-down ms-auto sidebar-icon-toggle"></i> </a>
                         <div class="collapse list-unstyled ps-3" id="collapseBooking" data-bs-parent="#sidebarMenu">
-                            <a class="nav-link text-muted py-2" href="#">Danh sách Đặt chỗ</a>
-                            <a class="nav-link text-muted py-2" href="#">Quản lý hoàn tiền</a>
+                            <a class="nav-link text-muted py-2" href="<?= BASE_URL . 'admin-bookinglist' ?>">Danh
+                                sách Đặt chỗ</a>
+                            <a class="nav-link text-muted py-2" href="<?= BASE_URL . 'admin-refundmanage' ?>">Quản
+                                lý hoàn tiền</a>
                         </div>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link text-dark d-flex align-items-center <?= (isset($_GET['act']) && $_GET['act'] == 'thongKe') ? 'active fw-bold' : '' ?>"
-                            href="<?= BASE_URL . '?act=thongKe' ?>">
+                        <a class="nav-link text-dark d-flex align-items-center"
+                            href="<?= BASE_URL . 'admin-thongKe' ?>">
 
                             <i class="bi bi-bar-chart-fill me-2"></i>
                             Thống Kê Tour
@@ -106,8 +113,8 @@
                             <i class="bi bi-chevron-down ms-auto sidebar-icon-toggle"></i>
                         </a>
                         <div class="collapse list-unstyled ps-3" id="collapseTransport" data-bs-parent="#sidebarMenu">
-                            <a class="nav-link text-muted py-2" href="#">Danh sách thời giản Tour</a>
-                            <a class="nav-link text-muted py-2" href="#">Thêm thời gian Tour</a>
+                            <a class="nav-link text-muted py-2" href="#">Danh sách thời gian Tuor</a>
+                            <a class="nav-link text-muted py-2" href="#">Thêm thời gian tuor</a>
                         </div>
                     </li>
 
@@ -125,7 +132,7 @@
                             <a class="nav-link text-muted py-2" href="#">Phân công HDV</a>
                         </div>
                     </li>
-                    <a href="<?= BASE_URL . '?act=logout' ?>" class="nav-link">
+                    <a href="<?= BASE_URL . 'logout' ?>" class="nav-link">
                         <i class="nav-icon fas fa-sign-out-alt"></i>
                         <p>Đăng xuất</p>
                     </a>

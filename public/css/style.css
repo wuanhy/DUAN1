@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body,
 html {
   margin: 0;
@@ -383,10 +384,396 @@ main .container {
 .footer-section h3,
 .footer-section h5 {
   color: #fff;
+=======
+
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+
+.hero-section {
+    position: relative;
+    width: 100%;
+    min-height: calc(100vh - 70px); 
+    background: linear-gradient(135deg,#0670f3 0%, #00c6ff 100% );
+    display: flex;
+    align-items: center; 
+    
+    padding-top: 70px; 
+}
+
+.search-bar-row {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: -40px !important; 
+    z-index: 10;
+}
+
+.search-bar-custom {
+    border-radius: 50px !important;
+    box-shadow: 0 10px 30px rgba(0, 50, 255, 0.15) !important;
+}
+
+
+
+.about-section {
+    background: linear-gradient(180deg,  #00c6ff, #ebc6c6); 
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+.feature-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px); 
+    
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important; 
+}
+.feature-card .icon-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;      
+    height: 80px;     
+    border-radius: 50%; 
+    background-color: #d8edff; 
+    margin: 0 auto 20px auto; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); 
+}
+
+.feature-card .icon-box i {
+    font-size: 45px !important; 
+    color: #0066ff; 
+}
+
+
+.about-images-stack-3 {
+    
+position: relative; 
+width: 400px;   
+height: 350px; 
+margin: 0 auto;
+transform: translateX(10%) rotate(-3deg); 
+}
+
+.about-images-stack-3 img {
+position: absolute; 
+width: 280px;      
+height: 200px;     
+    object-fit: cover;
+border-radius: 12px; 
+box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25); 
+border: 6px solid #fff; 
+transition: all 0.3s ease;
+}
+
+.img-stack-3-behind {
+ top: 60px;      
+    left: 100px;     
+ z-index: 1; 
+ transform: rotate(10deg) scale(0.9);
+}
+
+.img-stack-3-middle {
+top: 30px;      
+left: 40px;     
+z-index: 2; 
+transform: rotate(-5deg) scale(0.98);
+}
+
+.img-stack-3-front {
+top: 0;
+left: 0;
+z-index: 3; 
+transform: rotate(3deg) scale(1);
+}
+.about-images-stack-3 img:hover {
+    z-index: 5;
+    transform: scale(1.1) rotate(0deg) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); 
+}
+
+
+.custom-gradient-navbar {
+
+    background: linear-gradient(90deg, white, #eedee4 100%) !important; 
+    
+    z-index: 1000; 
+    
+}
+
+.custom-gradient-navbar .navbar-nav .nav-link {
+    color: #333 !important; 
+    font-weight: 500;
+}
+
+.custom-gradient-navbar .btn-primary {
+    background-color: #007bff !important; 
+    border-color: #007bff !important;
+    color: #fff !important;
+}
+
+.custom-gradient-navbar .navbar-brand img {
+    filter: none !important; 
+}
+.hover-effect {
+    transition: background-color 0.2s;
+    padding: 5px; /* Thêm padding để hiệu ứng nhìn đẹp hơn */
+    border-radius: 5px;
+}
+.hover-effect:hover {
+    background-color: #f8f9fa; /* Màu xám nhạt khi hover */
+}
+.search-popover-wrapper {
+    position: relative; /* Rất quan trọng: làm gốc cho vị trí tuyệt đối */
+}
+
+.search-suggestions-box {
+    position: absolute;
+    top: 100%; /* Đặt ngay dưới input */
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 20; 
+    transform: translateY(10px); 
+}
+main {
+    min-height: 100vh; 
+    
+    background: linear-gradient(to right, #00c6ff, #ebc6c6);
+}
+
+.search-hero {
+    padding-top: 100px !important; 
+}
+.tour-cards {
+    background-color: transparent; 
+}
+
+.tour-card {
+    background-color: #ffffff; 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+        .custom-gradient-navbar {
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
+        }
+
+        .accordion-button::after {
+    transition: transform 0.3s ease;
+}
+
+.accordion-button:not(.collapsed)::after {
+    transform: rotate(180deg);
+}
+
+        .card h4 {
+            font-size: 1rem;
+        }
+        .card p {
+            font-size: 0.875rem;
+        }
+
+        main .container {
+            max-width: 960px;
+        }
+.custom-gradient-navbar {
+    background: linear-gradient(to right, #ffffff, #f0f0f0, #f8e1e1); /* Gradient nhẹ, có vẻ màu hồng nhạt ở cuối */
+}
+
+
+.hero-banner {
+    background-image: url('images/main_banner.jpg'); 
+    background-size: cover;
+    background-position: center;
+    height: 400px; /* Chiều cao banner */
+    position: relative;
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.3);
+}
+
+.hero-banner .container {
+    z-index: 10;
+}
+
+.large-card {
+    height: 250px; 
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.custom-sidebar-bg {
+    /* Tạo Gradient từ xanh dương sang hồng nhạt */
+    background: linear-gradient(to bottom right, #00c6ff, #0072ff, #f39c12, #ff7e5f, #ff6e95);
+    color: white; /* Chữ trắng trên nền tối */
+}
+
+.custom-sidebar-bg h2 {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Đường kẻ trắng nhạt */
+    padding-bottom: 10px;
+}
+
+
+.blog-card-link, .sidebar-post-link {
+    text-decoration: none;
+    display: block; 
+}
+
+.blog-post-card {
+    height: 100%; 
+    border: 1px solid #f0f0f0; /* Thêm đường viền nhẹ cho card */
+    transition: all 0.3s ease;
+}
+
+.blog-card-link:hover .blog-post-card {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2) !important;
+}
+
+.blog-thumb {
+    width: 100%;
+    height: 200px; /* Chiều cao cố định cho ảnh lớn */
+    object-fit: cover;
+    border-top-left-radius: 6px; 
+    border-top-right-radius: 6px;
+}
+
+.blog-thumb-small {
+    width: 100%;
+    height: 150px; /* Chiều cao cố định cho ảnh nhỏ */
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.blog-summary {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    color: #6c757d;
+}
+.sidebar {
+    border: 1px solid #eee;
+}
+
+.sidebar h2 {
+    color: #333; /* Màu chữ đen */
+}
+
+.sidebar-thumb {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.sidebar-post-link {
+    color: #333;
+    transition: background-color 0.2s;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.sidebar-post-link:hover {
+    background-color: #f8f9fa; 
+    color: #007bff; 
+}
+
+.sidebar-title {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.floating-chat-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #007bff; 
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 1000;
+}
+
+
+#faqAccordion .row {
+    display: flex; 
+}
+
+#faqAccordion .row > [class*="col-"] {
+    display: flex; 
+}
+
+#faqAccordion .row .accordion-item {
+    width: 100%;
+    height: 100%; 
+    
+    display: flex; 
+    flex-direction: column;
+}
+
+#faqAccordion .accordion-header {
+    flex-grow: 1; 
+}
+
+#faqAccordion .accordion-button {
+    height: 100%; 
+    
+    align-items: center; 
+    text-align: left; /* Đảm bảo văn bản căn trái */
+}
+.footer-section {
+    /* Màu nền chính (Xanh đậm) */
+    background: linear-gradient(to right, #0151f0, #ebc6c6);
+    color: white; /* Đảm bảo chữ trắng */
+    position: relative; /* Quan trọng cho overlay */
+    overflow: hidden; /* Che bớt phần bản đồ thừa */
+    padding-top: 5rem !important; 
+    padding-bottom: 3rem !important; 
+}
+
+.footer-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    
+    background-image: url('assets/image/world-map.svg'); /* Đảm bảo đường dẫn này đúng */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    opacity: 0.15; 
+}
+
+.footer-section .container {
+    position: relative;
+    z-index: 2; /* Đẩy nội dung lên trên lớp phủ bản đồ */
+}
+
+.footer-section h3, 
+.footer-section h5 {
+    color: #fff;
+>>>>>>> dev/quyen
 }
 
 .footer-section p.text-sm,
 .footer-section .text-sm {
+<<<<<<< HEAD
   font-size: 0.875rem;
 }
 
@@ -466,10 +853,95 @@ main .container {
   width: auto; /* Để chiều rộng tự động theo nội dung */
   height: auto; /* Để chiều cao tự động theo nội dung */
   opacity: 1; /* Giữ luôn hiển thị */
+=======
+    font-size: 0.875rem; 
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.75) !important; /* Màu trắng mờ */
+    text-decoration: none;
+    transition: color 0.3s;
+    line-height: 2;
+    display: block; /* Quan trọng để giữ bố cục cột */
+}
+
+.footer-links a:hover {
+    color: #fff !important; /* Màu trắng sáng khi hover */
+}
+
+.social-icons a {
+    color: white !important;
+}
+
+.social-icons a i {
+    font-size: 1.25rem;
+    transition: color 0.3s;
+}
+
+.footer-section input[type="email"] {
+    border-radius: 5px 0 0 5px; /* Chỉ bo góc bên trái */
+    border: none;
+}
+
+.footer-section .btn-dark {
+    border-radius: 0 5px 5px 0; /* Chỉ bo góc bên phải */
+    background-color: #212529; /* Màu đen đậm */
+    border-color: #212529;
+}
+.destinations-section {
+            padding-top: 100px !important;
+            padding-bottom: 50px !important;
+            background: linear-gradient(180deg,   #ebc6c6, #daa3e1); 
+            
+        }
+.destinationss-section {
+            padding-top: 100px !important;
+            padding-bottom: 50px !important;
+            background: linear-gradient(180deg, #daa3e1,#87d4e3); 
+            
+        }
+#sidebarMenu{
+     background: linear-gradient(180deg,   #ebc6c6, #daa3e1); 
+     border-right: none !important;
+}
+.containerr{
+     background: linear-gradient(180deg,    #ebc6c6  ); 
+
+}
+        
+.carousel-control-prev,
+.carousel-control-next {
+    z-index: 10; /* Giữ z-index cao để mũi tên nằm trên ảnh */
+    width: 5%; /* Giảm chiều rộng của khu vực control để chỉ bao quanh mũi tên */
+}
+
+.carousel-multi-item .carousel-inner {
+    overflow: visible; /* Giữ nguyên */
+    padding: 0; /* Đảm bảo không có padding ngang làm đẩy ảnh vào */
+}
+
+.carousel-control-prev-icon {
+    margin-left: -50%; /* Dịch sang trái để mũi tên nằm sát mép ảnh bên trái */
+}
+
+.carousel-control-next-icon {
+    margin-right: -50%; /* Dịch sang phải để mũi tên nằm sát mép ảnh bên phải */
+}
+
+.carousel-control-prev {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 15px; /* Điều chỉnh giá trị này để mũi tên cách mép ảnh bao nhiêu */
+    width: auto; /* Để chiều rộng tự động theo nội dung */
+    height: auto; /* Để chiều cao tự động theo nội dung */
+    opacity: 1; /* Giữ luôn hiển thị */
+>>>>>>> dev/quyen
 }
 
 /* Ví dụ cho mũi tên bên phải */
 .carousel-control-next {
+<<<<<<< HEAD
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -611,18 +1083,166 @@ main .container {
   color: #040404 !important;
   font-size: 1.6rem !important; /* Rất quan trọng: Tăng kích thước (lòng) */
   font-weight: 800 !important; /* Làm mũi tên và icon cực kỳ rõ ràng */
+=======
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 15px; /* Điều chỉnh giá trị này để mũi tên cách mép ảnh bao nhiêu */
+    width: auto; /* Để chiều rộng tự động theo nội dung */
+    height: auto; /* Để chiều cao tự động theo nội dung */
+    opacity: 1; /* Giữ luôn hiển thị */
+}
+
+
+
+        .destination-card {
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 420px; /* Chiều cao cố định cho card */
+            position: relative; 
+            overflow: hidden;
+            display: block; /* Quan trọng cho stretched-link */
+        }
+        .destination-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25) !important;
+        }
+
+        .destination-img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease, filter 0.3s ease; /* Thêm filter transition */
+            filter: grayscale(0.05) brightness(1); 
+        }
+
+        .destination-card:hover .destination-img {
+            transform: scale(1.1); /* Phóng to nhẹ */
+        }
+        
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.3), rgba(0,0,0,0));
+            z-index: 1; 
+        }
+
+        .card-hover-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            text-align: center;
+            color: white;
+            z-index: 3; /* Đảm bảo nổi lên trên overlay */
+        }
+
+        .destination-card:hover .card-hover-content {
+            opacity: 1; /* Hiển thị nội dung khi hover */
+        }
+
+
+#destinationMarquee {
+    overflow: hidden; /* Che đi phần nội dung nằm ngoài viewport */
+}
+
+#destinationMarquee .marquee-inner {
+    display: flex; 
+    flex-wrap: nowrap; /* Tắt tính năng tự động tràn/xuống hàng */
+    
+ 
+    width: 200%; /* Sửa lại: Dùng 200% nếu bạn chỉ lặp 4 card. Nếu lặp tất cả 8 card thì dùng 300% */
+    
+    animation: scroll-marquee 25s linear infinite; /* Điều chỉnh 25s cho tốc độ. Giảm số giây để chạy nhanh hơn */
+}
+
+#destinationMarquee .marquee-inner:hover {
+    animation-play-state: paused;
+}
+
+#destinationMarquee .marquee-item {
+    flex-shrink: 0; /* Ngăn không cho các cột co lại */
+    width: 25%; /* Trên desktop (lg), hiển thị 4 card = 25% */
+}
+
+@keyframes scroll-marquee {
+    /* Bắt đầu ở vị trí 0 */
+    0% { transform: translate3d(0, 0, 0); } 
+    100% { transform: translate3d(-50%, 0, 0); } 
+}
+@media (max-width: 991.98px) {
+   
+    #destinationMarquee .marquee-inner {
+        width: 400%; 
+        animation-duration: 40s; 
+    }
+    #destinationMarquee .marquee-item {
+        width: 50%; 
+    }
+    @keyframes scroll-marquee {
+        100% { transform: translate3d(-50%, 0, 0); } 
+    }
+}
+
+@media (max-width: 767.98px) {
+    #destinationMarquee .marquee-inner {
+        width: 800%; 
+        animation-duration: 60s; 
+    }
+    #destinationMarquee .marquee-item {
+        width: 100%; 
+    }
+    @keyframes scroll-marquee {
+        100% { transform: translate3d(-50%, 0, 0); } 
+    }
+}
+.dashboard-header-card {
+    background-color: #e3f2fd; /* Màu xanh nhạt */
+    background-image: linear-gradient(135deg, #e3f2fd 0%, #ffffff 100%);
+    /* ... và các styles khác ... */
+}
+#sidebarMenu .nav-link {
+    color: #333333 !important; 
+    font-weight: 600; /* Rất quan trọng: Làm chữ đậm hơn */
+    font-size: 1.05rem; 
+    
+    padding: 10px 1.5rem !important; /* Tăng padding ngang */
+    transition: all 0.2s ease;
+}
+
+/* ICON & MŨI TÊN - To và Đậm */
+#sidebarMenu .nav-link i, 
+#sidebarMenu .sidebar-icon-toggle {
+    color: #040404 !important; 
+    font-size: 1.6rem !important; /* Rất quan trọng: Tăng kích thước (lòng) */
+    font-weight: 800 !important; /* Làm mũi tên và icon cực kỳ rõ ràng */
+>>>>>>> dev/quyen
 }
 cd
 /* MỤC MENU CON (Sub-menu) */
 #sidebarMenu .list-unstyled.collapse a.nav-link {
+<<<<<<< HEAD
   padding-left: 3.2rem !important; /* Dịch vào sâu hơn */
   font-size: 0.95rem !important;
   font-weight: 500 !important;
   color: #6c757d !important;
+=======
+    padding-left: 3.2rem !important; /* Dịch vào sâu hơn */
+    font-size: 0.95rem !important; 
+    font-weight: 500 !important; 
+    color: #6c757d !important;
+>>>>>>> dev/quyen
 }
 
 /* HIỆU ỨNG KHI ACTIVE */
 #sidebarMenu .nav-link.active {
+<<<<<<< HEAD
   background-color: #e6f7ff !important; /* Màu xanh nhạt khi được chọn */
   color: #007bff !important; /* Chữ màu xanh nổi bật */
   font-weight: 700 !important;
@@ -751,3 +1371,19 @@ cd
   transform: translateY(-3px) rotate(15deg);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
+=======
+    background-color: #e6f7ff !important; /* Màu xanh nhạt khi được chọn */
+    color: #007bff !important; /* Chữ màu xanh nổi bật */
+    font-weight: 700 !important; 
+    
+    /* Tạo hiệu ứng nổi nhẹ */
+    border-radius: 4px; 
+    margin: 0 10px; 
+}
+#sidebarMenu .nav-link.active i,
+#sidebarMenu .nav-link.active .sidebar-icon-toggle {
+    color: #007bff !important;
+}
+        
+        
+>>>>>>> dev/quyen

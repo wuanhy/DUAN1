@@ -1,86 +1,90 @@
 <?php
+
 namespace Src\Models;
-  use PDO;
-class TourModel{
-    // lấy danh sach tour theo trạng thái (static method   )
-    // cách gọi: TourModel::getByStatus(sap_dien_ra/dang_dien_ra/da_hoan_thanh)
-    public static function getByStatus($loai_thong_ke){
-        $conn = getDB();
-        if($conn === null){
-            return[];
-        }
-        
-        $sql = "SELECT lkh.*, t.ten_tour, t.ma_tour, t.gia_co_ban
-                FROM tb_lich_khoihanh lkh
-                INNER JOIN tb_tour t ON lkh.tour_id = t.tour_id
-                WHERE lkh.trang_thai !='cancel' ";
-        $today = date('Y-m-d');
-                
-        switch($loai_thong_ke){
-            case 'sap_dien_ra':
-                $sql .= " AND lkh.ngay_khoihanh > '$today' ORDER BY lkh.ngay_khoihanh ASC";
-                break;
-            case 'dang_dien_ra':
-                $sql .= " AND lkh.ngay_khoihanh <= '$today' AND lkh.ngay_ketthuc >= '$today' ORDER BY lkh.ngay_khoihanh ASC";
-                break;
-            case 'da_hoan_thanh':
-                $sql .= " AND lkh.ngay_ketthuc < '$today' ORDER BY lkh.ngay_khoihanh DESC";
-                break;
-            default:
-                return[];
-        }
-        $stmt = $conn->prepare($sql);
+
+class TourModel extends BaseModel
+{
+    public function insertTour($ma_tour, $ten_tour, $dm_id, $gia_co_ban, $so_cho_toi_da, $path, $noi_xuat_phat, $diem_den, $mo_ta_tour)
+    {
+        $sql = "INSERT INTO `tb_tour` (ma_tour, ten_tour, dm_id, gia_co_ban, so_cho_toi_da, anh_tour, noi_xuat_phat, diem_den, mo_ta_tour) VALUES (:ma_tour, :ten_tour, :dm_id, :gia_co_ban, :so_cho_toi_da, :anh_tour, :noi_xuat_phat, :diem_den, :mo_ta_tour)";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([
+            ":ma_tour" => $ma_tour,
+            ":ten_tour" => $ten_tour,
+            ":dm_id" => $dm_id,
+            ":gia_co_ban" => $gia_co_ban,
+            ":so_cho_toi_da" => $so_cho_toi_da,
+            ":anh_tour" => $path,
+            ":noi_xuat_phat" => $noi_xuat_phat,
+            ":diem_den" => $diem_den,
+            ":mo_ta_tour" => $mo_ta_tour,
+        ]);
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function insertGiaTour($tour_id, $tu_ngay, $den_ngay, $gia_nguoilon, $gia_treem)
+    {
+        $sql = "INSERT INTO `tb_gia_tour` (tour_id, tu_ngay, den_ngay, gia_nguoilon, gia_treem) VALUES (:tour_id, :tu_ngay, :den_ngay, :gia_nguoilon, :gia_treem)";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([
+            ':tour_id' => $tour_id,
+            ':tu_ngay' => $tu_ngay,
+            ':den_ngay' => $den_ngay,
+            ':gia_nguoilon' => $gia_nguoilon,
+            ':gia_treem' => $gia_treem,
+        ]);
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function getAll()
+    {
+        $sql = "SELECT tb_tour.* , tb_danhmuc.ten_danhmuc AS danh_muc FROM tb_tour JOIN tb_danhmuc ON tb_tour.dm_id = tb_danhmuc.dm_id";
+        $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-                //them lich
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
-    public static function insert($tour_id, $ngay_khoihanh, $ngay_ketthuc, $so_cho){
-        $conn = getDB();
-        $sql = "INSERT INTO tb_lich_khoihanh (tour_id, ngay_khoihanh, ngay_ketthuc, so_cho_con_lai, trang_thai)
-                VALUES (?, ?, ?, ?, 'open')";
-        $stmt = $conn->prepare($sql);
-        $stmt->execute([$tour_id, $ngay_khoihanh, $ngay_ketthuc, $so_cho]);
+    public function getOne($tour_id)
+    {
+        $sql = "SELECT * FROM tb_tour WHERE tour_id = :tour_id";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([':tour_id' => $tour_id]);
+        return $stmt->fetch(\PDO::FETCH_ASSOC);
     }
 
-    public static function delete($lkh_id){
-        $conn = getDB();
-    $sql = "DELETE FROM tb_lich_khoihanh WHERE lkh_id = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->execute([$lkh_id]);
-    }   
-
-    public static function find($lkh_id){
-        $conn = getDB();
-    $sql = "SELECT * FROM tb_lich_khoihanh WHERE lkh_id = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->execute([$lkh_id]); 
-    return $stmt->fetch(PDO::FETCH_ASSOC);
-    }
-    public static function update($lkh_id,$tour_id, $ngay_khoihanh, $ngay_ketthuc, $so_cho, $trang_thai){
-       $conn = getDB();
-       $sql = "UPDATE tb_lich_khoihanh 
-                SET tour_id = ?, ngay_khoihanh = ?, ngay_ketthuc = ?, so_cho_con_lai = ?, trang_thai = ?
-                WHERE lkh_id = ?";
-        $stmt = $conn->prepare($sql);
-        $stmt->execute([$tour_id, $ngay_khoihanh, $ngay_ketthuc, $so_cho, $trang_thai, $lkh_id]);
-    }
-    public static function getAllTours(){
-        $conn= getDB();
-        $sql="SELECT tour_id, ten_tour, so_ngay FROM tb_tour";
-        $stmt= $conn->prepare($sql);
+    public function getAllDanhMuc()
+    {
+        $sql = "SELECT * FROM tb_danhmuc ORDER BY dm_id";
+        $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    
-        
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
-    public static function getTourbyId($id){
-        $conn= getDB();
-        $sql="SELECT * FROM tb_tour WHERE tour_id=?";
-        $stmt= $conn->prepare($sql);
-        $stmt->execute([$id]);
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+
+    public function updateTour($tour_id, $ma_tour, $ten_tour, $dm_id, $gia_co_ban, $so_cho_toi_da, $path, $noi_xuat_phat, $diem_den, $mo_ta_tour)
+    {
+        $sql = "UPDATE `tb_tour` SET ma_tour = :ma_tour, ten_tour = :ten_tour, dm_id = :dm_id, gia_co_ban = :gia_co_ban, so_cho_toi_da = :so_cho_toi_da, anh_tour = :anh_tour, noi_xuat_phat = :noi_xuat_phat, diem_den = :diem_den, mo_ta_tour = :mo_ta_tour WHERE tour_id = :tour_id";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([
+            ":tour_id" => $tour_id,
+            ":ma_tour" => $ma_tour,
+            ":ten_tour" => $ten_tour,
+            ":dm_id" => $dm_id,
+            ":gia_co_ban" => $gia_co_ban,
+            ":so_cho_toi_da" => $so_cho_toi_da,
+            ":anh_tour" => $path,
+            ":noi_xuat_phat" => $noi_xuat_phat,
+            ":diem_den" => $diem_den,
+            ":mo_ta_tour" => $mo_ta_tour,
+        ]);
+    }
+
+    public function delete($tour_id)
+    {
+        $sql = "DELETE FROM tb_tour WHERE tour_id=:tour_id";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([
+            ":tour_id" => $tour_id
+        ]);
+        return $stmt->fetch(\PDO::FETCH_ASSOC);
     }
 }
-    
-?>
