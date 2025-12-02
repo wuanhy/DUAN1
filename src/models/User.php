@@ -68,11 +68,4 @@ class User extends BaseModel{
         ]);
     }
     
-    public function isAdmin(){
-        return isset($this->role) && $this->role == 1;
-    }
-    
-    public function isGuide(){
-        return isset($this->role) && $this->role == 2;
-    }
 }

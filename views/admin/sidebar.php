@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <title>Elite Travel - Trang chủ</title>
+    <title>Elite Travel - Trang Quản Trị</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -60,8 +60,8 @@
                             <i class="bi bi-chevron-down ms-auto sidebar-icon-toggle"></i>
                         </a>
                         <div class="collapse list-unstyled ps-3" id="collapseSchedule" data-bs-parent="#sidebarMenu">
-                            <a class="nav-link text-muted py-2" href="#">Danh sách Lịch trình các chuyến Tuor</a>
-                            <a class="nav-link text-muted py-2" href="#">Thêm Lịch trình các chuyến Tuor</a>
+                            <a class="nav-link text-muted py-2" href="#">Danh sách Lịch trình các chuyến Tour</a>
+                            <a class="nav-link text-muted py-2" href="#">Thêm Lịch trình các chuyến Tour</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -78,17 +78,13 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link text-dark d-flex align-items-center" href="#collapseHotel"
-                            data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseHotel">
+                        <a class="nav-link text-dark d-flex align-items-center <?= (isset($_GET['act']) && $_GET['act'] == 'thongKe') ? 'active fw-bold' : '' ?>"
+                            href="<?= BASE_URL . '?act=thongKe' ?>">
+
                             <i class="bi bi-bar-chart-fill me-2"></i>
                             Thống Kê Tour
-                            <i class="bi bi-chevron-down ms-auto sidebar-icon-toggle"></i></a>
-                        <div class="collapse list-unstyled ps-3" id="collapseHotel" data-bs-parent="#sidebarMenu">
-                            <a class="nav-link text-muted py-2" href="#">Tuor sắp diễn ra</a>
-                            <a class="nav-link text-muted py-2" href="#">Tuor đang diễn ra</a>
-                            <a class="nav-link text-muted py-2" href="#">Tuor đã hoàn thành</a>
 
-                        </div>
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-dark d-flex align-items-center" href="#collapseBlog"
@@ -110,8 +106,8 @@
                             <i class="bi bi-chevron-down ms-auto sidebar-icon-toggle"></i>
                         </a>
                         <div class="collapse list-unstyled ps-3" id="collapseTransport" data-bs-parent="#sidebarMenu">
-                            <a class="nav-link text-muted py-2" href="#">Danh sách thời giản Tuor</a>
-                            <a class="nav-link text-muted py-2" href="#">Thêm thời gian tuor</a>
+                            <a class="nav-link text-muted py-2" href="#">Danh sách thời giản Tour</a>
+                            <a class="nav-link text-muted py-2" href="#">Thêm thời gian Tour</a>
                         </div>
                     </li>
 
@@ -125,7 +121,7 @@
                         </a>
                         <div class="collapse list-unstyled ps-3" id="collapseAccount" data-bs-parent="#sidebarMenu">
                             <a class="nav-link text-muted py-2" href="#">Tài khoản khách hàng</a>
-                            <a class="nav-link text-muted py-2" href="#">Tài khoản nhân viên</a>
+                            <a class="nav-link text-muted py-2" href="#">Tài khoản HDV</a>
                             <a class="nav-link text-muted py-2" href="#">Phân công HDV</a>
                         </div>
                     </li>
