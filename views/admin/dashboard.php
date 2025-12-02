@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <div class="containerr">
+    <div class="container">
         <div class="row">
             <div class="col-2">
                 <?php require_once BASE_PATH . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'sidebar.php'; ?>
@@ -120,6 +120,12 @@
 <?php unset($_SESSION['success']);?>
     <?php endif; ?>  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+   background: linear-gradient(to right, #CFE8FF, #FAD4EC);
+    min-height: 100vh;
+}
+    </style>
 </body>
 
 </html>

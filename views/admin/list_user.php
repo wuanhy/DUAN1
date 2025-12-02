@@ -17,10 +17,10 @@
 
             <div class="col-10" style="padding-top: 100px;">
                 <div class="list-user-container">
-                    <form action="<?= BASE_URL .'?act=admin-list-user' ?>" method="post">
+                    <form action="<?= BASE_URL .'admin-list-user' ?>" method="post">
                         
                         <div class="d-flex justify-content-end mb-3">
-                            <a href="<?= BASE_URL .'?act=admin-create-user' ?>" class="btn btn-primary btn-sm">
+                            <a href="<?= BASE_URL .'admin-create-user' ?>" class="btn btn-primary btn-sm">
                                 Tạo tài khoản HDV
                             </a>
                         </div>
@@ -32,9 +32,9 @@
                                     <th>Tên Nhân Viên</th>
                                     <th>Email</th>
                                     <th>Số điện thoại</th>
-                                    <th>Địa chỉ</th>
                                     <th>Ngày tạo</th>
                                     <th>Trạng Thái</th>
+                                    <th>Vai trò</th>
                                     <th>Hành Động</th>
                                 </tr>
                             </thead>
@@ -45,22 +45,22 @@
                                         <td><?= $value['name'] ?></td>
                                         <td><?= $value['email'] ?></td>
                                         <td><?= $value['phone'] ?></td>
-                                        <td><?= $value['address'] ?></td>
                                         <td><?= $value['create_at'] ?></td>
 
                                         <td>
                                             <?php if ($value['status'] == 1): ?>
-                                                <span class="badge bg-success bg-opacity-25 text-success p-2 rounded-pill">Hoạt động</span>
+                                                <span class="status-active">Hoạt động</span>
                                             <?php else: ?>
-                                                <span class="badge bg-danger bg-opacity-25 text-danger p-2 rounded-pill">Vô hiệu hóa</span>
+                                                <span class="status-inactive">Vô hiệu hóa</span>
                                             <?php endif; ?>
                                         </td>
-
+                                           <td><?= $value['role_name'] ?>
+                                        </td>
                                         <td>
-                                            <a href="<?= BASE_URL .'?act=admin-update-user&id=' . $value['id'] ?>" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i>Sửa</a>
+                                            <a href="<?= BASE_URL .'admin-update-user&id=' . $value['id'] ?>" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i>Sửa</a>
 
                                             <?php if ($_SESSION['userLogin']['id'] != $value['id']): ?>
-                                                <a href="<?= BASE_URL .'?act=admin-delete-user&id=' . $value['id'] ?>"
+                                                <a href="<?= BASE_URL .'admin-delete-user&id=' . $value['id'] ?>"
                                                 class="btn btn-outline-danger btn-sm"
                                                 onclick="return confirm('Bạn có muốn xóa không?')"><i class="bi bi-trash-fill"></i>
                                                     Xóa
@@ -90,11 +90,30 @@ body {
 .container,
 .wrapper {
     background-color: transparent !important;
+    
 }
 
 table {
     background-color: white; 
+    
 }
+.status-active {
+   background-color: #a3fea9ff;
+    color: #38703a;         
+    padding: 4px 10px;
+    border-radius: 10px;
+    font-size: 14px;
+    display: inline-block;
+}
+.status-inactive {
+    background-color: #ed4a4dff;
+    color: #842029;          
+    padding: 4px 10px;
+    border-radius: 10px;
+    font-size: 14px;
+    display: inline-block;
+}
+
     </style>
     <?php if(!empty($_SESSION['success'])) :?>
     <script>
@@ -119,5 +138,7 @@ table {
     </script>
 <?php unset($_SESSION['success']); ?>
 <?php endif; ?>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

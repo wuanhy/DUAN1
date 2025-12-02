@@ -14,14 +14,14 @@
             <?php include "views/admin/sidebar.php"; ?>
         </div>
         <div class="col-10" style="padding-top: 100px;">
-        <div class="create-time-container">
+        <div class="create-trans-container">
            <h1 class="fw-bold d-flex align-items-center gap-3 mb-4" style="color: #0d6efd;">
                 <i class="bi bi-plus-circle-fill fs-1 text-primary"></i>
                 Thêm phương tiện
             </h1>
-            <form action="<?= BASE_URL .'?act=admin-create-trans' ?>" method="post" enctype="multipart/form-data">
+            <form action="<?= BASE_URL .'admin-create-trans' ?>" method="post" enctype="multipart/form-data">
                 <div class="d-flex justify-content-end mb-3"> 
-                    <a href="<?=BASE_URL .'?act=admin-list-trans' ?>" class="btn btn-primary btn-sm">Quay lai</a> 
+                    <a href="<?=BASE_URL .'admin-list-trans' ?>" class="btn btn-primary btn-sm">Quay lai</a> 
                 </div>
 
                 <div class="mb-3">
@@ -98,7 +98,7 @@
                     <input type="number" id="so_cho_ngoi" name="so_cho_ngoi"
                         class="form-control"
                         placeholder="VD: 30"
-                        value="<?= htmlspecialchars($old['so_cho'] ?? '') ?>">
+                        value="<?= htmlspecialchars($old['so_cho_ngoi'] ?? '') ?>">
                 </div>
                 <p id="so_cho_ngoiError" class="text-danger small mt-1">
                     <?= $errors['so_cho_ngoi'] ?? '' ?>
@@ -119,7 +119,7 @@ body {
 }
 
 
-.create-time-container,
+.create-trans-container,
 .container,
 .wrapper {
     background-color: transparent !important;
@@ -146,6 +146,7 @@ document.getElementById('anh_pt').addEventListener('change',(e)=>{
     } 
 });
 </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

@@ -16,9 +16,9 @@
         </div>
         <div class="col-10" style="padding-top: 100px;  ">
         <div class="update-user-container">
-            <form action="<?= BASE_URL .'?act=admin-update-user&id=' . ($data['id']) ?>" method="post">
+            <form action="<?= BASE_URL .'admin-update-user&id=' . ($data['id']) ?>" method="post">
          <div class="d-flex justify-content-end mb-3"> 
-                    <a href="<?=BASE_URL .'?act=admin-list-user' ?>" class="btn btn-primary">Quay lai</a> 
+                    <a href="<?=BASE_URL .'admin-list-user' ?>" class="btn btn-primary">Quay lai</a> 
         </div>
     <div class="mb-3">
         <label class="form-label">UserName</label>
@@ -78,5 +78,7 @@
     background-color: transparent !important;
 }
 </style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

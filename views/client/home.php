@@ -25,18 +25,18 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mb-2 mb-lg-0 mx-auto">
                         <li class="nav-item"><a class="nav-link mx-3 text-dark"
-                                href="<?= BASE_URL . '?act=welcome' ?>">Trang chủ</a></li>
+                                href="<?= BASE_URL . 'welcome' ?>">Trang chủ</a></li>
                         <li class="nav-item"><a class="nav-link mx-3 text-dark"
-                                href="<?= BASE_URL . '?act=about' ?>">Các địa điểm du lịch</a></li>
+                                href="<?= BASE_URL . 'about' ?>">Các địa điểm du lịch</a></li>
                         <li class="nav-item"><a class="nav-link mx-3 text-dark"
-                                href="<?= BASE_URL . '?act=introduction'?>">Giới thiệu</a></li>
+                                href="<?= BASE_URL . 'introduction'?>">Giới thiệu</a></li>
                         <li class="nav-item"><a class="nav-link mx-3 text-dark"
-                                href="<?= BASE_URL . '?act=blog'?>">Blog</a></li>
-                        <li class="nav-item"><a class="nav-link mx-3 text-dark" href="<?= BASE_URL . '?act=faq'?>">Các
+                                href="<?= BASE_URL . 'blog'?>">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link mx-3 text-dark" href="<?= BASE_URL . 'faq'?>">Các
                                 câu hỏi thường gặp</a></li>
                     </ul>
 
-                    <a href="<?=BASE_URL .'?act=login' ?>" class="btn btn-primary fw-bold rounded-pill px-4">Đăng
+                    <a href="<?=BASE_URL .'login' ?>" class="btn btn-primary fw-bold rounded-pill px-4">Đăng
                         nhập</a>
                 </div>
             </div>
@@ -566,7 +566,7 @@
                 <div class="col-md-2 col-lg-2 mb-4">
                     <h5 class="fw-bold mb-3">Support</h5>
                     <ul class="list-unstyled footer-links">
-                        <li><a href="<?= BASE_URL . '?act=faq'?>" class="text-white text-sm">FAQs</a></li>
+                        <li><a href="<?= BASE_URL . 'faq'?>" class="text-white text-sm">FAQs</a></li>
                         <li><a href="#" class="text-white text-sm">Contact</a></li>
                         <li><a href="#" class="text-white text-sm">Live Chat</a></li>
                     </ul>

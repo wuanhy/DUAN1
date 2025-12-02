@@ -21,9 +21,9 @@
                         Danh sách phương tiện
                     </h1>
 
-                <form action="<?=BASE_URL .'?act=admin-list-trans' ?>" method="post">
+                <form action="<?=BASE_URL .'admin-list-trans' ?>" method="post">
                     <div class="d-flex justify-content-end mb-3"> 
-                    <a href="<?=BASE_URL .'?act=admin-create-trans' ?>" class="btn btn-primary btn-sm">Thêm phương tiện</a> 
+                    <a href="<?=BASE_URL .'admin-create-trans' ?>" class="btn btn-primary btn-sm">Thêm phương tiện</a> 
                 </div>
                 <table class="table">
                     <thead>
@@ -51,8 +51,8 @@
                                 <td><?= $value['bien_so'] ?></td>
                                 <td><?= $value['so_cho_ngoi']  ?></td>
                                 <td>
-                                <a href="<?=BASE_URL .'?act=admin-update-trans&id=' . $value['pt_id']?>" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i>Sửa</a> 
-                                <a href="<?=BASE_URL .'?act=admin-delete-trans&id=' . $value['pt_id']?>" class="btn btn-outline-danger btn-sm" onclick="return confirm('Ban co muon xoa khong')"><i class="bi bi-trash-fill"></i>Xóa</a> 
+                                <a href="<?=BASE_URL .'admin-update-trans&id=' . $value['pt_id']?>" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i>Sửa</a> 
+                                <a href="<?=BASE_URL .'admin-delete-trans&id=' . $value['pt_id']?>" class="btn btn-outline-danger btn-sm" onclick="return confirm('Ban co muon xoa khong')"><i class="bi bi-trash-fill"></i>Xóa</a> 
 
                                 </td>
                             </tr>
@@ -66,16 +66,6 @@
         </div>
     </div>
     <?php
-
-function renderStatus($ngay) {
-    $today = date('Y-m-d');
-    if ($ngay < $today) 
-         return '<span class="badge bg-success bg-opacity-25 text-success p-2 rounded-pill">Đã hoàn thành</span>';
-    elseif ($ngay == $today) 
-       return '<span class="badge bg-info bg-opacity-25 text-info p-2 rounded-pill">Đang diễn ra</span>';
-    else 
-        return '<span class="badge bg-primary bg-opacity-25 text-primary p-2 rounded-pill">Sắp diễn ra</span>';
-}
 ?>
 <style>
 body {
@@ -125,5 +115,7 @@ table {
     </script>
 <?php unset($_SESSION['success']); ?>
 <?php endif; ?>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

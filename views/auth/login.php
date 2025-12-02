@@ -72,7 +72,7 @@
 </head>
 
 <body>
-    <?php
+<?php
             
 $errors = $_SESSION['errors'] ?? [];
 $old = $_SESSION['old'] ?? [];
@@ -89,7 +89,7 @@ unset($_SESSION['old']);
 
             <h5 class="card-title text-center fw-bold mb-4">Chào mừng đến với Elite Travel</h5>
 
-            <form action="<?= BASE_URL . '?act=login'?>" method="post">
+            <form action="<?= BASE_URL . 'login'?>" method="post">
                 <div class="mb-3">
                     <input type="email" id="email" name="email" class="form-control rounded-pill py-2"
                         placeholder="Email" value="<?= htmlspecialchars($old['email'] ?? '') ?>">
@@ -119,7 +119,7 @@ unset($_SESSION['old']);
 
                 <p class="text-center mt-4 small">
                     Bạn chưa có tài khoản?
-                    <a href="<?= BASE_URL . '?act=register' ?>" class="text-custom-info text-decoration-none">Đăng ký
+                    <a href="<?= BASE_URL . 'register' ?>" class="text-custom-info text-decoration-none">Đăng ký
                         ngay</a>
                 </p>
             </form>

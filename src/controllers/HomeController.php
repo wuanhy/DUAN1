@@ -10,7 +10,6 @@ class HomeController
     }
     
     public function login() {
-        startSession();
         $errors = [];
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $email = trim($_POST['email']);
@@ -32,7 +31,7 @@ class HomeController
                 $user = new User();
                 $check = $user->checkLogin($email, $password);
 
-                 if ($check) {
+            if ($check) {
                 if ($check['status'] == 0) {
                     $errors['login'] = "Tài khoản đã bị khóa.";
                 } else {
@@ -40,15 +39,17 @@ class HomeController
                         'id' => $check['id'],
                         'name' => $check['name'],
                         'email' => $check['email'],
-                        'role' => $check['role'],
+                        'phone' => $check['phone'],
+                        'address' => $check['address'],
+                        'role_id' => $check['role_id'],
                     ];
 
-                    if ($check['role'] == 1) {
+                    if ($check['role_id'] == 1) {
                         $_SESSION['success'] = "Đăng nhập thành công!";
-                        header("Location:" . BASE_URL . '?act=admin-dashboard');
+                        header("Location:" . BASE_URL . 'admin-dashboard');
                         exit();
                     } else {
-                        header("Location:" . BASE_URL .'?action=');
+                        header("Location:" . BASE_URL . 'hdv-dashboard');
                         exit();
                     }
                 }
@@ -66,15 +67,13 @@ class HomeController
         require_once block_path('main');
     }
     public function logout(){
-        startSession();
         if(isset($_SESSION['userLogin'])){
             unset($_SESSION['userLogin']);
         }
-        header("Location: " . BASE_URL. '?act=/');
+        header("Location: " . BASE_URL. '');
         exit();
     }
     public function register(){
-        startSession();
         $errors = [];
         if($_SERVER["REQUEST_METHOD"]=="POST"){
             $old = $_POST;
@@ -121,7 +120,7 @@ class HomeController
                     $_POST['role'] ?? 0
                 );
                 $_SESSION['success'] = "Đăng ký thành công!";
-                header("Location: " . BASE_URL . "?act=login");
+                header("Location: " . BASE_URL . "login");
                 exit();
             }
         }

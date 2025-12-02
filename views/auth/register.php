@@ -69,7 +69,7 @@
 
             <h5 class="card-title text-center fw-bold mb-4">Đăng ký tài khoản Tour Travel</h5>
             
-            <form id="registerForm" action="<?= BASE_URL ?>?act=register" method="post" novalidate>
+            <form id="registerForm" action="<?= BASE_URL ?>register" method="post" novalidate>
 
     <!-- Email -->
     <div class="mb-3">
@@ -140,7 +140,7 @@
 
     <p class="text-center mt-4 small">
         Đã có tài khoản? 
-        <a href="<?= BASE_URL . '?act=login' ?>" class="text-custom-info text-decoration-none">Đăng nhập ngay</a>
+        <a href="<?= BASE_URL . 'login' ?>" class="text-custom-info text-decoration-none">Đăng nhập ngay</a>
     </p>
 
 </form>

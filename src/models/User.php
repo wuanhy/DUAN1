@@ -11,8 +11,8 @@ class User extends BaseModel{
         ]);
         return $stmt -> fetch(PDO::FETCH_ASSOC);
     }
-    public function register($name, $email, $password, $phone, $role = "0", $address = ""){
-        $sql = "INSERT INTO tb_user(name, email, password, phone, address, role) VALUES (:name, :email, :password, :phone, :address, :role)";  
+    public function register($name, $email, $password, $phone, $role_id = "0", $address = ""){
+        $sql = "INSERT INTO tb_user(name, email, password, phone, address, role_id) VALUES (:name, :email, :password, :phone, :address, :role_id)";  
         $stmt = $this -> pdo -> prepare($sql);
         $stmt -> execute([
             ':name' => $name,
@@ -20,7 +20,7 @@ class User extends BaseModel{
             ':password' => md5($password),
             ':phone' => $phone,
             ':address' => $address,
-            ':role' => intval($role)
+            ':role_id' => intval($role_id)
         ]);
         return $this->pdo->lastInsertId();
     }
@@ -34,11 +34,12 @@ class User extends BaseModel{
         return $stmt -> fetch(PDO::FETCH_ASSOC);
     }
     public function getList(){
-        $sql = "SELECT * FROM `tb_user`";
+        $sql = "SELECT tb_user.*,tb_role.name AS role_name FROM tb_user JOIN tb_role ON tb_user.role_id=tb_role.id WHERE tb_user.role_id!=1";
         $stmt = $this -> pdo -> prepare($sql);
         $stmt -> execute();
         return $stmt -> fetchAll(PDO::FETCH_ASSOC);
     }
+
     public function getOne($id){
         $sql = "SELECT * FROM `tb_user` WHERE id = :id";
         $stmt = $this -> pdo -> prepare($sql);
@@ -47,8 +48,8 @@ class User extends BaseModel{
         ]);
         return $stmt -> fetch(PDO::FETCH_ASSOC);
     }
-    public function create($name,$email,$password,$phone,$address){
-        $sql = "INSERT INTO tb_user (name,email,password,phone,address) VALUES(:name,:email,:password,:phone,:address)";
+    public function create($name,$email,$password,$phone,$address,$role=0){
+        $sql = "INSERT INTO tb_user (name,email,password,phone,address,role_id) VALUES(:name,:email,:password,:phone,:address,:role_id)";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([
             ":name"=>$name,
@@ -56,6 +57,7 @@ class User extends BaseModel{
             ":password"=>md5($password),
             ":phone"=>$phone,
             ":address"=>$address,
+            ":role_id" => intval($role)
         ]);
 
     }
@@ -78,12 +80,6 @@ class User extends BaseModel{
             ':id' => $id,
         ]);
     }
-    public function isAdmin(){
-        return isset($this->role) && $this->role == 1;
-    }
-    
-    public function isGuide(){
-        return isset($this->role) && $this->role == 2;
-    }
+ 
     
 }

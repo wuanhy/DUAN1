@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-        <link rel="stylesheet" href="public/css/style.css"> 
+    <link rel="stylesheet" href="public/css/style.css"> 
 
 </head>
 <body>
@@ -16,9 +16,9 @@
         </div>
         <div class="col-10" style="padding-top: 100px;  ">
         <div class="update-trans-container">
-            <form action="<?= BASE_URL .'?act=admin-update-trans&id=' . ($data['pt_id']) ?>" method="post" enctype="multipart/form-data">
+            <form action="<?= BASE_URL .'admin-update-trans&id=' . ($data['pt_id']) ?>" method="post" enctype="multipart/form-data">
          <div class="d-flex justify-content-end mb-3"> 
-                    <a href="<?=BASE_URL .'?act=admin-list-trans' ?>" class="btn btn-primary">Quay lai</a> 
+                    <a href="<?=BASE_URL .'admin-list-trans' ?>" class="btn btn-primary">Quay lai</a> 
         </div>
     <div class="mb-3">
         <label class="form-label">Tên Phương Tiện</label>
@@ -44,12 +44,12 @@
     <div class="mb-3">
         <label class="form-label">Loại Phương Tiện</label>
         <select name="loai_pt_id" class="form-control">
-            <option value="1" <?= (($data['loai_pt_id'] ?? 4) == 1) ? 'selected' : '' ?>>Xe du lịch</option>
-            <option value="2" <?= (($data['loai_pt_id'] ?? 4) == 2) ? 'selected' : '' ?>>Tàu</option>
-            <option value="3" <?= (($data['loai_pt_id'] ?? 4) == 3) ? 'selected' : '' ?>>Máy bay</option>
-            <option value="4" <?= (($data['loai_pt_id'] ?? 4) == 4) ? 'selected' : '' ?>>Khác</option>
+            <?php foreach($listdata as $trans) :?>
+                <option value="<?= $trans['id'] ?>" <?= (($old['loai_pt_id'] ?? $data['loai_pt_id'])==$trans['id']) ? 'selected' : '' ?>>
+                    <?= $trans['name'] ?></option>
+             <?php endforeach ?>   
         </select>
-        <small class="text-danger"><?= $errors['status'] ?? '' ?></small>
+        <small class="text-danger"><?= $errors['loai_pt_id'] ?? '' ?></small>
     </div>
 
     <div class="mb-3">
@@ -106,5 +106,7 @@ document.getElementById('anh_pt').addEventListener('change',(e)=>{
     } 
 });
 </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

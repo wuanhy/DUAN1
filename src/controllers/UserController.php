@@ -53,9 +53,11 @@ class UserController{
                 $_POST['password'],
                 $_POST['phone'],
                 $_POST['address'],
+                $_POST['role'],
+
 );
             $_SESSION['success']="Thêm thành công";
-            header("Location: " . BASE_URL . "?act=admin-list-user");
+            header("Location: " . BASE_URL . "admin-list-user");
             exit();
         }
     }
@@ -98,11 +100,12 @@ public function update(){
                 $_POST['status'],
 );
             $_SESSION['success']="Sửa thành công";
-            header("Location: " . BASE_URL . "?act=admin-list-user");
+            header("Location: " . BASE_URL . "admin-list-user");
             exit();
         }
     }
-
+    $user = new User();
+    $listdata = $user->getList();
     $view = 'admin/update_user';
     require_once block_path('main');
 }
@@ -110,7 +113,7 @@ public function delete(){
     $user = new User();
     $user->delete($_GET['id']);
     $_SESSION['success']="Xóa thành công";
-    header("Location:" . BASE_URL .'?act=admin-list-user');
+    header("Location:" . BASE_URL .'admin-list-user');
     exit();
 }
 }

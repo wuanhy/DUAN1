@@ -6,6 +6,8 @@ session_start();
 use Src\Controllers\DashboardController;
 use Src\Controllers\HomeController;
 use Src\Controllers\UserController;
+use Src\Controllers\hdvController;
+
 
 // Nạp cấu hình chung của ứng dụng
 
@@ -28,6 +30,8 @@ require_once __DIR__ . '/src/controllers/DashboardController.php';
 require_once __DIR__ . '/src/controllers/UserController.php';
 require_once __DIR__ . '/src/controllers/BlogController.php';
 require_once __DIR__ . '/src/controllers/TransController.php';
+require_once __DIR__ . '/src/controllers/hdvController.php';
+
 
 
 
@@ -39,6 +43,9 @@ $dashboardController = new DashboardController();
 $userController = new UserController();
 $blogController = new BlogController();
 $transController = new TransController();
+$hdvController = new hdvController();
+
+
 
 
 
@@ -58,6 +65,7 @@ match ($act) {
     'faq'          => $homeController->faq(),
     'admin-dashboard' => $dashboardController->index(),
     'logout'       => $homeController->logout(),
+    'profile'       =>$dashboardController->profile(),
 
     //blog
     'admin-list-blog' =>$blogController->index(),
@@ -76,6 +84,12 @@ match ($act) {
     'admin-create-trans' =>$transController->create(),
     'admin-update-trans' =>$transController->update(),
     'admin-delete-trans' =>$transController->delete(),
+
+    'hdv-dashboard' => $hdvController->index(),
+    'hdv-profile' => $hdvController->profile(),
+    'hdv-tours' => $hdvController->tours(),
+
+
 
 
     default        => require_once BASE_PATH . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'not_found.php',

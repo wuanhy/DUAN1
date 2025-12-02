@@ -27,18 +27,21 @@ class TransController{
                 if($_POST['loai_pt_id']==""){
                         $errors['loai_pt_id']="Vui lòng chọn loại phương tiện";
                 }
+                if (empty($_FILES['anh_pt']['name'])) {
+                        $errors['anh_pt'] = "Vui lòng chọn ảnh";
+                        }
+
                 if(empty($_POST['so_cho_ngoi'])){
                         $errors['so_cho_ngoi']="Nhập số chỗ tối đa cho xe";
                 }
                 $trans = new Trans();
                 if(empty($errors)){
+                        if(!empty($_FILES['anh_pt']['name'])){
                         $file = $_FILES['anh_pt'];
-                        $path = "";
-                        if(isset($file) && $file['error']===UPLOAD_ERR_OK){
-                                $newName = time() . $file['name'];
-                                $path = 'public/uploads/' . $newName;
-                                move_uploaded_file($file['tmp_name'],$path);
-                        }
+                        $newName = time() . $file['name'];
+                        $path = 'public/uploads/' . $newName;
+                        move_uploaded_file($file['tmp_name'],$path);
+            }
                         $trans->create(
                                 $_POST['ten_pt'],
                                 $_POST['bien_so'],
@@ -48,7 +51,7 @@ class TransController{
                                 $_POST['so_cho_ngoi'],
                         );
                         $_SESSION['success']='Thêm phương tiện thành công';
-                        header("Location:" . BASE_URL .'?act=admin-list-trans');
+                        header("Location:" . BASE_URL .'admin-list-trans');
                         exit();
                 }
 
@@ -104,7 +107,7 @@ class TransController{
 
                 );
                 $_SESSION['success']='Sửa thành công';
-                 header("Location:" .BASE_URL .'?act=admin-list-trans');
+                 header("Location:" .BASE_URL .'admin-list-trans');
                 exit();
         }
 }
@@ -112,7 +115,6 @@ class TransController{
         $trans= new Trans();
         $listdata = $trans->getAll();
 
-        $trans= new Trans();
         $data = $trans->getOne($_GET['id']);
         $view = 'admin/update_trans';
         require_once block_path('main');
@@ -126,7 +128,7 @@ class TransController{
                         unlink($data['anh_pt']);
                 }
                 $_SESSION['success']="Xóa thành công";
-                header("Location:" . BASE_URL .'?act=admin-list-trans');
+                header("Location:" . BASE_URL .'admin-list-trans');
                 exit();   
         }
     

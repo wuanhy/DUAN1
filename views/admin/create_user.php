@@ -15,9 +15,9 @@
         </div>
         <div class="col-10" style="padding-top: 100px;  ">
         <div class="list-user-container">
-            <form action="<?= BASE_URL .'?act=admin-create-user' ?>" method="post" enctype="multipart/form-data"> 
+            <form action="<?= BASE_URL .'admin-create-user' ?>" method="post" enctype="multipart/form-data"> 
                 <div class="d-flex justify-content-end mb-3"> 
-                    <a href="<?=BASE_URL .'?act=admin-list-user' ?>" class="btn btn-primary btn-sm">Quay lai</a> 
+                    <a href="<?=BASE_URL .'admin-list-user' ?>" class="btn btn-primary btn-sm">Quay lai</a> 
                 </div>
 
             <div class="mb-3">
@@ -123,5 +123,7 @@
     background-color: transparent !important;
 }
 </style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

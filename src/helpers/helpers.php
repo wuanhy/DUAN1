@@ -56,102 +56,17 @@ function startSession()
     }
 }
 
-// Lưu thông tin user vào session sau khi đăng nhập thành công
-// @param User $user Đối tượng User cần lưu vào session
-function loginUser($user)
-{
-    startSession();
-    $_SESSION['user_id'] = $user->id;
-    $_SESSION['user_name'] = $user->name;
-    $_SESSION['user_email'] = $user->email;
-    $_SESSION['user_role'] = $user->role;
-}
+// function checkAdmin() {
+//     if(!isset($_SESSION['userLogin'])) {
+//         $_SESSION['error'] = "Vui lòng đăng nhập trước";
+//         header("Location: " . BASE_URL . "login");
+//         exit();
+//     }
 
-// Đăng xuất: xóa toàn bộ thông tin user khỏi session
-function logoutUser()
-{
-    startSession();
-    unset($_SESSION['user_id']);
-    unset($_SESSION['user_name']);
-    unset($_SESSION['user_email']);
-    unset($_SESSION['user_role']);
-    session_destroy();
-}
+//     if($_SESSION['userLogin']['role_id'] != 1) { 
+//         $_SESSION['error'] = "Bạn không có quyền truy cập trang này";
+//         header("Location: " . BASE_URL); 
+//         exit();
+//     }
+// }
 
-// Kiểm tra xem user đã đăng nhập chưa
-// @return bool true nếu đã đăng nhập, false nếu chưa
-function isLoggedIn()
-{
-    startSession();
-    return isset($_SESSION['user_id']) && !empty($_SESSION['user_id']);
-}
-
-// Lấy thông tin user hiện tại từ session
-// @return User|null Trả về đối tượng User nếu đã đăng nhập, null nếu chưa
-function getCurrentUser()
-{
-    if (!isLoggedIn()) {
-        return null;
-    }
-
-    startSession();
-    $user = new \Src\Models\User();
-    $userData = $user->getOne($_SESSION['user_id']);
-    if ($userData) {
-        $user->id = $userData['id'];
-        $user->name = $userData['name'];
-        $user->email = $userData['email'];
-        $user->role = $userData['role'];
-        return $user;
-    }
-    return null;
-}
-
-// Kiểm tra xem user hiện tại có phải là admin không
-// @return bool true nếu là admin, false nếu không
-function isAdmin()
-{
-    $user = getCurrentUser();
-    return $user && $user->isAdmin();
-}
-
-// Kiểm tra xem user hiện tại có phải là hướng dẫn viên không
-// @return bool true nếu là hướng dẫn viên, false nếu không
-function isGuide()
-{
-    $user = getCurrentUser();
-    return $user && $user->isGuide();
-}
-
-// Yêu cầu đăng nhập: nếu chưa đăng nhập thì chuyển hướng về trang login
-// @param string $redirectUrl URL chuyển hướng sau khi đăng nhập (mặc định là trang hiện tại)
-function requireLogin($redirectUrl = null)
-{
-    if (!isLoggedIn()) {
-        $redirect = $redirectUrl ?: $_SERVER['REQUEST_URI'];
-        header('Location: ' . BASE_URL . '?act=login&redirect=' . urlencode($redirect));
-        exit;
-    }
-}
-
-// Yêu cầu quyền admin: nếu không phải admin thì chuyển hướng về trang chủ
-function requireAdmin()
-{
-    requireLogin();
-    
-    if (!isAdmin()) {
-        header('Location: ' . BASE_URL);
-        exit;
-    }
-}
-
-// Yêu cầu quyền hướng dẫn viên hoặc admin
-function requireGuideOrAdmin()
-{
-    requireLogin();
-    
-    if (!isGuide() && !isAdmin()) {
-        header('Location: ' . BASE_URL);
-        exit;
-    }
-}
