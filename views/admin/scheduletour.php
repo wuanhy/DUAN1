@@ -24,7 +24,8 @@
                     <div class="mb-4">
                         <form class="d-flex" action="" method="GET">
                             <input type="hidden" name="action" value="admin-scheduletour">
-                            <input class="form-control me-2" type="search" placeholder="Tìm kiếm theo Tên Tour" aria-label="Search" name="keyword">
+                            <input class="form-control me-2" type="search" placeholder="Tìm kiếm theo Tên Tour"
+                                aria-label="Search" name="keyword">
                             <button class="btn btn-outline-primary" type="submit">Tìm kiếm</button>
                         </form>
                     </div>
@@ -42,17 +43,20 @@
                             </thead>
                             <tbody>
                                 <?php foreach ($listSchedul as $key => $value): ?>
-                                    <tr>
-                                        <td><?= $key + 1 ?></td>
-                                        <td><?= $value['danhmuc'] ?></td>
-                                        <td><?= $value['ngay_thu'] ?></td>
-                                        <td><?= $value['tieu_de'] ?></td>
-                                        <td><?= $value['noi_dung'] ?></td>
-                                        <td>
-                                            <a href="<?= BASE_URL . '?act=admin-edit-schedule&ltr_id=' . $value['ltr_id'] ?>" class="btn btn-warning">Sửa</a>
-                                            <a href="<?= BASE_URL . '?act=admin-delete-schedule& ltr_id=' . $value['ltr_id'] ?>" class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa không')">Xóa</a>
-                                        </td>
-                                    </tr>
+                                <tr>
+                                    <td><?= $key + 1 ?></td>
+                                    <td><?= $value['danhmuc'] ?></td>
+                                    <td><?= $value['ngay_thu'] ?></td>
+                                    <td><?= $value['tieu_de'] ?></td>
+                                    <td><?= $value['noi_dung'] ?></td>
+                                    <td>
+                                        <a href="<?= BASE_URL . '?act=admin-edit-schedule&lt_id=' . $value['lt_id'] ?>"
+                                            class="btn btn-warning">Sửa</a>
+                                        <a href="<?= BASE_URL . '?act=admin-delete-schedule&lt_id=' . $value['lt_id'] ?>"
+                                            class="btn btn-danger"
+                                            onclick="return confirm('Bạn có muốn xóa không')">Xóa</a>
+                                    </td>
+                                </tr>
                                 <?php endforeach; ?>
                             </tbody>
                         </table>
@@ -66,24 +70,24 @@
         </div>
     </div>
     <style>
-        * {
-            box-sizing: border-box;
-        }
+    * {
+        box-sizing: border-box;
+    }
 
-        .col-10 {
-            padding-right: 0 !important;
-            padding-left: 0 !important;
-            padding-top: 100px;
-        }
+    .col-10 {
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+        padding-top: 100px;
+    }
 
-        .tour-list-container {
-            width: 95%;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-            border-radius: 5px;
-        }
+    .tour-list-container {
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        border-radius: 5px;
+    }
     </style>
 </body>
 
