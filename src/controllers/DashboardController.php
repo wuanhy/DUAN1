@@ -5,6 +5,9 @@ namespace Src\Controllers;
 
 class DashboardController
 {
+    //  public function __construct() {
+    //     checkAdmin(); 
+    // }
     public function index()
     {
         $tourModel = new \Src\Models\TourModel();
@@ -14,5 +17,8 @@ class DashboardController
         $view = "admin/dashboard";
         require_once block_path('main');
     }
-
+    public function profile(){
+        $view = "admin/profile";
+        require_once block_path('main');
+    }
 }

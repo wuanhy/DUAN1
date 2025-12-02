@@ -1,11 +1,16 @@
 <?php
 
+use Src\Controllers\BlogController;
+use Src\Controllers\TransController;
+session_start();
 use Src\Controllers\DashboardController;
 use Src\Controllers\HomeController;
 use Src\Controllers\ScheduleController;
 use Src\Controllers\TourController;
 use Src\Controllers\TourStatisticsController;
 use Src\Controllers\TuorStatisticsController;
+use Src\Controllers\UserController;
+use Src\Controllers\hdvController;
 
 
 // Nạp cấu hình chung của ứng dụng
@@ -24,6 +29,7 @@ require_once __DIR__ . '/src/models/TourModel.php';
 require_once __DIR__ . '/src/models/Category.php';
 require_once __DIR__ . '/src/models/ScheduleModel.php';
 require_once __DIR__ . '/src/models/TourStatisticsModel.php';
+require_once __DIR__ . '/src/models/Trans.php';
 
 
 // Nạp các file chứa controller
@@ -33,6 +39,12 @@ require_once __DIR__ . '/src/controllers/TourController.php';
 require_once __DIR__ . '/src/controllers/TourController.php';
 require_once __DIR__ . '/src/controllers/ScheduleController.php';
 require_once __DIR__ . '/src/controllers/TourStatisticsController.php';
+require_once __DIR__ . '/src/controllers/UserController.php';
+require_once __DIR__ . '/src/controllers/BlogController.php';
+require_once __DIR__ . '/src/controllers/TransController.php';
+require_once __DIR__ . '/src/controllers/hdvController.php';
+
+
 
 // Khởi tạo các controller
 $homeController = new HomeController();
@@ -40,6 +52,11 @@ $dashboardController = new DashboardController();
 $tourController = new TourController();
 $scheduleController = new ScheduleController();
 $tourStatisticsController = new TourStatisticsController();
+$userController = new UserController();
+$blogController = new BlogController();
+$transController = new TransController();
+$hdvController = new hdvController();
+
 
 // Xác định route dựa trên tham số act (mặc định là trang chủ '/')
 $act = $_GET['act'] ?? '/';
@@ -51,7 +68,7 @@ match ($act) {
     'register'     => $homeController->register(),
     'about'        => $homeController->about(),
     'introduction' => $homeController->introduction(),
-    'blog'         => $homeController->blog(),
+    'blog'         => $blogController->blog(),
     'faq'          => $homeController->faq(),
     'admin-dashboard' => $dashboardController->index(),
     'logout'       => $homeController->logout(),
@@ -73,5 +90,32 @@ match ($act) {
 
     'admin-bookinglist' => $tourController-> adminBookingList(),
     'admin-refundmanage' => $tourController-> adminRefundManage(),
+    'profile'       =>$dashboardController->profile(),
+
+    //blog
+    'admin-list-blog' =>$blogController->index(),
+    'admin-create-blog' =>$blogController->create(),
+    'admin-update-blog' =>$blogController->update(),
+    'admin-delete-blog' =>$blogController->delete(),
+
+    //user
+    'admin-list-user' =>$userController->index(),
+    'admin-create-user' =>$userController->create(),
+    'admin-update-user' =>$userController->update(),
+    'admin-delete-user' =>$userController->delete(),
+
+    
+    'admin-list-trans' =>$transController->index(),
+    'admin-create-trans' =>$transController->create(),
+    'admin-update-trans' =>$transController->update(),
+    'admin-delete-trans' =>$transController->delete(),
+
+    'hdv-dashboard' => $hdvController->index(),
+    'hdv-profile' => $hdvController->profile(),
+    'hdv-tours' => $hdvController->tours(),
+
+
+
+
     default        => require_once BASE_PATH . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'not_found.php',
 };

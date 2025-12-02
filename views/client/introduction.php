@@ -122,33 +122,62 @@
                         <p>Chúng tôi cam kết bảo mật tuyệt đối thông tin cá nhân của khách hàng...</p>
                     </div>
                 </div>
+                <<<<<<< HEAD=======<div class="col-md-2 col-lg-2 mb-4">
+                    <h5 class="fw-bold mb-3">Services</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#" class="text-white text-sm">Marketing</a></li>
+                        <li><a href="#" class="text-white text-sm">Graphic Design</a></li>
+                        <li><a href="#" class="text-white text-sm">App Development</a></li>
+                        <li><a href="#" class="text-white text-sm">Web Development</a></li>
+                    </ul>
             </div>
 
-            <!-- LIÊN HỆ -->
-            <div class="accordion-item shadow-sm mb-3 border rounded-3">
-                <h2 class="accordion-header" id="headingFour">
-                    <button class="accordion-button collapsed fw-bold fs-5 text-primary py-3" type="button"
-                        data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false"
-                        aria-controls="collapseFour">
-                        Liên hệ & Thông tin Công ty
-                    </button>
-                </h2>
-                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
-                    data-bs-parent="#introductionAccordion">
-                    <div class="accordion-body bg-light">
-                        <h4 class="fw-bold text-lg uppercase">Công ty TNHH Du Lịch và Dịch Vụ Elite Travel</h4>
-                        <p class="text-sm text-secondary">Elite Travel and Service Company Limited</p>
-                        <p class="text-secondary mt-2"><i class="bi bi-geo-alt-fill me-2 text-info"></i>Địa chỉ: Số
-                            25 - Ngõ 38 Phố Yên Lãng – Quận Đống Đa – Hà Nội</p>
-                        <p class="text-secondary"><i class="bi bi-telephone-fill me-2 text-info"></i>Điện thoại:
-                            0922222016</p>
-                        <p class="text-secondary"><i class="bi bi-envelope-fill me-2 text-info"></i>Email:
-                            elitebooking.tour@gmail.com</p>
-                    </div>
+            <div class="col-md-2 col-lg-2 mb-4">
+                <h5 class="fw-bold mb-3">About</h5>
+                <ul class="list-unstyled footer-links">
+                    <li><a href="#" class="text-white text-sm">Careers</a></li>
+                    <li><a href="#" class="text-white text-sm">History</a></li>
+                    <li><a href="#" class="text-white text-sm">Our Team</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-2 col-lg-2 mb-4">
+                <h5 class="fw-bold mb-3">Support</h5>
+                <ul class="list-unstyled footer-links">
+                    <li><a href="<?= BASE_URL . 'faq'?>" class="text-white text-sm">FAQs</a></li>
+                    <li><a href="#" class="text-white text-sm">Contact</a></li>
+                    <li><a href="#" class="text-white text-sm">Live Chat</a></li>
+                </ul>
+            </div>
+
+            >>>>>>> dev/dat
+        </div>
+
+        <!-- LIÊN HỆ -->
+        <div class="accordion-item shadow-sm mb-3 border rounded-3">
+            <h2 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed fw-bold fs-5 text-primary py-3" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false"
+                    aria-controls="collapseFour">
+                    Liên hệ & Thông tin Công ty
+                </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                data-bs-parent="#introductionAccordion">
+                <div class="accordion-body bg-light">
+                    <h4 class="fw-bold text-lg uppercase">Công ty TNHH Du Lịch và Dịch Vụ Elite Travel</h4>
+                    <p class="text-sm text-secondary">Elite Travel and Service Company Limited</p>
+                    <p class="text-secondary mt-2"><i class="bi bi-geo-alt-fill me-2 text-info"></i>Địa chỉ: Số
+                        25 - Ngõ 38 Phố Yên Lãng – Quận Đống Đa – Hà Nội</p>
+                    <p class="text-secondary"><i class="bi bi-telephone-fill me-2 text-info"></i>Điện thoại:
+                        0922222016</p>
+                    <p class="text-secondary"><i class="bi bi-envelope-fill me-2 text-info"></i>Email:
+                        elitebooking.tour@gmail.com</p>
                 </div>
             </div>
-
         </div>
+
+    </div>
     </div>
 </main>
 <?php require_once 'views/layouts/blocks/footer.php'; ?>

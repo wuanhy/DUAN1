@@ -120,57 +120,156 @@
                 </div>
             </div>
 
-            <div class="col-lg-6 text-center position-relative">
-                <div class="about-images-stack-3">
-                    <img src="<?= BASE_URL . 'public/image/halong.png' ?>" class="img-fluid img-stack-3-behind"
-                        alt="Hạ Long">
-                    <img src="<?= BASE_URL . 'public/image/hoguom.png' ?>" class="img-fluid img-stack-3-middle"
-                        alt="Hồ Gươm">
-                    <img src="<?= BASE_URL . 'public/image/baibien.png' ?>" class="img-fluid img-stack-3-front"
-                        alt="Phú Quốc">
-                </div>
-            </div>
-        </div>
+            <div id="destinationMarquee" class="carousel slide carousel-multi-item" data-bs-ride="false">
+                <div class="carousel-inner marquee-inner">
 
-        <div class="row mt-5 pt-4 g-4">
-            <div class="col-md-4">
-                <div class="card border-0 shadow-sm h-100 p-3 feature-card bg-light-subtle">
-                    <div class="card-body text-center">
-                        <div class="icon-box mb-3">
-                            <i class="bi bi-globe2"></i>
-                        </div>
-                        <h5 class="fw-bold mb-2">Các Thông Tin Tour Mới Nhất</h5>
-                        <p class="text-muted small">Luôn cập nhật các thông tin mới nhất, đầy đủ nhất về các tour
-                            tốt nhất hiện nay.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card border-0 shadow-sm h-100 p-3 feature-card bg-light-subtle">
-                    <div class="card-body text-center">
-                        <div class="icon-box mb-3">
-                            <i class="bi bi-people-fill text-primary fs-1"></i>
-                        </div>
-                        <h5 class="fw-bold mb-2">Chuyên Gia Tư Vấn Chi Tiết Nhất</h5>
-                        <p class="text-muted small">Các tư vấn viên chuyên nghiệp luôn sẵn sàng hỗ trợ bạn tận tâm
-                            và chi tiết nhất.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card border-0 shadow-sm h-100 p-3 feature-card bg-light-subtle">
-                    <div class="card-body text-center">
-                        <div class="icon-box mb-3">
-                            <i class="bi bi-lightning-charge-fill text-warning fs-1"></i>
-                        </div>
-                        <h5 class="fw-bold mb-2">Khuyến Mãi & Giá Luôn Tốt Nhất</h5>
-                        <p class="text-muted small">Các chương trình khuyến mãi hấp dẫn và giá tour cạnh tranh được
-                            cập nhật liên tục.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <<<<<<< HEAD </div>
+                    <div class="carousel-item active">
+                        <div class="row g-4 justify-content-start flex-nowrap mx-0">
+
+                            <div class="col-lg-3 col-md-6 marquee-item">
+                                <div class="destination-card position-relative overflow-hidden rounded-3 shadow-lg">
+                                    <img src="<?= BASE_URL . 'public/image/nt.jpg' ?>" alt="Hà Nội Cổ Kính"
+                                        class="img-fluid destination-img">
+                                    <div class="card-hover-content">
+                                        <h5 class="fw-bold mb-1">Nha Trang - Tuyệt Tác Biển Đảo</h5>
+                                        <p class="small opacity-75">Tour 3 ngày 2 đêm, khám phá các thắng cảnh nổi
+                                            tiếng.</p>
+                                    </div>
+                                    <div class="card-overlay"><a href="#" class="stretched-link"
+                                            title="Xem chi tiết tour"></a></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 marquee-item">
+                                <div class="destination-card position-relative overflow-hidden rounded-3 shadow-lg">
+                                    <img src="<?= BASE_URL . 'public/image/hll.jpg' ?>" alt="Lăng Bác - Quảng Trường"
+                                        class="img-fluid destination-img">
+                                    <div class="card-hover-content">
+                                        <h5 class="fw-bold mb-1">Tour Du Thuyền Hạ Long 5 Sao</h5>
+                                        <p class="small opacity-75">Trải nghiệm du thuyền cao cấp 2 ngày 1 đêm.</p>
+                                    </div>
+                                    <div class="card-overlay"><a href="#" class="stretched-link"
+                                            title="Xem chi tiết tour"></a></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 marquee-item">
+                                <div class="destination-card position-relative overflow-hidden rounded-3 shadow-lg">
+                                    <img src="<?= BASE_URL . 'public/image/dn.jpg' ?>" alt="Tour Đà Nẵng Team Building"
+                                        class="img-fluid destination-img">
+                                    <div class="card-hover-content">
+                                        <h5 class="fw-bold mb-1">Tour Đà Nẵng Team Building</h5>
+                                        <p class="small opacity-75">Tour nghỉ dưỡng 4 ngày tại Vinpearl Resort.</p>
+                                    </div>
+                                    <div class="card-overlay"><a href="#" class="stretched-link"
+                                            title="Xem chi tiết tour"></a></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 marquee-item">
+                                <div class="destination-card position-relative overflow-hidden rounded-3 shadow-lg">
+                                    <img src="<?= BASE_URL . 'public/image/cm.jpg' ?>" alt="Biển Nha Trang"
+                                        class="img-fluid destination-img">
+                                    <div class="card-hover-content">
+                                        <h5 class="fw-bold mb-1">Tour Cam Ranh - Ninh Thuận</h5>
+                                        <p class="small opacity-75">Tour nghỉ dưỡng 4 ngày tại Vinpearl Resort.</p>
+                                    </div>
+                                    <div class="card-overlay"><a href="#" class="stretched-link"
+                                            title="Xem chi tiết tour"></a></div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 col-md-6 marquee-item">
+                                <div class="destination-card position-relative overflow-hidden rounded-3 shadow-lg">
+                                    <img src="<?= BASE_URL . 'public/image/cnt.jpg' ?>" alt="Hà Nội Cổ Kính"
+                                        class="img-fluid destination-img">
+                                    <div class="card-hover-content">
+                                        <h5 class="fw-bold mb-1">Tour Cáp Nhĩ Tân - Trung Quốc</h5>
+                                        <p class="small opacity-75">Khám phá văn hóa độc đáo, thưởng ngoạn cảnh đẹp mùa
+                                            đông và trải nghiệm ẩm thực truyền thống</p>
+                                    </div>
+                                    <div class="card-overlay"><a href="#" class="stretched-link"
+                                            title="Xem chi tiết tour"></a></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 marquee-item">
+                                <div class="destination-card position-relative overflow-hidden rounded-3 shadow-lg">
+                                    <img src="<?= BASE_URL . 'public/image/pr.jpg' ?>" alt="Lăng Bác - Quảng Trường"
+                                        class="img-fluid destination-img">
+                                    <div class="card-hover-content">
+                                        <h5 class="fw-bold mb-1">Tour Paris – Pháp</h5>
+                                        <p class="small opacity-75">Khám Phá Thành phố ánh sáng, chiêm ngưỡng tháp
+                                            Eiffel</p>
+                                    </div>
+                                    <div class="card-overlay"><a href="#" class="stretched-link"
+                                            title="Xem chi tiết tour"></a></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 marquee-item">
+                                <div class="destination-card position-relative overflow-hidden rounded-3 shadow-lg">
+                                    <img src="<?= BASE_URL . 'public/image/hq.jpg' ?>" alt="Tour Đà Nẵng Team Building"
+                                        class="img-fluid destination-img">
+                                    <div class="card-hover-content">
+                                        <h5 class="fw-bold mb-1">Tour Hàn Quốc </h5>
+                                        <p class="small opacity-75">tham quan Cung điện Gyeongbok, tháp N Seoul</p>
+                                    </div>
+                                    <div class="card-overlay"><a href="#" class="stretched-link"
+                                            title="Xem chi tiết tour"></a></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 marquee-item">
+                                <div class="destination-card position-relative overflow-hidden rounded-3 shadow-lg">
+                                    <img src="<?= BASE_URL . 'public/image/bk.jpg' ?>" alt="Biển Nha Trang"
+                                        class="img-fluid destination-img">
+                                    <div class="card-hover-content">
+                                        <h5 class="fw-bold mb-1">Tour Bắc Kinh - Trung Quốc</h5>
+                                        <p class="small opacity-75">Tham quan Tử Cấm Thành, Vạn Lý Trường Thành, Hồ
+                                            Thiên Đàn.</p>
+                                    </div>
+                                    <div class="card-overlay"><a href="#" class="stretched-link"
+                                            title="Xem chi tiết tour"></a></div>
+                                </div>
+                            </div>
+
+                            <div class="row mt-5 pt-4 g-4">
+                                <div class="col-md-4">
+                                    <div class="card border-0 shadow-sm h-100 p-3 feature-card bg-light-subtle">
+                                        <div class="card-body text-center">
+                                            <div class="icon-box mb-3">
+                                                <i class="bi bi-globe2"></i>
+                                            </div>
+                                            <h5 class="fw-bold mb-2">Các Thông Tin Tour Mới Nhất</h5>
+                                            <p class="text-muted small">Luôn cập nhật các thông tin mới nhất, đầy đủ
+                                                nhất về các tour
+                                                tốt nhất hiện nay.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card border-0 shadow-sm h-100 p-3 feature-card bg-light-subtle">
+                                        <div class="card-body text-center">
+                                            <div class="icon-box mb-3">
+                                                <i class="bi bi-people-fill text-primary fs-1"></i>
+                                            </div>
+                                            <h5 class="fw-bold mb-2">Chuyên Gia Tư Vấn Chi Tiết Nhất</h5>
+                                            <p class="text-muted small">Các tư vấn viên chuyên nghiệp luôn sẵn sàng hỗ
+                                                trợ bạn tận tâm
+                                                và chi tiết nhất.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card border-0 shadow-sm h-100 p-3 feature-card bg-light-subtle">
+                                        <div class="card-body text-center">
+                                            <div class="icon-box mb-3">
+                                                <i class="bi bi-lightning-charge-fill text-warning fs-1"></i>
+                                            </div>
+                                            <h5 class="fw-bold mb-2">Khuyến Mãi & Giá Luôn Tốt Nhất</h5>
+                                            <p class="text-muted small">Các chương trình khuyến mãi hấp dẫn và giá tour
+                                                cạnh tranh được
+                                                cập nhật liên tục.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <<<<<<< HEAD </div>
 </section>
 <section class="destinations-section py-5">
     <div class="container pt-5">
@@ -271,15 +370,14 @@
                                         trại.</p>
                                 </div>
 
-                                <div class="card-overlay">
-                                    <a href="#" class="stretched-link" title="Xem chi tiết tour"></a>
+                                <div class="col-md-2 col-lg-2 mb-4">
+                                    <h5 class="fw-bold mb-3">Support</h5>
+                                    <ul class="list-unstyled footer-links">
+                                        <li><a href="<?= BASE_URL . 'faq'?>" class="text-white text-sm">FAQs</a></li>
+                                        <li><a href="#" class="text-white text-sm">Contact</a></li>
+                                        <li><a href="#" class="text-white text-sm">Live Chat</a></li>
+                                    </ul>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <div class="destination-card position-relative overflow-hidden rounded-3 shadow-lg">
-                                <img src="<?= BASE_URL . 'public/image/hll.jpg' ?>" alt="Vịnh Hạ Long"
-                                    class="img-fluid destination-img">
 
                                 <div class="card-hover-content">
                                     <h5 class="fw-bold mb-1">Tour Du Thuyền Hạ Long 5 Sao</h5>

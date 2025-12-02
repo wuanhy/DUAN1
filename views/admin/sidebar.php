@@ -18,9 +18,36 @@
             <div class="container-fluid px-5">
                 <a class="navbar-brand" href="#"><img src="<?= BASE_URL . 'public/image/logo.png' ?>"
                         alt="Elite Travel Logo" height="50"></a>
+                        <?php
+                         if(!isset($_SESSION['userLogin'])){
+                            header("Location: " .BASE_URL .'login');
+                         }
+                         ?>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                         <?php if(isset($_SESSION['userLogin'])) : ?>
+                            <span class="fw-semibold text-black me-3">
+                                    Hi, <?= htmlspecialchars($_SESSION['userLogin']['name']) ?>
+                            </span>
+                            <div class="dropdown">
+                            <a href="#" class="d-block" id="avatarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="<?= BASE_URL . ($_SESSION['userLogin']['avatar'] ?? 'public/image/meo.jpg') ?>"
+                                     alt="Avatar" class="rounded-circle" width="40" height="40">
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="avatarDropdown">
+                                <li>
+                                    <a class="dropdown-item" href="<?= BASE_URL . 'profile' ?>">Xem hồ sơ</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="<?= BASE_URL . 'logout' ?>">Đăng xuất</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <?php endif; ?>
+
+            </div>
             </div>
         </nav>
     </header>
@@ -100,21 +127,26 @@
                                 class="bi bi-chevron-down ms-auto sidebar-icon-toggle"></i>
                         </a>
                         <div class="collapse list-unstyled ps-3" id="collapseBlog" data-bs-parent="#sidebarMenu">
-                            <a class="nav-link text-muted py-2" href="#">Danh sách bài viết</a>
-                            <a class="nav-link text-muted py-2" href="#">Thêm bài mới</a>
+                            <a class="nav-link text-muted py-2" href="<?=BASE_URL .'admin-list-blog'  ?>">Danh sách bài viết</a>
+                            <a class="nav-link text-muted py-2" href="<?=BASE_URL .'admin-create-blog' ?>">Thêm bài mới</a>
                         </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-dark d-flex align-items-center" href="#collapseTransport"
                             data-bs-toggle="collapse" role="button" aria-expanded="false"
                             aria-controls="collapseTransport">
-                            <i class="bi bi-heart-fill me-2"></i>
-                            Quản Lý Thời Gian Tour
+                            <i class="bi bi-bus-front-fill me-2"></i>
+                            Quản Lý Phương Tiện
                             <i class="bi bi-chevron-down ms-auto sidebar-icon-toggle"></i>
                         </a>
                         <div class="collapse list-unstyled ps-3" id="collapseTransport" data-bs-parent="#sidebarMenu">
+<<<<<<< HEAD
                             <a class="nav-link text-muted py-2" href="#">Danh sách thời gian Tuor</a>
                             <a class="nav-link text-muted py-2" href="#">Thêm thời gian tuor</a>
+=======
+                            <a class="nav-link text-muted py-2" href="<?=BASE_URL .'admin-list-trans' ?>">Danh sách phương tiện</a>
+                            <a class="nav-link text-muted py-2" href="<?=BASE_URL .'admin-create-trans' ?>">Thêm phương tiện</a>
+>>>>>>> dev/dat
                         </div>
                     </li>
 
@@ -127,8 +159,12 @@
                             <i class="bi bi-chevron-down ms-auto sidebar-icon-toggle"></i>
                         </a>
                         <div class="collapse list-unstyled ps-3" id="collapseAccount" data-bs-parent="#sidebarMenu">
+<<<<<<< HEAD
                             <a class="nav-link text-muted py-2" href="#">Tài khoản khách hàng</a>
                             <a class="nav-link text-muted py-2" href="#">Tài khoản HDV</a>
+=======
+                            <a class="nav-link text-muted py-2" href="<?=BASE_URL .'admin-list-user' ?>">Tài khoản nhân viên</a>
+>>>>>>> dev/dat
                             <a class="nav-link text-muted py-2" href="#">Phân công HDV</a>
                         </div>
                     </li>
@@ -140,6 +176,8 @@
             </div>
         </nav>
     </aside>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>

@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng Nhập Tài Khoản -Elite Travel</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     <style>
     html {
@@ -70,12 +72,11 @@
 </head>
 
 <body>
-    <?php
+<?php
             
 $errors = $_SESSION['errors'] ?? [];
 $old = $_SESSION['old'] ?? [];
 
-// Sau khi lấy xong thì xóa để tránh hiển thị lại nhiều lần
 unset($_SESSION['errors']);
 unset($_SESSION['old']);
 ?>
@@ -88,7 +89,7 @@ unset($_SESSION['old']);
 
             <h5 class="card-title text-center fw-bold mb-4">Chào mừng đến với Elite Travel</h5>
 
-            <form action="<?= BASE_URL . '?act=login'?>" method="post">
+            <form action="<?= BASE_URL . 'login'?>" method="post">
                 <div class="mb-3">
                     <input type="email" id="email" name="email" class="form-control rounded-pill py-2"
                         placeholder="Email" value="<?= htmlspecialchars($old['email'] ?? '') ?>">
@@ -109,7 +110,7 @@ unset($_SESSION['old']);
                     <a href="#" class="text-custom-primary text-decoration-none small">Quên mật khẩu?</a>
                 </div>
                 <?php if (!empty($errors['login'])) : ?>
-                <div class="alert alert-danger">
+                <div class="alert alert-danger text-center">
                     <?= $errors['login'] ?>
                 </div>
                 <?php endif; ?>
@@ -118,13 +119,35 @@ unset($_SESSION['old']);
 
                 <p class="text-center mt-4 small">
                     Bạn chưa có tài khoản?
-                    <a href="<?= BASE_URL . '?act=register' ?>" class="text-custom-info text-decoration-none">Đăng ký
+                    <a href="<?= BASE_URL . 'register' ?>" class="text-custom-info text-decoration-none">Đăng ký
                         ngay</a>
                 </p>
             </form>
         </div>
     </div>
+<?php if(!empty($_SESSION['success'])) :?>
+    <script>
+        setTimeout(()=>{
+            Swal.fire({
+            toast : true,
+            position : 'top-end',
+            icon: 'success',
+            title : '<?= $_SESSION['success'] ?>',
+            showConfirmButton : false,
+            timer : 2000,
+            timerProgressBar:true,
+            didOpen:(toast)=>{
+                const progress = toast.querySelector('.swal2-timer-progress-bar');
+                if(progress){
+                    progress.style.background='#28a745';
+                }
+            }
+            });
 
+        },100);
+    </script>
+<?php unset($_SESSION['success']); ?>
+<?php endif; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
