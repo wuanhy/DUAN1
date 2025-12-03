@@ -73,9 +73,9 @@
                             <i class="bi bi-chevron-down ms-auto sidebar-icon-toggle"></i>
                         </a>
                         <div class="collapse list-unstyled ps-3" id="collapseTour" data-bs-parent="#sidebarMenu">
-                            <a class="nav-link text-muted py-2" href="<?= BASE_URL . 'admin-tourlist' ?>">Danh sách
+                            <a class="nav-link text-muted py-2" href="<?= BASE_URL . 'admin-list-tour' ?>">Danh sách
                                 Tour</a>
-                            <a class="nav-link text-muted py-2" href="<?= BASE_URL . 'admin-addtour' ?>">Thêm Tour
+                            <a class="nav-link text-muted py-2" href="<?= BASE_URL . 'admin-create-tour' ?>">Thêm Tour
                                 mới</a>
                         </div>
                     </li>
@@ -89,9 +89,9 @@
                             <i class="bi bi-chevron-down ms-auto sidebar-icon-toggle"></i>
                         </a>
                         <div class="collapse list-unstyled ps-3" id="collapseSchedule" data-bs-parent="#sidebarMenu">
-                            <a class="nav-link text-muted py-2" href="<?= BASE_URL . 'admin-scheduletour' ?>">Danh
+                            <a class="nav-link text-muted py-2" href="<?= BASE_URL . 'admin-list-schedule' ?>">Danh
                                 sách Lịch trình các chuyến Tuor</a>
-                            <a class="nav-link text-muted py-2" href="<?= BASE_URL . 'admin-addscheduletour' ?>">Thêm
+                            <a class="nav-link text-muted py-2" href="<?= BASE_URL . 'admin-create-schedule' ?>">Thêm
                                 Lịch trình các chuyến
                                 Tuor</a>
                         </div>
@@ -104,9 +104,9 @@
                             Quản Lý Đặt Chỗ
                             <i class="bi bi-chevron-down ms-auto sidebar-icon-toggle"></i> </a>
                         <div class="collapse list-unstyled ps-3" id="collapseBooking" data-bs-parent="#sidebarMenu">
-                            <a class="nav-link text-muted py-2" href="<?= BASE_URL . 'admin-bookinglist' ?>">Danh
+                            <a class="nav-link text-muted py-2" href="<?= BASE_URL . 'admin-booking' ?>">Danh
                                 sách Đặt chỗ</a>
-                            <a class="nav-link text-muted py-2" href="<?= BASE_URL . 'admin-refundmanage' ?>">Quản
+                            <a class="nav-link text-muted py-2" href="<?= BASE_URL . 'admin-refund' ?>">Quản
                                 lý hoàn tiền</a>
                         </div>
                     </li>
@@ -140,13 +140,10 @@
                             <i class="bi bi-chevron-down ms-auto sidebar-icon-toggle"></i>
                         </a>
                         <div class="collapse list-unstyled ps-3" id="collapseTransport" data-bs-parent="#sidebarMenu">
-<<<<<<< HEAD
                             <a class="nav-link text-muted py-2" href="#">Danh sách thời gian Tuor</a>
                             <a class="nav-link text-muted py-2" href="#">Thêm thời gian tuor</a>
-=======
                             <a class="nav-link text-muted py-2" href="<?=BASE_URL .'admin-list-trans' ?>">Danh sách phương tiện</a>
                             <a class="nav-link text-muted py-2" href="<?=BASE_URL .'admin-create-trans' ?>">Thêm phương tiện</a>
->>>>>>> dev/dat
                         </div>
                     </li>
 
@@ -159,12 +156,9 @@
                             <i class="bi bi-chevron-down ms-auto sidebar-icon-toggle"></i>
                         </a>
                         <div class="collapse list-unstyled ps-3" id="collapseAccount" data-bs-parent="#sidebarMenu">
-<<<<<<< HEAD
                             <a class="nav-link text-muted py-2" href="#">Tài khoản khách hàng</a>
                             <a class="nav-link text-muted py-2" href="#">Tài khoản HDV</a>
-=======
                             <a class="nav-link text-muted py-2" href="<?=BASE_URL .'admin-list-user' ?>">Tài khoản nhân viên</a>
->>>>>>> dev/dat
                             <a class="nav-link text-muted py-2" href="#">Phân công HDV</a>
                         </div>
                     </li>

@@ -78,18 +78,18 @@ match ($act) {
     
     
 
-    'admin-tourlist' => $tourController-> adminTourList(),
-    'admin-addtour' => $tourController-> adminAddTour(),
-    'admin-edittour' => $tourController-> adminEditTour(),
-    'admin-delete-tour' => $tourController-> adminDeleteTour(),
+    'admin-list-tour' => $tourController-> list(),
+    'admin-create-tour' => $tourController-> create(),
+    'admin-update-tour' => $tourController-> update(),
+    'admin-delete-tour' => $tourController-> delete(),
 
-    'admin-scheduletour' => $scheduleController-> adminScheduleTour(),
-    'admin-addscheduletour' => $scheduleController-> adminAddScheduleTour(),
-    'admin-delete-schedule' => $scheduleController -> adminDeleteSchedule(),
-    'admin-edit-schedule' => $scheduleController -> adminEditSchedule(),
+    'admin-list-schedule' => $scheduleController-> list(),
+    'admin-create-schedule' => $scheduleController-> create(),
+    'admin-update-schedule' => $scheduleController -> update(),
+    'admin-delete-schedule' => $scheduleController -> delete(),
 
-    'admin-bookinglist' => $tourController-> adminBookingList(),
-    'admin-refundmanage' => $tourController-> adminRefundManage(),
+    'admin-booking' => $tourController-> booking(),
+    'admin-refund' => $tourController-> refund(),
     'profile'       =>$dashboardController->profile(),
 
     //blog

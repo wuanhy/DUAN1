@@ -20,7 +20,7 @@
                     </div>
                     <div class="mb-4">
                         <form class="d-flex" action="" method="GET">
-                            <input type="hidden" name="action" value="admin-bookinglist">
+                            <input type="hidden" name="action" value="admin-booking">
                             <input class="form-control me-2" type="search" placeholder="Tìm kiếm theo Mã Đơn hoặc Tên Khách hàng" aria-label="Search" name="keyword">
                             <select class="form-select me-2" style="width: 200px;" name="status">
                                 <option value="">-- Lọc theo Trạng thái --</option>
@@ -45,14 +45,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php if (empty($bookingList)) : ?>
-                                    <tr>
-                                        <td colspan="7" class="text-center py-4">
-                                            <h4>Hiện chưa có đơn đặt chỗ nào được ghi nhận.</h4>
-                                            <p>Đơn đặt chỗ sẽ xuất hiện tại đây sau khi khách hàng hoàn tất đặt Tour.</p>
-                                        </td>
-                                    </tr>
-                                <?php endif; ?>
+                                
                             </tbody>
                         </table>
                     </div>

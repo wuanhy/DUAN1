@@ -17,7 +17,7 @@
                 <div class="tour-list-container">
                     <div class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-2">
                         <h1 class="h2">Danh sách Lịch trình</h1>
-                        <a href="<?= BASE_URL . 'admin-addscheduletour'?>" class="btn btn-sm btn-success">
+                        <a href="<?= BASE_URL . 'admin-create-schedule'?>" class="btn btn-sm btn-success">
                             <i class="fas fa-calendar-plus"></i> Thêm Lịch trình mới
                         </a>
                     </div>
@@ -50,9 +50,9 @@
                                     <td><?= $value['tieu_de'] ?></td>
                                     <td><?= $value['noi_dung'] ?></td>
                                     <td>
-                                        <a href="<?= BASE_URL . 'admin-edit-schedule&lt_id=' . $value['lt_id'] ?>"
+                                        <a href="<?= BASE_URL . 'admin-update-schedule&ltr_id=' . $value['ltr_id'] ?>"
                                             class="btn btn-warning">Sửa</a>
-                                        <a href="<?= BASE_URL . 'admin-delete-schedule&lt_id=' . $value['lt_id'] ?>"
+                                        <a href="<?= BASE_URL . 'admin-delete-schedule&ltr_id=' . $value['ltr_id'] ?>"
                                             class="btn btn-danger"
                                             onclick="return confirm('Bạn có muốn xóa không')">Xóa</a>
                                     </td>

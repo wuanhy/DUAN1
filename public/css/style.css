@@ -931,7 +931,7 @@ cd
   transform: translateY(-3px) rotate(15deg);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
-
+.ll{
     background-color: #e6f7ff !important; /* Màu xanh nhạt khi được chọn */
     color: #007bff !important; /* Chữ màu xanh nổi bật */
     font-weight: 700 !important; 
@@ -943,7 +943,7 @@ cd
 #sidebarMenu .nav-link.active i,
 #sidebarMenu .nav-link.active .sidebar-icon-toggle {
     color: #007bff !important;
-
+}
 .table {
     background: #ffffff !important;
     border-radius: 10px;
@@ -964,10 +964,3 @@ cd
     border-radius: 8px;
 
 }
-
-
-
-
-        
-        
-

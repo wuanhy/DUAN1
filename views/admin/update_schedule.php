@@ -21,14 +21,16 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-8 col-md-10">
                             <div class="p-4 rounded shadow-sm" style="background-color: #F8E8E8;">
-                                <form action="admin-addscheduletour" method="POST" class="needs-validation" novalidate>
+                                <form action="<?= BASE_URL . 'admin-update-schedule&ltr_id=' . $data['ltr_id'] ?>"
+                                    method="POST" class="needs-validation" novalidate>
                                     <div class="mb-3">
                                         <label for="tour_id" class="form-label fw-bold">Chọn Tour:</label>
-                                        <select class="form-select" id="tour_id" name="tour_id" required>
+                                        <select class="form-select" id="danhmuc" name="danhmuc" required>
                                             <option value="" disabled selected>-- Chọn một Tour để thiết lập lịch trình
                                                 --</option>
                                             <?php foreach ($listTour as $value) : ?>
-                                            <option value="<?= $value['tour_id'] ?>">
+                                            <option value="<?= $value['tour_id'] ?>"
+                                                <?= $data['tour_id']===$value['tour_id'] ? 'selected' : '' ?>>
                                                 <?= $value['ten_tour'] ?>
                                             </option>
                                             <?php endforeach; ?>
@@ -36,22 +38,24 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="ngay_thu" class="form-label fw-bold">Ngày thứ:</label>
-                                        <input type="text" class="form-control" id="ngay_thu" name="ngay_thu" required>
+                                        <input type="text" class="form-control" id="ngay_thu" name="ngay_thu" required
+                                            value="<?= $data['ngay_thu'] ?>">
                                     </div>
                                     <div class="mb-3">
                                         <label for="tieu_de" class="form-label fw-bold">Tiêu đề</label>
-                                        <input type="text" class="form-control" id="tieu_de" name="tieu_de" required>
+                                        <input type="text" class="form-control" id="tieu_de" name="tieu_de" required
+                                            value="<?= $data['tieu_de'] ?>">
                                     </div>
                                     <div class="mb-3">
                                         <label for="noi_dung" class="form-label fw-bold">Nội dung</label>
                                         <textarea type="text" class="form-control" id="noi_dung" name="noi_dung"
-                                            required></textarea>
+                                            required><?= $data['noi_dung'] ?></textarea>
                                     </div>
                                     <div class="d-flex justify-content-end gap-2">
-                                        <button type="submit" name="btn-add-schedule" class="btn btn-success">
-                                            Lưu Lịch trình
+                                        <button type="submit" name="btn-edit-schedule" class="btn btn-success">
+                                            Cập nhật Lịch trình
                                         </button>
-                                        <a href="<?= BASE_URL . 'admin-scheduletour' ?>" class="btn btn-secondary">
+                                        <a href="<?= BASE_URL . 'admin-list-schedule' ?>" class="btn btn-secondary">
                                             Quay lại
                                         </a>
                                     </div>

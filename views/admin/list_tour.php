@@ -18,7 +18,7 @@
                     <div
                         class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                         <h1 class="h2">Danh sách Tour Du lịch</h1>
-                        <a href="<?= BASE_URL . 'admin-addtour' ?>" class="btn btn-sm btn-success">
+                        <a href="<?= BASE_URL . 'admin-create-tour' ?>" class="btn btn-sm btn-success">
                             <i class="fas fa-plus-circle"></i> Thêm Tour Mới
                         </a>
                     </div>
@@ -70,7 +70,7 @@
                                     <td><?= $dm['diem_den'] ?></td>
                                     <td><?= $dm['mo_ta_tour'] ?></td>
                                     <td>
-                                        <a href="<?= BASE_URL . 'admin-edittour&tour_id=' . $dm['tour_id'] ?>"
+                                        <a href="<?= BASE_URL . 'admin-update-tour&tour_id=' . $dm['tour_id'] ?>"
                                             class="btn btn-warning">Sửa</a>
                                         <a href="<?= BASE_URL . 'admin-delete-tour&tour_id=' . $dm['tour_id'] ?>"
                                             class="btn btn-danger"

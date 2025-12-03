@@ -46,14 +46,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php if (empty($refundList)) : ?>
-                                    <tr>
-                                        <td colspan="7" class="text-center py-4">
-                                            <h4>Hiện không có yêu cầu hoàn tiền nào đang chờ xử lý.</h4>
-                                            <p>Các yêu cầu sẽ xuất hiện tại đây sau khi đơn đặt chỗ bị hủy.</p>
-                                        </td>
-                                    </tr>
-                                <?php endif; ?>
+                                
                             </tbody>
                         </table>
                     </div>

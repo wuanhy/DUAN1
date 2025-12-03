@@ -6,18 +6,18 @@ namespace Src\Controllers;
 
 class TourController
 {
-    public function adminTourList()
+    public function list()
     {
 
         $tour = new \Src\Models\TourModel();
         $tb_danhmuc = $tour->getAll();
 
         $title = "Danh sách Tour";
-        $view = "admin/tourlist";
+        $view = "admin/list_tour";
         require_once block_path('main');
     }
 
-    public function adminAddTour()
+    public function create()
     {
         // $errors = [];
         // $old = [];
@@ -25,7 +25,7 @@ class TourController
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (empty($_POST["ten_tour"]) || empty($_POST["dm_id"]) || empty($_POST["noi_xuat_phat"]) || empty($_POST["diem_den"]) || empty($_POST["so_cho_toi_da"])) {
                 $_SESSION['error'][] = "Điền thông tin";
-                header("Location:" . BASE_URL . '?act=admin-addtour');
+                header("Location:" . BASE_URL . 'admin-create-tour');
                 exit();
             }
 
@@ -49,18 +49,18 @@ class TourController
                 $_POST['mo_ta_tour'],
             );
             $_SESSION['success'][] = 'Thêm thành công';
-            header("Location:" . BASE_URL . '?act=admin-tourlist');
+            header("Location:" . BASE_URL . 'admin-list-tour');
             exit();
         }
         $category = new \Src\Models\Category();
         $tb_danhmuc = $category->getAll();
 
         $title = "Thêm tour mới";
-        $view = 'admin/addtour';
+        $view = 'admin/create_tour';
         require_once block_path('main');
     }
 
-    public function adminDeleteTour()
+    public function delete()
     {
         $tour = new \Src\Models\TourModel();
         $tour_id = $_GET['tour_id'];
@@ -72,16 +72,16 @@ class TourController
         if (!empty($data['anh_tour']) && file_exists($data['anh_tour'])) {
             unlink($data['anh_tour']);
         }
-        header("Location:" . BASE_URL . '?act=admin-tourlist');
+        header("Location:" . BASE_URL . 'admin-list-tour');
         exit();
     }
 
-    public function adminEditTour()
+    public function update()
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (empty($_POST["ten_tour"]) || empty($_POST["dm_id"]) || empty($_POST["noi_xuat_phat"]) || empty($_POST["diem_den"]) || empty($_POST["so_cho_toi_da"])) {
                 $_SESSION['error'][] = "Điền thông tin";
-                header("Location:" . BASE_URL . '?act=admin-edittour&tour_id=' . $_GET['tour_id']);
+                header("Location:" . BASE_URL . 'admin-update-tour&tour_id=' . $_GET['tour_id']);
                 exit();
             }
 
@@ -111,7 +111,7 @@ class TourController
                 $_POST['mo_ta_tour'],
             );
             $_SESSION['success'][] = 'Cập nhật thành công';
-            header("Location:" . BASE_URL . '?act=admin-tourlist');
+            header("Location:" . BASE_URL . 'admin-tourlist');
             exit();
         }
 
@@ -122,21 +122,21 @@ class TourController
         $data = $tour->getOne($_GET['tour_id']);
 
         $title = "Cập nhật Tour";
-        $view = "admin/edittour";
+        $view = "admin/update_tour";
         require_once block_path('main');
     }
 
-    public function adminBookingList()
+    public function booking()
     {
         $title = "Danh sách đặt chỗ";
-        $view = "admin/bookinglist";
+        $view = "admin/booking";
         require_once block_path('main');
     }
 
-    public function adminRefundManage()
+    public function refund()
     {
         $title = "Quản lý hoàn tiền";
-        $view = "admin/refundmanage";
+        $view = "admin/refund";
         require_once block_path('main');
     }
 }
