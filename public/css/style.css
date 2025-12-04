@@ -605,11 +605,103 @@ main .container {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important; /* Bóng đổ mềm */
   overflow: hidden;
 }
+<<<<<<< HEAD
 
 
 
 
 
+=======
+/* header bảng */
+.table thead.thead-light th {
+  background: linear-gradient(to right, #f8f9fa, #eef2f3) !important;
+  color: #444;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  border-top: none;
+  border-bottom: 2px solid #daa3e1 !important;
+}
+/* noi dung trong bang */
+.table tbody td {
+  vertical-align: middle !important;
+  padding: 15px;
+  font-size: 0.95rem;
+  color: #333;
+  border-top: 1px solid #f0f0f0;
+}
+.table-hover tbody tr:hover {
+  background-color: #f0f8ff !important;
+}
+/* Ma tour */
+.table td strong {
+  color: #007bff;
+  background: #e3f2fd;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+/* trang thai */
+.badge {
+  padding: 8px 12px;
+  border-radius: 30px !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.3px;
+}
+.badge-success {
+  background-color: #e2e3e5;
+  color: #41464b !important;
+  border: 1px solid #d3d6d8;
+}
+.badge-danger {
+  background-color: #f8d7da !important;
+  color: #842029 !important;
+  border: 1px solid #f5c2c7;
+}
+.badge-secondary {
+  background-color: #e2e3e5 !important;
+  color: #41464b !important;
+  border: 1px solid #d3d6d8;
+}
+.table .btn-sm {
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50% !important;
+  border: none;
+  margin: 0 2px;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+.table .btn-warning {
+  background: linear-gradient(135deg, #f39c12, #f1c40f) !important;
+  color: white !important;
+}
+.table .btn-danger {
+  background: linear-gradient(135deg, #ff6e95, #ff7e5f) !important;
+}
+.table .btn-sm:hover {
+  transform: translateY(-3px) rotate(15deg);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.ll{
+    background-color: #e6f7ff !important; /* Màu xanh nhạt khi được chọn */
+    color: #007bff !important; /* Chữ màu xanh nổi bật */
+    font-weight: 700 !important; 
+    
+    /* Tạo hiệu ứng nổi nhẹ */
+    border-radius: 4px; 
+    margin: 0 10px; 
+}
+#sidebarMenu .nav-link.active i,
+#sidebarMenu .nav-link.active .sidebar-icon-toggle {
+    color: #007bff !important;
+}
+>>>>>>> 87aceb48da2557efa1d65211a6b3a8e73f64c708
 .table {
     border-radius: 10px;
     overflow: hidden;
@@ -628,6 +720,7 @@ main .container {
 .table img {
     border-radius: 8px;
 
+<<<<<<< HEAD
 }
 #sidebarMenu {
     background: linear-gradient(to right, #CFE8FF);
@@ -640,3 +733,6 @@ main .container {
         
         
 
+=======
+}
+>>>>>>> 87aceb48da2557efa1d65211a6b3a8e73f64c708

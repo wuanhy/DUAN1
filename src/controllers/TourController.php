@@ -6,7 +6,11 @@ namespace Src\Controllers;
 
 class TourController
 {
+<<<<<<< HEAD
     public function index()
+=======
+    public function list()
+>>>>>>> 87aceb48da2557efa1d65211a6b3a8e73f64c708
     {
 
         $tour = new \Src\Models\TourModel();
@@ -21,6 +25,7 @@ class TourController
     {
         $errors = [];
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
+<<<<<<< HEAD
             $old=$_POST;
            if (empty($_POST["ten_tour"])) {
                     $errors['ten_tour'] = "Vui lòng nhập tên tour";
@@ -57,6 +62,13 @@ class TourController
                     $errors['so_ngay'] = "Vui lòng nhập số ngày";
                 }
 
+=======
+            if (empty($_POST["ten_tour"]) || empty($_POST["dm_id"]) || empty($_POST["noi_xuat_phat"]) || empty($_POST["diem_den"]) || empty($_POST["so_cho_toi_da"])) {
+                $_SESSION['error'][] = "Điền thông tin";
+                header("Location:" . BASE_URL . 'admin-create-tour');
+                exit();
+            }
+>>>>>>> 87aceb48da2557efa1d65211a6b3a8e73f64c708
 
             $tour = new \Src\Models\TourModel();
             if(empty($errors)){
@@ -79,7 +91,11 @@ class TourController
                 $_POST['so_ngay'],
 
             );
+<<<<<<< HEAD
             $_SESSION['success'] = 'Thêm thành công';
+=======
+            $_SESSION['success'][] = 'Thêm thành công';
+>>>>>>> 87aceb48da2557efa1d65211a6b3a8e73f64c708
             header("Location:" . BASE_URL . 'admin-list-tour');
             exit();
         }
@@ -87,9 +103,17 @@ class TourController
         $category = new \Src\Models\Category();
         $tb_danhmuc = $category->getAll();
 
+<<<<<<< HEAD
         $view = 'admin/create_tour';
         require_once block_path('main');
 }
+=======
+        $title = "Thêm tour mới";
+        $view = 'admin/create_tour';
+        require_once block_path('main');
+    }
+
+>>>>>>> 87aceb48da2557efa1d65211a6b3a8e73f64c708
     public function delete()
     {
         $tour = new \Src\Models\TourModel();
@@ -99,7 +123,10 @@ class TourController
         if (!empty($data['anh_tour']) && file_exists($data['anh_tour'])) {
             unlink($data['anh_tour']);
         }
+<<<<<<< HEAD
         $_SESSION['success']="Xóa thành công";
+=======
+>>>>>>> 87aceb48da2557efa1d65211a6b3a8e73f64c708
         header("Location:" . BASE_URL . 'admin-list-tour');
         exit();
     }
@@ -108,6 +135,7 @@ class TourController
     {
         $errors = [];
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
+<<<<<<< HEAD
             $old=$_POST;
 
             if (empty($_POST["ten_tour"])) {
@@ -141,6 +169,13 @@ class TourController
                 if (empty($_POST["so_ngay"])) {
                     $errors['so_ngay'] = "Vui lòng nhập số ngày";
                 }
+=======
+            if (empty($_POST["ten_tour"]) || empty($_POST["dm_id"]) || empty($_POST["noi_xuat_phat"]) || empty($_POST["diem_den"]) || empty($_POST["so_cho_toi_da"])) {
+                $_SESSION['error'][] = "Điền thông tin";
+                header("Location:" . BASE_URL . 'admin-update-tour&tour_id=' . $_GET['tour_id']);
+                exit();
+            }
+>>>>>>> 87aceb48da2557efa1d65211a6b3a8e73f64c708
 
             $tour = new \Src\Models\TourModel();
             $data = $tour->getOne($_GET['tour_id']);
@@ -173,8 +208,13 @@ class TourController
                 $_POST['so_ngay'],
 
             );
+<<<<<<< HEAD
             $_SESSION['success'] = 'Cập nhật thành công';
             header("Location:" . BASE_URL . 'admin-list-tour');
+=======
+            $_SESSION['success'][] = 'Cập nhật thành công';
+            header("Location:" . BASE_URL . 'admin-tourlist');
+>>>>>>> 87aceb48da2557efa1d65211a6b3a8e73f64c708
             exit();
         }
     }
@@ -184,7 +224,26 @@ class TourController
         $tour = new \Src\Models\TourModel();
         $data = $tour->getOne($_GET['tour_id']);
 
+<<<<<<< HEAD
         $view = "admin/update_tour";
+=======
+        $title = "Cập nhật Tour";
+        $view = "admin/update_tour";
+        require_once block_path('main');
+    }
+
+    public function booking()
+    {
+        $title = "Danh sách đặt chỗ";
+        $view = "admin/booking";
+        require_once block_path('main');
+    }
+
+    public function refund()
+    {
+        $title = "Quản lý hoàn tiền";
+        $view = "admin/refund";
+>>>>>>> 87aceb48da2557efa1d65211a6b3a8e73f64c708
         require_once block_path('main');
     }
 }

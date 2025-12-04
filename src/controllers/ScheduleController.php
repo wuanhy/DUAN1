@@ -4,7 +4,11 @@ namespace Src\Controllers;
 
 class ScheduleController
 {
+<<<<<<< HEAD
     public function index()
+=======
+    public function list()
+>>>>>>> 87aceb48da2557efa1d65211a6b3a8e73f64c708
     {
         $scheduleModel = new \Src\Models\ScheduleModel();
         $listSchedul = $scheduleModel->getAllSchedule();
@@ -19,7 +23,11 @@ class ScheduleController
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (empty($_POST["tour_id"]) || empty($_POST["ngay_thu"]) || empty($_POST["tieu_de"]) || empty($_POST["noi_dung"])) {
                 $_SESSION['error'][] = "Điền thông tin";
+<<<<<<< HEAD
                 header("Location:" . BASE_URL . 'admin-addscheduletour');
+=======
+                header("Location:" . BASE_URL . 'admin-create-schedule');
+>>>>>>> 87aceb48da2557efa1d65211a6b3a8e73f64c708
                 exit();
             }
             $schedule = new \Src\Models\ScheduleModel();

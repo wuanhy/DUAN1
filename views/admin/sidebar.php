@@ -103,8 +103,18 @@
 
                             <i class="bi bi-ticket-fill me-2"></i>
                             Quản Lý Đặt Chỗ
+<<<<<<< HEAD
 
                         </a>
+=======
+                            <i class="bi bi-chevron-down ms-auto sidebar-icon-toggle"></i> </a>
+                        <div class="collapse list-unstyled ps-3" id="collapseBooking" data-bs-parent="#sidebarMenu">
+                            <a class="nav-link text-muted py-2" href="<?= BASE_URL . 'admin-booking' ?>">Danh
+                                sách Đặt chỗ</a>
+                            <a class="nav-link text-muted py-2" href="<?= BASE_URL . 'admin-refund' ?>">Quản
+                                lý hoàn tiền</a>
+                        </div>
+>>>>>>> 87aceb48da2557efa1d65211a6b3a8e73f64c708
                     </li>
 
                     <li class="nav-item">
@@ -136,6 +146,11 @@
                             <i class="bi bi-chevron-down ms-auto sidebar-icon-toggle"></i>
                         </a>
                         <div class="collapse list-unstyled ps-3" id="collapseTransport" data-bs-parent="#sidebarMenu">
+<<<<<<< HEAD
+=======
+                            <a class="nav-link text-muted py-2" href="#">Danh sách thời gian Tuor</a>
+                            <a class="nav-link text-muted py-2" href="#">Thêm thời gian tuor</a>
+>>>>>>> 87aceb48da2557efa1d65211a6b3a8e73f64c708
                             <a class="nav-link text-muted py-2" href="<?=BASE_URL .'admin-list-trans' ?>">Danh sách phương tiện</a>
                             <a class="nav-link text-muted py-2" href="<?=BASE_URL .'admin-create-trans' ?>">Thêm phương tiện</a>
                         </div>
@@ -150,8 +165,15 @@
                             <i class="bi bi-chevron-down ms-auto sidebar-icon-toggle"></i>
                         </a>
                         <div class="collapse list-unstyled ps-3" id="collapseAccount" data-bs-parent="#sidebarMenu">
+<<<<<<< HEAD
                             <a class="nav-link text-muted py-2" href="<?=BASE_URL .'admin-list-user' ?>">Tài khoản nhân viên</a>
                             <a class="nav-link text-muted py-2" href="<?= BASE_URL .'admin-hdv' ?>">Phân công HDV</a>
+=======
+                            <a class="nav-link text-muted py-2" href="#">Tài khoản khách hàng</a>
+                            <a class="nav-link text-muted py-2" href="#">Tài khoản HDV</a>
+                            <a class="nav-link text-muted py-2" href="<?=BASE_URL .'admin-list-user' ?>">Tài khoản nhân viên</a>
+                            <a class="nav-link text-muted py-2" href="#">Phân công HDV</a>
+>>>>>>> 87aceb48da2557efa1d65211a6b3a8e73f64c708
                         </div>
                     </li>
                     <a href="<?= BASE_URL . 'logout' ?>" class="nav-link">

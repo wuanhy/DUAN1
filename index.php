@@ -99,6 +99,7 @@ match ($act) {
     
     
 
+<<<<<<< HEAD
     'admin-list-tour' => $tourController-> index(),
     'admin-create-tour' => $tourController-> create(),
     'admin-update-tour' => $tourController-> update(),
@@ -111,6 +112,20 @@ match ($act) {
 
 
 
+=======
+    'admin-list-tour' => $tourController-> list(),
+    'admin-create-tour' => $tourController-> create(),
+    'admin-update-tour' => $tourController-> update(),
+    'admin-delete-tour' => $tourController-> delete(),
+
+    'admin-list-schedule' => $scheduleController-> list(),
+    'admin-create-schedule' => $scheduleController-> create(),
+    'admin-update-schedule' => $scheduleController -> update(),
+    'admin-delete-schedule' => $scheduleController -> delete(),
+
+    'admin-booking' => $tourController-> booking(),
+    'admin-refund' => $tourController-> refund(),
+>>>>>>> 87aceb48da2557efa1d65211a6b3a8e73f64c708
     'profile'       =>$dashboardController->profile(),
 
     //blog
