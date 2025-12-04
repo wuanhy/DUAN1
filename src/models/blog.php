@@ -3,19 +3,19 @@ namespace Src\Models;
 use PDO;
 class Blog extends BaseModel{
     public function getAll(){
-        $sql = "SELECT blog.*, tb_user.name AS author_name, tb_danhmuc.name AS category_name 
+        $sql = "SELECT blog.*, tb_user.name AS author_name, tb_danhmuc.ten_danhmuc AS category_name 
                 FROM blog
                 JOIN tb_user ON blog.author_id = tb_user.id
-                JOIN tb_danhmuc ON blog.category_id = tb_danhmuc.id";
+                JOIN tb_danhmuc ON blog.category_id = tb_danhmuc.dm_id ";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
       public function getBlog(){
-        $sql = "SELECT blog.*, tb_user.name AS author_name, tb_danhmuc.name AS category_name 
+        $sql = "SELECT blog.*, tb_user.name AS author_name, tb_danhmuc.ten_danhmuc AS category_name 
                 FROM blog
                 JOIN tb_user ON blog.author_id = tb_user.id
-                JOIN tb_danhmuc ON blog.category_id = tb_danhmuc.id WHERE blog.status=1";
+                JOIN tb_danhmuc ON blog.category_id = tb_danhmuc.dm_id WHERE blog.status=1";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);

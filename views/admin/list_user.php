@@ -16,7 +16,11 @@
             </div>
 
             <div class="col-10" style="padding-top: 100px;">
-                <div class="list-user-container">
+                <div class="list-user-container">   
+                    <h1 class="fw-bold d-flex align-items-center gap-3 mb-4" style="color: #0d6efd;">
+                        <i class="bi bi-calendar-week fs-1 text-primary"></i>
+                        Danh sách HDV
+                    </h1>
                     <form action="<?= BASE_URL .'admin-list-user' ?>" method="post">
                         
                         <div class="d-flex justify-content-end mb-3">

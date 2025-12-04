@@ -21,7 +21,7 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-8 col-md-10">
                             <div class="p-4 rounded shadow-sm" style="background-color: #F8E8E8;">
-                                <form action="<?= BASE_URL . 'admin-edit-schedule&ltr_id=' . $data['ltr_id'] ?>"
+                                <form action="<?= BASE_URL . 'admin-update-schedule&ltr_id=' . $data['ltr_id'] ?>"
                                     method="POST" class="needs-validation" novalidate>
                                     <div class="mb-3">
                                         <label for="tour_id" class="form-label fw-bold">Chọn Tour:</label>
@@ -55,7 +55,7 @@
                                         <button type="submit" name="btn-edit-schedule" class="btn btn-success">
                                             Cập nhật Lịch trình
                                         </button>
-                                        <a href="<?= BASE_URL . 'admin-scheduletour' ?>" class="btn btn-secondary">
+                                        <a href="<?= BASE_URL . 'admin-list-schedule' ?>" class="btn btn-secondary">
                                             Quay lại
                                         </a>
                                     </div>

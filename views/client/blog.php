@@ -13,35 +13,7 @@
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light shadow-sm fixed-top custom-gradient-navbar" id="main-navbar">
-            <div class="container-fluid px-5">
-                <a class="navbar-brand" href="#"><img src="<?= BASE_URL . 'public/image/logo.png' ?>"
-                        alt="Elite Travel Logo" height="50"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav mb-2 mb-lg-0 mx-auto">
-                        <li class="nav-item"><a class="nav-link mx-3 text-dark" href="<?= BASE_URL . 'welcome' ?>">Trang
-                                chủ</a></li>
-                        <li class="nav-item"><a class="nav-link mx-3 text-dark" href="<?= BASE_URL . 'about' ?>">Các địa
-                                điểm du lịch</a></li>
-                        <li class="nav-item"><a class="nav-link mx-3 text-dark"
-                                href="<?= BASE_URL . 'introduction'?>">Giới thiệu</a></li>
-                        <li class="nav-item"><a class="nav-link mx-3 text-dark" href="<?= BASE_URL . 'blog'?>">Blog</a>
-                        </li>
-                        <li class="nav-item"><a class="nav-link mx-3 text-dark" href="<?= BASE_URL . 'faq'?>">Các
-                                câu hỏi thường gặp</a></li>
-                    </ul>
-
-                    <a href="<?=BASE_URL .'login' ?>" class="btn btn-primary fw-bold rounded-pill px-4">Đăng
-                        nhập</a>
-                </div>
-            </div>
-        </nav>
-    </header>
+<?php require_once 'views/layouts/blocks/header.php'; ?>
     <main>
         <div class="d-flex justify-content-center py-3">
             <img src="<?=BASE_URL .'public/image/logo.jpg' ?>" alt="">
@@ -75,80 +47,8 @@
             <?php endforeach; ?>
         </div>
     </main>
-    <footer class="footer-section pt-5 pb-3 text-white">
-        <div class="container">
-
-            <div class="row text-center mb-5">
-                <div class="col-12">
-                    <h3 class="fw-bold mb-3">Đăng ký nhận thông tin tour mới nhất từ Tuor Travel</h3>
-                    <form class="d-flex justify-content-center">
-                        <div class="input-group" style="max-width: 400px;">
-                            <input type="email" class="form-control" placeholder="john@box.com" aria-label="Email"
-                                required>
-                            <button class="btn btn-dark" type="submit">Subscribe</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <hr class="mb-4 opacity-25">
-
-            <div class="row">
-
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <h5 class="fw-bold mb-3">Tuor Travel</h5>
-                    <p class="text-sm">
-                        Tuor Travel - chuyên tổ chức tour du lịch trong và ngoài nước, mang đến trải nghiệm du lịch đẳng
-                        cấp, an toàn và đáng nhớ cho mọi khách hàng.
-                    </p>
-                    <div class="social-icons mt-3">
-                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-white me-3"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-
-                <div class="col-md-2 col-lg-2 mb-4">
-                    <h5 class="fw-bold mb-3">Services</h5>
-                    <ul class="list-unstyled footer-links">
-                        <li><a href="#" class="text-white text-sm">Marketing</a></li>
-                        <li><a href="#" class="text-white text-sm">Graphic Design</a></li>
-                        <li><a href="#" class="text-white text-sm">App Development</a></li>
-                        <li><a href="#" class="text-white text-sm">Web Development</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-md-2 col-lg-2 mb-4">
-                    <h5 class="fw-bold mb-3">About</h5>
-                    <ul class="list-unstyled footer-links">
-                        <li><a href="#" class="text-white text-sm">Careers</a></li>
-                        <li><a href="#" class="text-white text-sm">History</a></li>
-                        <li><a href="#" class="text-white text-sm">Our Team</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-md-2 col-lg-2 mb-4">
-                    <h5 class="fw-bold mb-3">Support</h5>
-                    <ul class="list-unstyled footer-links">
-                        <li><a href="<?= BASE_URL . 'faq'?>" class="text-white text-sm">FAQs</a></li>
-                        <li><a href="#" class="text-white text-sm">Contact</a></li>
-                        <li><a href="#" class="text-white text-sm">Live Chat</a></li>
-                    </ul>
-                </div>
-
-            </div>
-
-            <div class="row mt-4">
-                <div class="col-12 text-center">
-                    <p class="text-sm opacity-75">&copy; 2025 Tuor Travel. Đơn vị lữ hành quốc tế.</p>
-                </div>
-            </div>
-
-        </div>
-    </footer>
+    <?php require_once 'views/layouts/blocks/footer.php'; ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="<?= BASE_URL . 'public/js/main.js' ?>"></script>
     <style>
     .blog-thumb {
         height: 220px;

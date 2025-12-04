@@ -146,4 +146,7 @@ class BlogController{
                 header("Location:" . BASE_URL .'admin-list-blog');
                 exit();  
     }
+    public function detail(){
+        
+    }
 }

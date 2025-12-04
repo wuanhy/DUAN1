@@ -4,22 +4,22 @@ namespace Src\Controllers;
 
 class ScheduleController
 {
-    public function adminScheduleTour()
+    public function index()
     {
         $scheduleModel = new \Src\Models\ScheduleModel();
         $listSchedul = $scheduleModel->getAllSchedule();
 
         $title = "Danh sách lịch trình các chuyến Tour";
-        $view = "admin/scheduletour";
+        $view = "admin/list_schedule";
         require_once block_path('main');
     }
 
-    public function adminAddScheduleTour()
+    public function create()
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (empty($_POST["tour_id"]) || empty($_POST["ngay_thu"]) || empty($_POST["tieu_de"]) || empty($_POST["noi_dung"])) {
                 $_SESSION['error'][] = "Điền thông tin";
-                header("Location:" . BASE_URL . '?act=admin-addscheduletour');
+                header("Location:" . BASE_URL . 'admin-addscheduletour');
                 exit();
             }
             $schedule = new \Src\Models\ScheduleModel();
@@ -30,7 +30,7 @@ class ScheduleController
                 $_POST['noi_dung'],
             );
             $_SESSION['success'][] = 'Thêm thành công';
-            header("Location:" . BASE_URL . '?act=admin-scheduletour');
+            header("Location:" . BASE_URL . 'admin-list-schedule');
             exit();
         }
 
@@ -38,16 +38,16 @@ class ScheduleController
         $listTour = $tour->getAll();
 
         $title = "Thêm lịch trình các chuyến Tour";
-        $view = "admin/addscheduletour";
+        $view = "admin/create_schedule";
         require_once block_path('main');
     }
 
-    public function adminEditSchedule()
+    public function update()
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (empty($_POST["danhmuc"]) || empty($_POST["ngay_thu"]) || empty($_POST["tieu_de"]) || empty($_POST["noi_dung"])) {
                 $_SESSION['error'][] = "Điền thông tin";
-                header("Location:" . BASE_URL . '?act=admin-edit-schedule&ltr_id=' . $_GET['ltr_id']);
+                header("Location:" . BASE_URL . 'admin-update-schedule&ltr_id=' . $_GET['ltr_id']);
                 exit();
             }
 
@@ -62,7 +62,7 @@ class ScheduleController
                 $_POST['noi_dung'],
             );
             $_SESSION['success'][] = 'Cập nhật thành công';
-            header("Location:" . BASE_URL . '?act=admin-scheduletour');
+            header("Location:" . BASE_URL . 'admin-list-schedule');
             exit();
         }
         $tour = new \Src\Models\TourModel();
@@ -72,16 +72,16 @@ class ScheduleController
         $data = $schedule->getOne($_GET['ltr_id']);
 
         $title = "Cập nhật lịch trình các chuyến Tour";
-        $view = "admin/editscheduletour";
+        $view = "admin/update_schedule";
         require_once block_path('main');
     }
 
-    public function adminDeleteSchedule()
+    public function delete()
     {
         $scheduleModel = new \Src\Models\ScheduleModel();
         $data = $scheduleModel->delete($_GET['ltr_id']);
 
-        header("Location:" . BASE_URL . '?act=admin-scheduletour');
+        header("Location:" . BASE_URL . 'admin-list-schedule');
         exit();
     }
 }

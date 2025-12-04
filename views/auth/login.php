@@ -21,9 +21,7 @@
 
         display: flex;
         justify-content: center;
-        /* Căn giữa ngang */
         align-items: center;
-        /* Căn giữa dọc */
         margin: 0;
         overflow: hidden;
     }
@@ -32,7 +30,6 @@
     .login-card {
         max-width: 400px;
         width: 100%;
-        /* Tăng shadow và đảm bảo nền trắng để nổi bật trên gradient */
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         background-color: white;
         border-radius: 15px;
@@ -40,7 +37,6 @@
 
     .btn-custom-blue {
         background-color: #007bff;
-        /* Xanh Dương */
         border-color: #007bff;
         border-radius: 25px;
         font-weight: bold;
@@ -55,13 +51,11 @@
 
     .text-custom-primary {
         color: #007bff !important;
-        /* Xanh Dương cho link Quên mật khẩu */
         font-weight: bold;
     }
 
     .text-custom-info {
         color: #6f42c1 !important;
-        /* Màu Tím/Violet cho link Đăng ký */
         font-weight: bold;
     }
 
@@ -84,7 +78,7 @@ unset($_SESSION['old']);
     <div class="card login-card p-5 mx-auto my-5">
         <div class="card-body">
             <div class="text-center mb-4">
-                <img src="<?= BASE_URL . 'public/image/logo.png' ?>" alt="Elite Travel Logo" height="50">
+                <img src="<?= BASE_URL . 'public/image/logotour.png' ?>" alt="Elite Travel Logo" height="50">
             </div>
 
             <h5 class="card-title text-center fw-bold mb-4">Chào mừng đến với Elite Travel</h5>

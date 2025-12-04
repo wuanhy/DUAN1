@@ -29,7 +29,7 @@ class TransController{
                 }
                 if (empty($_FILES['anh_pt']['name'])) {
                         $errors['anh_pt'] = "Vui lòng chọn ảnh";
-                        }
+                }
 
                 if(empty($_POST['so_cho_ngoi'])){
                         $errors['so_cho_ngoi']="Nhập số chỗ tối đa cho xe";

@@ -21,9 +21,7 @@
         align-items: center;
         margin: 0;
         overflow-y: auto;
-        /* Cho phép cuộn nếu màn hình nhỏ */
         padding: 20px;
-        /* Thêm padding để không bị sát mép khi cuộn */
     }
 
     .register-card {
@@ -64,7 +62,7 @@
     <div class="card register-card p-5"> 
         <div class="card-body">
             <div class="text-center mb-4">
-                 <img src="<?= BASE_URL . 'public/image/logo.png' ?>" alt="Tour Travel Logo" height="50"> 
+                 <img src="<?= BASE_URL . 'public/image/logotour.png' ?>" alt="Tour Travel Logo" height="50"> 
             </div>
 
             <h5 class="card-title text-center fw-bold mb-4">Đăng ký tài khoản Tour Travel</h5>

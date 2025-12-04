@@ -8,9 +8,13 @@ use Src\Controllers\HomeController;
 use Src\Controllers\ScheduleController;
 use Src\Controllers\TourController;
 use Src\Controllers\TourStatisticsController;
-use Src\Controllers\TuorStatisticsController;
 use Src\Controllers\UserController;
 use Src\Controllers\hdvController;
+use Src\Controllers\BookingController;
+use Src\Controllers\PchdvController;
+
+
+
 
 
 // Nạp cấu hình chung của ứng dụng
@@ -30,6 +34,11 @@ require_once __DIR__ . '/src/models/Category.php';
 require_once __DIR__ . '/src/models/ScheduleModel.php';
 require_once __DIR__ . '/src/models/TourStatisticsModel.php';
 require_once __DIR__ . '/src/models/Trans.php';
+require_once __DIR__ . '/src/models/Booking.php';
+require_once __DIR__ . '/src/models/hdv.php';
+
+
+
 
 
 // Nạp các file chứa controller
@@ -42,7 +51,11 @@ require_once __DIR__ . '/src/controllers/TourStatisticsController.php';
 require_once __DIR__ . '/src/controllers/UserController.php';
 require_once __DIR__ . '/src/controllers/BlogController.php';
 require_once __DIR__ . '/src/controllers/TransController.php';
+require_once __DIR__ . '/src/controllers/BookingController.php';
 require_once __DIR__ . '/src/controllers/hdvController.php';
+require_once __DIR__ . '/src/controllers/PchdvController.php';
+
+
 
 
 
@@ -56,6 +69,11 @@ $userController = new UserController();
 $blogController = new BlogController();
 $transController = new TransController();
 $hdvController = new hdvController();
+$bookingController = new BookingController();
+$pchvController = new PchdvController();
+
+
+
 
 
 // Xác định route dựa trên tham số act (mặc định là trang chủ '/')
@@ -73,23 +91,26 @@ match ($act) {
     'admin-dashboard' => $dashboardController->index(),
     'logout'       => $homeController->logout(),
 
-    'admin-thongKe' => $tourStatisticsController-> thongKe(),
+    'booking' =>$bookingController->create(),
+    'list_thong_ke' =>$tourStatisticsController->index(),
+    'admin-hdv' =>$pchvController->index(),
+
     
     
     
 
-    'admin-tourlist' => $tourController-> adminTourList(),
-    'admin-addtour' => $tourController-> adminAddTour(),
-    'admin-edittour' => $tourController-> adminEditTour(),
-    'admin-delete-tour' => $tourController-> adminDeleteTour(),
+    'admin-list-tour' => $tourController-> index(),
+    'admin-create-tour' => $tourController-> create(),
+    'admin-update-tour' => $tourController-> update(),
+    'admin-delete-tour' => $tourController-> delete(),
 
-    'admin-scheduletour' => $scheduleController-> adminScheduleTour(),
-    'admin-addscheduletour' => $scheduleController-> adminAddScheduleTour(),
-    'admin-delete-schedule' => $scheduleController -> adminDeleteSchedule(),
-    'admin-edit-schedule' => $scheduleController -> adminEditSchedule(),
+    'admin-list-schedule' => $scheduleController-> index(),
+    'admin-create-schedule' => $scheduleController-> create(),
+    'admin-update-schedule' => $scheduleController -> update(),
+    'admin-delete-schedule' => $scheduleController -> delete(),
 
-    'admin-bookinglist' => $tourController-> adminBookingList(),
-    'admin-refundmanage' => $tourController-> adminRefundManage(),
+
+
     'profile'       =>$dashboardController->profile(),
 
     //blog
@@ -97,6 +118,7 @@ match ($act) {
     'admin-create-blog' =>$blogController->create(),
     'admin-update-blog' =>$blogController->update(),
     'admin-delete-blog' =>$blogController->delete(),
+
 
     //user
     'admin-list-user' =>$userController->index(),

@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <div class="containerr">
+    <div class="container">
         <div class="row">
             <div class="col-2">
                 <?php include "views/admin/sidebar.php"; ?>
@@ -16,7 +16,10 @@
             <div class="col-10" style="padding-top: 100px;">
                 <div class="tour-list-container">
                     <div class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-2">
-                        <h1 class="h2">Quản lý Yêu cầu Hoàn tiền</h1>
+                        <h1 class="fw-bold d-flex align-items-center gap-3 mb-4" style="color: #0d6efd;">
+                        <i class="bi bi-calendar-week fs-1 text-primary"></i>
+                            Danh sách yêu cầu hoàn tiền
+                        </h1>
                     </div>
                     <div class="mb-4">
                         <form class="d-flex" action="" method="GET">
@@ -66,24 +69,12 @@
         </div>
     </div>
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        .col-10 {
-            padding-right: 0 !important;
-            padding-left: 0 !important;
-            padding-top: 100px;
-        }
-
-        .tour-list-container {
-            width: 95%;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-            border-radius: 5px;
-        }
+        body {
+   background: linear-gradient(to right, #CFE8FF, #FAD4EC);
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
     </style>
 </body>
 
