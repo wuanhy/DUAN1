@@ -79,7 +79,7 @@ class TourController
                 $_POST['so_ngay'],
 
             );
-            $_SESSION['success'][] = 'Thêm thành công';
+            $_SESSION['success'] = 'Thêm thành công';
             header("Location:" . BASE_URL . 'admin-list-tour');
             exit();
         }
@@ -173,8 +173,8 @@ class TourController
                 $_POST['so_ngay'],
 
             );
-            $_SESSION['success'][] = 'Cập nhật thành công';
-            header("Location:" . BASE_URL . 'admin-tourlist');
+            $_SESSION['success'] = 'Cập nhật thành công';
+            header("Location:" . BASE_URL . 'admin-list-tour');
             exit();
         }
     }
@@ -184,22 +184,7 @@ class TourController
         $tour = new \Src\Models\TourModel();
         $data = $tour->getOne($_GET['tour_id']);
 
-        $title = "Cập nhật Tour";
         $view = "admin/update_tour";
-        require_once block_path('main');
-    }
-
-    public function booking()
-    {
-        $title = "Danh sách đặt chỗ";
-        $view = "admin/booking";
-        require_once block_path('main');
-    }
-
-    public function refund()
-    {
-        $title = "Quản lý hoàn tiền";
-        $view = "admin/refund";
         require_once block_path('main');
     }
 }

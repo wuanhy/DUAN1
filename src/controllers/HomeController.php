@@ -49,7 +49,7 @@ class HomeController
                         header("Location:" . BASE_URL . 'admin-dashboard');
                         exit();
                     } else {
-                        header("Location:" . BASE_URL . 'hdv-dashboard');
+                        header("Location:" . BASE_URL . 'hdv-tours');
                         exit();
                     }
                 }

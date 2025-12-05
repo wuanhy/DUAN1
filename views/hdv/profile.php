@@ -15,7 +15,7 @@
                 <?php include "views/hdv/sidebar.php";?>
             </div>
             <div class="col-10" style="padding: 40px;">
-
+    <br><br>
     <h3 class="mb-4 fw-bold">Thông tin cá nhân</h3>
 
     <div class="card p-4 shadow-sm" style="border-radius: 12px;">

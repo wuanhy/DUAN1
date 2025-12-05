@@ -70,7 +70,7 @@ $blogController = new BlogController();
 $transController = new TransController();
 $hdvController = new hdvController();
 $bookingController = new BookingController();
-$pchvController = new PchdvController();
+$pchdvController = new PchdvController();
 
 
 
@@ -93,13 +93,13 @@ match ($act) {
 
     'booking' =>$bookingController->create(),
     'list_thong_ke' =>$tourStatisticsController->index(),
-    'admin-hdv' =>$pchvController->index(),
+    'admin-hdv' => $pchdvController->assign(),
+
 
     
     
     
 
-<<<<<<< HEAD
     'admin-list-tour' => $tourController-> index(),
     'admin-create-tour' => $tourController-> create(),
     'admin-update-tour' => $tourController-> update(),
@@ -112,20 +112,6 @@ match ($act) {
 
 
 
-=======
-    'admin-list-tour' => $tourController-> list(),
-    'admin-create-tour' => $tourController-> create(),
-    'admin-update-tour' => $tourController-> update(),
-    'admin-delete-tour' => $tourController-> delete(),
-
-    'admin-list-schedule' => $scheduleController-> list(),
-    'admin-create-schedule' => $scheduleController-> create(),
-    'admin-update-schedule' => $scheduleController -> update(),
-    'admin-delete-schedule' => $scheduleController -> delete(),
-
-    'admin-booking' => $tourController-> booking(),
-    'admin-refund' => $tourController-> refund(),
->>>>>>> 87aceb48da2557efa1d65211a6b3a8e73f64c708
     'profile'       =>$dashboardController->profile(),
 
     //blog
@@ -147,7 +133,6 @@ match ($act) {
     'admin-update-trans' =>$transController->update(),
     'admin-delete-trans' =>$transController->delete(),
 
-    'hdv-dashboard' => $hdvController->index(),
     'hdv-profile' => $hdvController->profile(),
     'hdv-tours' => $hdvController->tours(),
 

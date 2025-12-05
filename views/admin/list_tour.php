@@ -60,11 +60,7 @@
                                     <td class="content"><?= $dm['mo_ta_tour'] ?></td>
                                     <td>
                                         <a href="<?= BASE_URL . 'admin-update-tour&tour_id=' . $dm['tour_id'] ?>"
-<<<<<<< HEAD
                                            class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i>Sửa</a> 
-=======
-                                            class="btn btn-warning">Sửa</a>
->>>>>>> 87aceb48da2557efa1d65211a6b3a8e73f64c708
                                         <a href="<?= BASE_URL . 'admin-delete-tour&tour_id=' . $dm['tour_id'] ?>"
                                             class="btn btn-outline-danger btn-sm" onclick="return confirm('Ban co muon xoa khong')"><i class="bi bi-trash-fill"></i>Xóa</a> 
                                             </td> 

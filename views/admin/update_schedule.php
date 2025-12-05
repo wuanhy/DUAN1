@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <div class="containerr">
+    <div class="container">
         <div class="row">
             <div class="col-2">
                 <?php include "views/admin/sidebar.php"; ?>
@@ -16,11 +16,8 @@
             <div class="col-10" style="padding-top: 100px;">
                 <div class="tour-list-container">
                     <div class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-2">
-                        <h1 class="h2">Thêm Lịch trình Khởi hành Mới</h1>
+                        <h1 class="h2">Cập nhật Lịch trình Khởi hành Mới</h1>
                     </div>
-                    <div class="row justify-content-center">
-                        <div class="col-lg-8 col-md-10">
-                            <div class="p-4 rounded shadow-sm" style="background-color: #F8E8E8;">
                                 <form action="<?= BASE_URL . 'admin-update-schedule&ltr_id=' . $data['ltr_id'] ?>"
                                     method="POST" class="needs-validation" novalidate>
                                     <div class="mb-3">
@@ -60,24 +57,17 @@
                                         </a>
                                     </div>
                                 </form>
-                            </div>
                         </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
     <style>
-    * {
-        box-sizing: border-box;
-    }
-
-    .col-10 {
-        padding-right: 0 !important;
-        padding-left: 0 !important;
-        padding-top: 100px;
-    }
-
+   body {
+   background: linear-gradient(to right, #CFE8FF, #FAD4EC);
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
     .tour-list-container {
         width: 95%;
         margin-left: auto;

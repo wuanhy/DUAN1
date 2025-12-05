@@ -9,15 +9,16 @@ class Booking extends BaseModel{
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
    
-    public function create($tour_id, $ngay_dien_ra, $so_cho) {
-        $sql = "INSERT INTO booking (tour_id, ngay_dien_ra, so_cho)
-                VALUES (:tour_id, :ngay_dien_ra, :so_cho)";
+   public function create($tour_id, $ngay_dien_ra, $so_cho,$ngay_ket_thuc) {
+        $sql = "INSERT INTO booking (tour_id, ngay_dien_ra, so_cho,ngay_ket_thuc)
+                VALUES (:tour_id, :ngay_dien_ra, :so_cho,:ngay_ket_thuc)";
 
         $stmt = $this->pdo->prepare($sql);
         return $stmt->execute([
             ':tour_id' => $tour_id,
             ':ngay_dien_ra' => $ngay_dien_ra,
-            ':so_cho' => $so_cho
+            ':so_cho' => $so_cho,
+            ':ngay_ket_thuc' =>$ngay_ket_thuc,
         ]);
     }
 }

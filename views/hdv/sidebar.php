@@ -15,7 +15,7 @@
  <header>
         <nav class="navbar navbar-expand-lg navbar-light shadow-sm fixed-top custom-gradient-navbar" id="main-navbar">
             <div class="container-fluid px-5">
-                <a class="navbar-brand" href="#"><img src="<?= BASE_URL . 'public/image/logo.png' ?>"
+                <a class="navbar-brand" href="#"><img src="<?= BASE_URL . 'public/image/logotour.png' ?>"
                         alt="Elite Travel Logo" height="50"></a>
                         <?php
                          if(!isset($_SESSION['userLogin'])){
