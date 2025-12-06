@@ -63,6 +63,14 @@
                                                     <label for="location-1" class="form-label">Địa điểm</label>
                                                     <input type="text" class="form-control" id="location-1" name="location-1" placeholder="Nhập địa điểm">
                                                 </div>
+
+                                                <div class="mb-3">
+                                                    <label class="form-label fw-semibold">Ảnh đại diện</label>
+                                                    <input type="file" name="anh" id="anh" class="form-control">
+                                                    <img id="preview" src="" class="mt-2 rounded shadow-sm" style="max-width:150px; display:none;">
+                                                    <small class="text-danger"><?= $errors['anh'] ?? '' ?></small>
+                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
@@ -92,6 +100,21 @@
         }
     </style>
     <script src="public/js/main.js"></script>
+    <script>
+document.getElementById('anh').addEventListener('change',(e)=>{
+    const file = e.target.files[0];
+    const preview = document.getElementById('preview');
+
+    if(file){
+        const reader = new FileReader();
+        reader.onload = (event) =>{
+            preview.src = event.target.result;
+            preview.style.display = 'block'; 
+        }
+        reader.readAsDataURL(file);
+    } 
+});
+</script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>

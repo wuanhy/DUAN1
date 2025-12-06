@@ -16,75 +16,84 @@
             <div class="col-2">
                 <?php include "views/admin/sidebar.php"; ?>
             </div>
+
             <div class="col-10" style="padding-top: 100px;  ">
                 <div class="list-booking">
+                    <h2>
+                        <i class="bi bi-person-check-fill"></i> Phân công
+                    </h2><br>
                     <form action="<?= BASE_URL . 'admin-hdv' ?>" method="post">
-                        <div>
-                            <div class="card-body">
-                                <table class="table">
-                                    <tr>
-                                        <th>ID Booking</th>
-                                        <th>Tên Tour</th>
-                                        <th>Ngày diễn ra</th>
-                                        <th>Ngày kết thúc</th>
-                                        <th>Số chỗ</th>
-                                        <th>Ảnh tour</th>
-                                        <th>Trạng thái</th>
-                                        <th>Phân Công</th>
-                                    </tr>
+                        <table class="table">
+                            <tr>
+                                <th>ID Booking</th>
+                                <th>Tên Tour</th>
+                                <th>Ngày diễn ra</th>
+                                <th>Ngày kết thúc</th>
+                                <th>Số chỗ</th>
+                                <th>Ảnh tour</th>
+                                <th>Trạng thái</th>
+                                <th>Phân Công</th>
+                            </tr>
 
-                                    <?php foreach ($listdata as $row): ?>
-                                        <tr>
-                                            <td><?= $row['booking_id'] ?></td>
-                                            <td><?= $row['ten_tour'] ?></td>
-                                            <td><?= $row['ngay_dien_ra'] ?></td>
-                                            <td><?= $row['ngay_ket_thuc'] ?></td>
-                                            <td><?= $row['so_cho'] ?></td>
-                                            <td><img src="<?=BASE_URL . $row['anh_tour']  ?>" width="120px"></td>
-                                            <td>
-                                                <?php if ($row['status'] == "done"): ?>
-                                                    <span class="badge bg-success">✔ Hoàn thành</span>
+                            <?php foreach ($listdata as $row): ?>
+                                <tr>
+                                    <td><?= $row['booking_id'] ?></td>
+                                    <td><?= $row['ten_tour'] ?></td>
+                                    <td><?= $row['ngay_dien_ra'] ?></td>
+                                    <td><?= $row['ngay_ket_thuc'] ?></td>
+                                    <td><?= $row['so_cho'] ?></td>
+                                    <td><img src="<?= BASE_URL . $row['anh_tour']  ?>" width="120px"></td>
+                                    <?php
+                                    $today = date("Y-m-d");
 
-                                                <?php elseif ($row['status'] == "pending"): ?>
-                                                    <span class="badge bg-primary">⌛ Sắp diễn ra</span>
+                                    if ($row['ngay_dien_ra'] < $today) {
+                                        $status = "done";
+                                    } elseif ($row['ngay_dien_ra'] == $today) {
+                                        $status = "in_progress";
+                                    } else {
+                                        $status = "pending";
+                                    }
+                                    ?>
+                                    <td>
+                                        <?php if ($status == "done"): ?>
+                                            <span class="badge bg-success">✔ Hoàn thành</span>
 
-                                                <?php elseif ($row['status'] == "in_progress"): ?>
-                                                    <span class="badge bg-danger">🔥 Đang diễn ra</span>
-                                                <?php endif; ?>
-                                            </td>
-                                            <td>
-                                                <?php if ($row['status'] == "pending") : ?>
-                                                    <form action="<?= BASE_URL . 'admin-hdv' ?>" method="post">
-                                                        <input type="hidden" name="booking_id" value="<?= $row['booking_id'] ?>">
-                                                        <select name="guide_id" class="form-control">
-                                                            <option value="">--Chọn HDV--</option>
-                                                            <?php foreach ($listHdv as $hdv): ?>
-                                                                <option value="<?= $hdv['id'] ?>">
-                                                                    <?= $hdv['name'] ?>
-                                                                </option>
-                                                            <?php endforeach; ?>
-                                                        </select>
-                                                        <small class="text-danger">
-                                                            <?= $errors[$row['booking_id']]['guide_error'] ?? '' ?>
-                                                        </small>
-                                                        <small class="text-danger">
-                                                            <?= $errors[$row['booking_id']]['assigned'] ?? '' ?>
-                                                        </small>
+                                        <?php elseif ($status == "pending"): ?>
+                                            <span class="badge bg-primary">⌛ Sắp diễn ra</span>
 
-                                                        <button class="btn btn-primary btn-sm mt-1" type="submit">Lưu</button>
-                                                    </form>
-                                                <?php else: ?>
-                                                    <small class="text-muted">Không thể phân công</small>
-                                                <?php endif; ?>
-                                            </td>
+                                        <?php elseif ($status == "in_progress"): ?>
+                                            <span class="badge bg-danger">🔥 Đang diễn ra</span>
+                                        <?php endif; ?>
+                                    </td>
+                                    <td>
+                                        <?php if ($status == "pending") : ?>
+                                            <form action="<?= BASE_URL . 'admin-hdv' ?>" method="post">
+                                                <input type="hidden" name="booking_id" value="<?= $row['booking_id'] ?>">
+                                                <select name="guide_id" class="form-control">
+                                                    <option value="">--Chọn HDV--</option>
+                                                    <?php foreach ($listHdv as $hdv): ?>
+                                                        <option value="<?= $hdv['id'] ?>">
+                                                            <?= $hdv['name'] ?>
+                                                        </option>
+                                                    <?php endforeach; ?>
+                                                </select>
+                                                <small class="text-danger">
+                                                    <?= $errors[$row['booking_id']]['guide_error'] ?? '' ?>
+                                                </small>
+                                                <small class="text-danger">
+                                                    <?= $errors[$row['booking_id']]['assigned'] ?? '' ?>
+                                                </small>
 
-                                        </tr>
-                                    <?php endforeach ?>
-                                </table>
+                                                <button class="btn btn-primary btn-sm mt-1" type="submit">Lưu</button>
+                                            </form>
+                                        <?php else: ?>
+                                            <small class="text-muted">Không thể phân công</small>
+                                        <?php endif; ?>
+                                    </td>
 
-                            </div>
-
-                        </div>
+                                </tr>
+                            <?php endforeach ?>
+                        </table>
                 </div>
             </div>
         </div>

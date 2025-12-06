@@ -37,10 +37,9 @@
                             <td><?= $row['ten_tour'] ?></td>
                             <td><?= $row['ngay_dien_ra'] ?></td>
                             <td><?= $row['so_cho'] ?></td>
-                            <td><img src="<?=BASE_URL . $row['anh_tour']  ?>" width="80px"></td>
+                            <td><img src="<?= BASE_URL . $row['anh_tour']  ?>" width="80px"></td>
                             <?php
                             $today = date("Y-m-d");
-
                             if ($row['ngay_dien_ra'] < $today) {
                                 $status = "done";
                             } elseif ($row['ngay_dien_ra'] == $today) {
@@ -50,16 +49,17 @@
                             }
                             ?>
                             <td>
-                                <?php if ($row['status'] == "done"): ?>
+                                <?php if ($status == "done"): ?>
                                     <span class="badge bg-success">✔ Hoàn thành</span>
 
-                                <?php elseif ($row['status'] == "pending"): ?>
+                                <?php elseif ($status == "pending"): ?>
                                     <span class="badge bg-primary">⌛ Sắp diễn ra</span>
 
-                                <?php elseif ($row['status'] == "in_progress"): ?>
+                                <?php elseif ($status == "in_progress"): ?>
                                     <span class="badge bg-danger">🔥 Đang diễn ra</span>
                                 <?php endif; ?>
                             </td>
+
                         </tr>
                     <?php endforeach ?>
                 </table>

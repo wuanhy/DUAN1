@@ -4,17 +4,17 @@ use PDO;
 class Hdv extends BaseModel{
     public function getAll(){
                 $sql = "SELECT 
-                booking.booking_id,
-                booking.tour_id,
+                tb_booking.booking_id,
+                tb_booking.tour_id,
                 tb_tour.ten_tour,
-                booking.ngay_dien_ra,
-                booking.so_cho,
-                booking.status,
+                tb_booking.ngay_dien_ra,
+                tb_booking.so_cho,
+                tb_booking.status,
                 tb_tour.anh_tour,
-                booking.ngay_ket_thuc
-            FROM booking 
-            JOIN tb_tour  ON booking.tour_id = tb_tour.tour_id
-            ORDER BY booking.ngay_dien_ra DESC";
+                tb_booking.ngay_ket_thuc
+            FROM tb_booking 
+            JOIN tb_tour  ON tb_booking.tour_id = tb_tour.tour_id
+            ORDER BY tb_booking.ngay_dien_ra DESC";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -27,7 +27,7 @@ class Hdv extends BaseModel{
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
     public function assign($booking_id, $guide_id,){
-        $sql = "INSERT INTO assignment (booking_id, guide_id) VALUES (:booking_id, :guide_id)";
+        $sql = "INSERT INTO tb_assignment (booking_id, guide_id) VALUES (:booking_id, :guide_id)";
         $stmt = $this->pdo->prepare($sql);
         return $stmt->execute([
             ":booking_id"=>$booking_id, 
@@ -35,19 +35,19 @@ class Hdv extends BaseModel{
         ]);
     }
     public function getJobs($guide_id){
-    $sql = "SELECT booking.booking_id, tb_tour.ten_tour, booking.ngay_dien_ra, booking.so_cho, booking.status , booking.ngay_ket_thuc , tb_tour.anh_tour
-            FROM assignment 
-            JOIN booking  ON assignment.booking_id = booking.booking_id
-            JOIN tb_tour  ON booking.tour_id = tb_tour.tour_id
-            WHERE assignment.guide_id = :guide_id
-            ORDER BY booking.ngay_dien_ra DESC";
+    $sql = "SELECT tb_booking.booking_id, tb_tour.ten_tour, tb_booking.ngay_dien_ra, tb_booking.so_cho, tb_booking.status , tb_booking.ngay_ket_thuc , tb_tour.anh_tour
+            FROM tb_assignment 
+            JOIN tb_booking  ON tb_assignment.booking_id = tb_booking.booking_id
+            JOIN tb_tour  ON tb_booking.tour_id = tb_tour.tour_id
+            WHERE tb_assignment.guide_id = :guide_id
+            ORDER BY tb_booking.ngay_dien_ra DESC";
 
     $stmt = $this->pdo->prepare($sql);
     $stmt->execute([':guide_id'=>$guide_id]);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 public function checkAssign($booking_id, $guide_id){
-        $sql = "SELECT * FROM assignment WHERE booking_id = :booking_id AND guide_id = :guide_id";
+        $sql = "SELECT * FROM tb_assignment WHERE booking_id = :booking_id AND guide_id = :guide_id";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([
             ":booking_id" => $booking_id,

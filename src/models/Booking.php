@@ -10,7 +10,7 @@ class Booking extends BaseModel{
     }
    
    public function create($tour_id, $ngay_dien_ra, $so_cho,$ngay_ket_thuc) {
-        $sql = "INSERT INTO booking (tour_id, ngay_dien_ra, so_cho,ngay_ket_thuc)
+        $sql = "INSERT INTO tb_booking (tour_id, ngay_dien_ra, so_cho,ngay_ket_thuc)
                 VALUES (:tour_id, :ngay_dien_ra, :so_cho,:ngay_ket_thuc)";
 
         $stmt = $this->pdo->prepare($sql);

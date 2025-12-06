@@ -4,13 +4,13 @@ use PDO;
 use Src\Models\BaseModel;
     class Trans extends BaseModel{
         public function getList(){
-            $sql = "SELECT tb_phuongtien.*,danhmuc_pt.name AS danhmucpt FROM tb_phuongtien JOIN danhmuc_pt ON tb_phuongtien.loai_pt_id = danhmuc_pt.id ";
+            $sql = "SELECT tb_phuongtien.*,tb_danhmuc_pt.name AS danhmucpt FROM tb_phuongtien JOIN tb_danhmuc_pt ON tb_phuongtien.loai_pt_id = tb_danhmuc_pt.id ";
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
         public function getAll(){
-            $sql = "SELECT * FROM danhmuc_pt";
+            $sql = "SELECT * FROM tb_danhmuc_pt";
             $stmt=$this->pdo->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
