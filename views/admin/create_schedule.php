@@ -33,14 +33,19 @@
                                 <div class="card-body">
                                     <div class="mb-4">
                                         <label for="select-tour" class="form-label fw-bold">Chọn Tour*</label>
-                                        <select class="form-select" id="tour_id" name="tour_id" required>
-                                            <option value="" disabled selected>-- Chọn một Tour để thiết lập lịch trình --</option>
-                                            <?php foreach ($listTour as $value) : ?>
-                                                <option value="<?= $value['tour_id'] ?>">
-                                                    <?= $value['ten_tour'] ?>
-                                                </option>
-                                            <?php endforeach; ?>
-                                        </select>
+                                        <div class="input-group">
+                                            <select class="form-select" id="tour_id" name="tour_id">
+                                                <option value="" disabled selected>-- Chọn một Tour để thiết lập lịch trình --</option>
+                                                <?php foreach ($listTour as $value) : ?>
+                                                    <option value="<?= $value['tour_id'] ?>">
+                                                        <?= $value['ten_tour'] ?>
+                                                    </option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </div>
+                                        <p id="tour_idError" class="text-danger small mt-1">
+                                            <?= $errors['tour_id'] ?? '' ?>
+                                        </p>
                                     </div>
 
                                     <hr class="my-4">
@@ -55,22 +60,36 @@
                                             </div>
 
                                             <div class="row g-3">
+                                                <input type="hidden" name="schedule[0][ngay_thu]" value="1">
                                                 <div class="col-md-6">
                                                     <label for="activity-1" class="form-label">Hoạt động</label>
-                                                    <input type="text" class="form-control" id="activity-1" name="activity-1" placeholder="Ví dụ: Tham quan Lăng Bác">
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control" id="activity-1" name="schedule[0][hoat_dong]" placeholder="Ví dụ: Tham quan Lăng Bác">
+                                                    </div>
+                                                    <p id="hoat_dongError" class="text-danger small mt-1">
+                                                        <?= $errors['hoat_dong'][0] ?? '' ?>
+                                                    </p>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label for="location-1" class="form-label">Địa điểm</label>
-                                                    <input type="text" class="form-control" id="location-1" name="location-1" placeholder="Nhập địa điểm">
-                                                </div>
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control" id="location-1" name="schedule[0][dia_diem]" placeholder="Nhập địa điểm">
+                                                    </div>
 
-                                                <div class="mb-3">
-                                                    <label class="form-label fw-semibold">Ảnh đại diện</label>
-                                                    <input type="file" name="anh" id="anh" class="form-control">
-                                                    <img id="preview" src="" class="mt-2 rounded shadow-sm" style="max-width:150px; display:none;">
-                                                    <small class="text-danger"><?= $errors['anh'] ?? '' ?></small>
+                                                    <p id="dia_diemError" class="text-danger small mt-1">
+                                                        <?= $errors['dia_diem'][0] ?? '' ?>
+                                                    </p>
                                                 </div>
-
+                                                <div class="col-md-6">
+                                                    <label for="anh" class="form-label">Ảnh hoạt động</label>
+                                                    <div class="input-group">
+                                                        <input type="file" name="file_anh_ngay[]" id="anh" class="form-control file-input-day" data-day-index="0">
+                                                    </div>
+                                                    <img id="preview" src="" alt="Xem trước ảnh" style="margin-top:10px; max-width:200px; display:none;">
+                                                    <p id="anhError" class="text-danger small mt-1">
+                                                        <?= $errors['anh'][0] ?? '' ?>
+                                                    </p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -100,23 +119,22 @@
         }
     </style>
     <script src="public/js/main.js"></script>
-    <script>
-document.getElementById('anh').addEventListener('change',(e)=>{
-    const file = e.target.files[0];
-    const preview = document.getElementById('preview');
-
-    if(file){
-        const reader = new FileReader();
-        reader.onload = (event) =>{
-            preview.src = event.target.result;
-            preview.style.display = 'block'; 
-        }
-        reader.readAsDataURL(file);
-    } 
-});
-</script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('anh').addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            const preview = document.getElementById('preview');
 
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    preview.src = event.target.result;
+                    preview.style.display = 'block';
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
 </body>
 
 </html>

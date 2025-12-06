@@ -36,25 +36,41 @@
                         <tbody>
                             <?php $stt = 1; ?>
                             <?php foreach ($group as $value): ?>
-                                <?php $scheduleCount = count($value['details']); ?>
+                                <?php
+                                $scheduleCount = count($value['details']);
+                                $day = 1; // ⭐ reset ngày cho từng tour
+                                ?>
                                 <?php foreach ($value['details'] as $key => $scheduel): ?>
                                     <tr>
                                         <?php if ($key === 0): ?>
                                             <td rowspan="<?= $scheduleCount ?>"><?= $stt++ ?></td>
                                         <?php endif; ?>
+
                                         <?php if ($key === 0): ?>
                                             <td rowspan="<?= $scheduleCount ?>"><?= $value['ten_tour'] ?></td>
                                         <?php endif; ?>
-                                        <td><?= $scheduel['ngay_thu'] ?></td>
+
+                                        <!-- ⭐ Auto tăng ngày -->
+                                        <td>Ngày <?= $day ?></td>
+                                        <?php $day++; // tăng lên mỗi dòng 
+                                        ?>
+
                                         <td><?= $scheduel['dia_diem'] ?></td>
                                         <td class="content"><?= $scheduel['hoat_dong'] ?></td>
+
                                         <?php if ($key === 0): ?>
                                             <td rowspan="<?= $scheduleCount ?>">
-                                                <a href="<?= BASE_URL . 'admin-update-schedule&ltr_id=' . $scheduel['ltr_id'] ?>" class="btn btn-primary btn-sm" rowpan="<?= $scheduleCount ?>"><i class="bi bi-pencil-square"></i>Sửa</a>
-                                                <a href="<?= BASE_URL . 'admin-delete-schedule&ltr_id=' . $scheduel['ltr_id'] ?>" class="btn btn-outline-danger btn-sm" rowpan="<?= $scheduleCount ?>" onclick="return confirm('Bạn có muốn xóa lịch trình này không?')"><i class="bi bi-trash-fill"></i>Xóa</a>
+                                                <a href="<?= BASE_URL . 'admin-update-schedule&ltr_id=' . $scheduel['ltr_id'] ?>"
+                                                    class="btn btn-primary btn-sm">
+                                                    <i class="bi bi-pencil-square"></i> Sửa
+                                                </a>
+                                                <a href="<?= BASE_URL . 'admin-delete-schedule&ltr_id=' . $scheduel['ltr_id'] ?>"
+                                                    class="btn btn-outline-danger btn-sm"
+                                                    onclick="return confirm('Bạn có muốn xóa lịch trình này không?')">
+                                                    <i class="bi bi-trash-fill"></i> Xóa
+                                                </a>
                                             </td>
                                         <?php endif; ?>
-
                                     </tr>
                                 <?php endforeach; ?>
                             <?php endforeach; ?>

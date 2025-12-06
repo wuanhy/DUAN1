@@ -4,15 +4,16 @@ namespace Src\Models;
 
 class ScheduleModel extends BaseModel
 {
-    public function insertSchedule($tour_id, $ngay_thu, $tieu_de, $noi_dung)
+    public function insertSchedule($tour_id, $ngay_thu, $dia_diem, $hoat_dong, $path)
     {
-        $sql = "INSERT INTO tb_lich_trinh (tour_id, ngay_thu, tieu_de, noi_dung) VALUES (:tour_id, :ngay_thu, :tieu_de, :noi_dung)";
+        $sql = "INSERT INTO tb_lich_trinh (tour_id, ngay_thu, dia_diem, hoat_dong, anh) VALUES (:tour_id, :ngay_thu, :dia_diem, :hoat_dong, :anh)";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([
             ":tour_id" => $tour_id,
             ":ngay_thu" => $ngay_thu,
-            ":tieu_de" => $tieu_de,
-            ":noi_dung" => $noi_dung,
+            ":dia_diem" => $dia_diem,
+            ":hoat_dong" => $hoat_dong,
+            ":anh" => $path,
         ]);
     }
 
@@ -39,16 +40,26 @@ class ScheduleModel extends BaseModel
         $stmt->execute([":ltr_id" => $ltr_id]);
         return $stmt->fetch(\PDO::FETCH_ASSOC);
     }
-
-    public function updateSchedule($ltr_id, $tour_id, $ngay_thu, $tieu_de, $noi_dung){
-        $sql = "UPDATE tb_lich_trinh SET tour_id = :tour_id, ngay_thu = :ngay_thu, tieu_de = :tieu_de, noi_dung = :noi_dung WHERE ltr_id = :ltr_id";
-        $stmt = $this -> pdo -> prepare($sql);
+    public function updateSchedule($ltr_id, $tour_id, $ngay_thu, $dia_diem, $hoat_dong, $anh)
+    {
+        $sql = "UPDATE tb_lich_trinh SET tour_id = :tour_id, ngay_thu = :ngay_thu, dia_diem = :dia_diem, hoat_dong = :hoat_dong, anh = :anh WHERE ltr_id = :ltr_id";
+        $stmt = $this->pdo->prepare($sql);
         $stmt->execute([
             "ltr_id" => $ltr_id,
             "tour_id" => $tour_id,
             "ngay_thu" => $ngay_thu,
-            "tieu_de" => $tieu_de,
-            "noi_dung" => $noi_dung,
+            "dia_diem" => $dia_diem,
+            "hoat_dong" => $hoat_dong,
+            "anh" => $anh,
         ]);
+    }
+
+    public function getAllScheduleByTourId($tour_id){
+        $sql = "SELECT tb_lich_trinh.* , tb_tour.ten_tour FROM tb_lich_trinh JOIN tb_tour ON tb_lich_trinh.tour_id = tb_tour.tour_id WHERE tb_lich_trinh.tour_id = :tour_id ORDER BY ngay_thu";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([
+            ":tour_id" => $tour_id
+        ]);
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 }

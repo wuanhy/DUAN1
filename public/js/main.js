@@ -114,11 +114,14 @@ section.querySelector(`[name^="location"]`).name = `location-${newDayNum}`;
         }
 
 
-        addDayBtn.addEventListener('click', function() {
-            dayCounter++;
-            
-            const newDayHTML = `
-                <div class="day-section border p-3 mb-3 rounded" data-day="${dayCounter}">
+        addDayBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    const dayIndex = dayCounter;
+    dayCounter++;
+
+    const newDayHTML = `
+                <div class="day-section border p-3 mb-3 rounded" data-day="${dayIndex}">
+                <input type="hidden" name="schedule[${dayIndex}][ngay_thu]" value="${dayIndex}"> 
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <h5 class="text-primary mb-0">🗓️ Ngày thứ ${dayCounter}</h5>
                         <button type="button" class="btn btn-sm btn-danger remove-day-btn" data-day-index="${dayCounter}">
@@ -128,24 +131,32 @@ section.querySelector(`[name^="location"]`).name = `location-${newDayNum}`;
                     
                     <div class="row g-3">
                         <div class="col-md-6">
-                            <label for="activity-${dayCounter}" class="form-label">Hoạt động</label>
-                            <input type="text" class="form-control" id="activity-${dayCounter}" name="activity-${dayCounter}" placeholder="Ví dụ: Tham quan Vịnh Hạ Long">
+                            <label for="activity-${dayIndex}" class="form-label">Hoạt động</label>
+                    <input type="text" class="form-control" id="activity-${dayIndex}" name="schedule[${dayIndex}][hoat_dong]" placeholder="Ví dụ: Tham quan Vịnh Hạ Long">
                         </div>
                         <div class="col-md-6">
-                            <label for="location-${dayCounter}" class="form-label">Địa điểm</label>
-                            <input type="text" class="form-control" id="location-${dayCounter}" name="location-${dayCounter}" placeholder="Nhập địa điểm">
+                            <label for="location-${dayIndex}" class="form-label">Địa điểm</label>
+                    <input type="text" class="form-control" id="location-${dayIndex}" name="schedule[${dayIndex}][dia_diem]" placeholder="Nhập địa điểm">
+                        </div>
+                        <div class="col-md-6">
+                          <label for="anh-${dayIndex}" class="form-label">Ảnh hoạt động</label>
+                          <div class="input-group">
+                            <input type="file" id="anh-${dayIndex}" name="file_anh_ngay[]" class="form-control file-input-day" data-day-index="${dayIndex}"> 
+                          </div>
+                            <img id="preview-${dayCounter}" src="" alt="Xem trước ảnh" style="margin-top:10px; max-width:200px; display:none;">
                         </div>
                     </div>
                 </div>
             `;
 
-            daysContainer.insertAdjacentHTML('beforeend', newDayHTML);
-            
-            addRemoveListeners(); 
-            updateDayNumbers();
+    daysContainer.insertAdjacentHTML("beforeend", newDayHTML);
 
-            daysContainer.lastElementChild.scrollIntoView({ behavior: 'smooth' });
-        });
+    addRemoveListeners();
+    updateDayNumbers();
+    setupNewFileInputListeners(dayCounter);
+
+    daysContainer.lastElementChild.scrollIntoView({ behavior: "smooth" });
+  });
         
         addRemoveListeners();
         updateDayNumbers(); 
