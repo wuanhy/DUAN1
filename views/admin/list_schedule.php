@@ -60,11 +60,11 @@
 
                                         <?php if ($key === 0): ?>
                                             <td rowspan="<?= $scheduleCount ?>">
-                                                <a href="<?= BASE_URL . 'admin-update-schedule&ltr_id=' . $scheduel['ltr_id'] ?>"
+                                                <a href="<?= BASE_URL . 'admin-update-schedule&tour_id=' . $scheduel['tour_id'] ?>"
                                                     class="btn btn-primary btn-sm">
                                                     <i class="bi bi-pencil-square"></i> Sửa
                                                 </a>
-                                                <a href="<?= BASE_URL . 'admin-delete-schedule&ltr_id=' . $scheduel['ltr_id'] ?>"
+                                                <a href="<?= BASE_URL . 'admin-delete-schedule&tour_id=' . $scheduel['tour_id'] ?>"
                                                     class="btn btn-outline-danger btn-sm"
                                                     onclick="return confirm('Bạn có muốn xóa lịch trình này không?')">
                                                     <i class="bi bi-trash-fill"></i> Xóa

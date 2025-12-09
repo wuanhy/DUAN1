@@ -60,34 +60,34 @@
                                             </div>
 
                                             <div class="row g-3">
-                                                <input type="hidden" name="schedule[0][ngay_thu]" value="1">
+                                                <input type="hidden" name="schedule[1][ngay_thu]" value="1">
                                                 <div class="col-md-6">
                                                     <label for="activity-1" class="form-label">Hoạt động</label>
                                                     <div class="input-group">
-                                                        <input type="text" class="form-control" id="activity-1" name="schedule[0][hoat_dong]" placeholder="Ví dụ: Tham quan Lăng Bác">
+                                                        <input type="text" class="form-control" id="activity-1" name="schedule[1][hoat_dong]" placeholder="Ví dụ: Tham quan Lăng Bác">
                                                     </div>
                                                     <p id="hoat_dongError" class="text-danger small mt-1">
-                                                        <?= $errors['hoat_dong'][0] ?? '' ?>
+                                                        <?= $errors['hoat_dong'][1] ?? '' ?>
                                                     </p>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label for="location-1" class="form-label">Địa điểm</label>
                                                     <div class="input-group">
-                                                        <input type="text" class="form-control" id="location-1" name="schedule[0][dia_diem]" placeholder="Nhập địa điểm">
+                                                        <input type="text" class="form-control" id="location-1" name="schedule[1][dia_diem]" placeholder="Nhập địa điểm">
                                                     </div>
 
                                                     <p id="dia_diemError" class="text-danger small mt-1">
-                                                        <?= $errors['dia_diem'][0] ?? '' ?>
+                                                        <?= $errors['dia_diem'][1] ?? '' ?>
                                                     </p>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label for="anh" class="form-label">Ảnh hoạt động</label>
                                                     <div class="input-group">
-                                                        <input type="file" name="file_anh_ngay[]" id="anh" class="form-control file-input-day" data-day-index="0">
+                                                        <input type="file" name="file_anh_ngay[1]" id="anh" class="form-control file-input-day" data-day-index="1">
                                                     </div>
                                                     <img id="preview" src="" alt="Xem trước ảnh" style="margin-top:10px; max-width:200px; display:none;">
                                                     <p id="anhError" class="text-danger small mt-1">
-                                                        <?= $errors['anh'][0] ?? '' ?>
+                                                        <?= $errors['anh'][1] ?? '' ?>
                                                     </p>
                                                 </div>
                                             </div>
