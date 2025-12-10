@@ -41,8 +41,8 @@
                                     <td><?= $row['ten_tour'] ?></td>
                                     <td><?= $row['ngay_dien_ra'] ?></td>
                                     <td><?= $row['ngay_ket_thuc'] ?></td>
-                                    <td><?= $row['so_cho'] ?></td>
                                     <td><img src="<?= BASE_URL . $row['anh_tour']  ?>" width="120px"></td>
+                                    <td><?= $row['so_cho'] ?></td>
                                     <?php
                                     $today = date("Y-m-d");
 
