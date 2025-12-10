@@ -46,9 +46,9 @@
                                     <?php
                                     $today = date("Y-m-d");
 
-                                    if ($row['ngay_dien_ra'] < $today) {
+                                    if ($row['ngay_ket_thuc'] < $today) {
                                         $status = "done";
-                                    } elseif ($row['ngay_dien_ra'] == $today) {
+                                    } elseif ($row['ngay_dien_ra'] <= $today && $today <= $row['ngay_ket_thuc']) {
                                         $status = "in_progress";
                                     } else {
                                         $status = "pending";
@@ -72,9 +72,11 @@
                                                 <select name="guide_id" class="form-control">
                                                     <option value="">--Chọn HDV--</option>
                                                     <?php foreach ($listHdv as $hdv): ?>
-                                                        <option value="<?= $hdv['id'] ?>">
+                                                        <option value="<?= $hdv['id'] ?>"
+                                                            <?= ($row['assigned_guide'] == $hdv['id']) ? 'selected' : '' ?>>
                                                             <?= $hdv['name'] ?>
                                                         </option>
+
                                                     <?php endforeach; ?>
                                                 </select>
                                                 <small class="text-danger">

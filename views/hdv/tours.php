@@ -42,17 +42,29 @@
                                 <td><?= $job['ngay_ket_thuc'] ?></td>
                                 <td><?= $job['so_cho'] ?></td>
                                 <td><img src="<?= BASE_URL . $job['anh_tour'] ?>" width="120px"></td>
-                                <td>
-                                    <?php if ($job['status'] == "done"): ?>
-                                        <span class="badge bg-success">✔ Hoàn thành</span>
+                                <?php
+                            $today = date("Y-m-d");
 
-                                    <?php elseif ($job['status'] == "pending"): ?>
-                                        <span class="badge bg-primary">⌛ Sắp diễn ra</span>
+                            if ($job['ngay_ket_thuc'] < $today) {
+                                $status = "done";
+                            } elseif ($job['ngay_dien_ra'] <= $today && $today <= $job['ngay_ket_thuc']) {
+                                $status = "in_progress";
+                            } else {
+                                $status = "pending";
+                            }
+                            ?>
+                            <td>
+                                <?php if ($status == "done"): ?>
+                                    <span class="badge bg-success">✔ Hoàn thành</span>
 
-                                    <?php elseif ($job['status'] == "in_progress"): ?>
-                                        <span class="badge bg-danger">🔥 Đang diễn ra</span>
-                                    <?php endif; ?>
-                                </td>
+                                <?php elseif ($status == "pending"): ?>
+                                    <span class="badge bg-primary">⌛ Sắp diễn ra</span>
+
+                                <?php elseif ($status == "in_progress"): ?>
+                                    <span class="badge bg-danger">🔥 Đang diễn ra</span>
+                                <?php endif; ?>
+                            </td>
+
                             </tr>
                         <?php endforeach ?>
                     </table>

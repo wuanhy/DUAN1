@@ -54,7 +54,7 @@
                                         <td>Ngày <?= $day ?></td>
                                         <?php $day++; // tăng lên mỗi dòng 
                                         ?>
-
+    
                                         <td><?= $scheduel['dia_diem'] ?></td>
                                         <td class="content"><?= $scheduel['hoat_dong'] ?></td>
 
