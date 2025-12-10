@@ -34,7 +34,7 @@
                         <input type="text" class="form-control" id="current_tour_name" value="<?= $data['ten_tour'] ?? '' ?>" readonly>
                     </div>
 
-                    <div class="days-container">
+                    <div id="days-container">
                         <?php
                         $day_index = 0;
                         foreach ($schedules as $schedule):
@@ -90,6 +90,90 @@
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const addDayBtn = document.getElementById("add-day-btn");
+            const daysContainer = document.getElementById("days-container");
+            if (!addDayBtn || !daysContainer) return;
+
+            function addRemoveListeners() {
+                daysContainer.querySelectorAll(".remove-day-btn").forEach(btn => {
+                    btn.onclick = function() {
+                        const section = this.closest(".day-section")
+                        const hasId = section.querySelector('input[name*="ltr_id]')?.value
+                        if (hasId) {
+                            alert("Không thể xóa ngày đã lưu")
+                            return
+                        }
+                        section.remove()
+                    };
+                });
+            }
+
+            function getNextDayNumber() {
+                const sections = daysContainer.querySelectorAll(".day-section")
+                return sections.length + 1
+            }
+
+            addDayBtn.addEventListener("click", function(e) {
+                e.preventDefault();
+
+                const dayNum = getNextDayNumber()
+
+                const newDayHTML = `
+                                    <div class="day-section border p-3 mb-3 rounded" data-day="${dayNum}">
+                                        <input type="hidden" name="schedule[${dayNum}][ngay_thu]" value="${dayNum}"> 
+                                        
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <h5 class="text-primary mb-0">🗓️ Ngày thứ ${dayNum}</h5>
+                                            <button type="button" class="btn btn-sm btn-danger remove-day-btn" data-day-index="${dayNum}">
+                                                <i class="bi bi-trash"></i> - Xóa Ngày
+                                            </button>
+                                        </div>
+                                        
+                                        <div class="row g-3">
+                                            <div class="col-md-6">
+                                                <label class="form-label">Hoạt động</label>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" id="hoat_dong_${dayNum}" 
+                                                        name="schedule[${dayNum}][hoat_dong]" 
+                                                        placeholder="Ví dụ: Tham quan Lăng Bác">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label class="form-label">Địa điểm</label>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" id="dia_diem_${dayNum}" 
+                                                        name="schedule[${dayNum}][dia_diem]" 
+                                                        placeholder="Nhập địa điểm">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label class="form-label">Ảnh hoạt động</label>
+                                                <div class="input-group">
+                                                    <input type="file" 
+                                                        name="file_anh_ngay[${dayNum}]" 
+                                                        class="form-control file-input-day">
+                                                </div>
+
+                                                <img id="preview-${dayNum}" src="" alt="Xem trước ảnh"
+                                                    style="margin-top:10px; max-width:200px; display:none;">
+                                            </div>
+                                        </div>
+                                    </div>
+
+          `;
+                daysContainer.insertAdjacentHTML("beforeend", newDayHTML);
+                addRemoveListeners();
+                daysContainer.lastElementChild.scrollIntoView({
+                    behavior: "smooth"
+                });
+            });
+            addRemoveListeners();
+        });
+    </script>
     <style>
         body {
             background: linear-gradient(to right, #CFE8FF, #FAD4EC);
