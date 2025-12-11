@@ -19,30 +19,34 @@
 
             <div class="job-card">
                 <?php if (empty($jobs)): ?>
-                    <div class="alert alert-warning text-center">
-                        <i class="bi bi-exclamation-circle"></i> Hiện chưa có tour nào được phân công.
-                    </div>
+                <div class="alert alert-warning text-center">
+                    <i class="bi bi-exclamation-circle"></i> Hiện chưa có tour nào được phân công.
+                </div>
                 <?php else: ?>
-                    <table class="table">
-                        <tr>
-                            <th>ID Booking</th>
-                            <th>Tên Tour</th>
-                            <th>Ngày diễn ra</th>
-                            <th>Ngày kết thúc</th>
-                            <th>Ảnh Tour</th>
-                            <th>Số chỗ</th>
-                            <th>Trạng thái</th>
-                        </tr>
+                <table class="table">
+                    <tr>
+                        <th>ID Booking</th>
+                        <th>Tên Tour</th>
+                        <th>Ngày diễn ra</th>
+                        <th>Ngày kết thúc</th>
+                        <th>Ảnh Tour</th>
+                        <th>Số chỗ</th>
+                        <th>Nơi xuất phát</th>
+                        <th>Điểm đến</th>
+                        <th>Trạng thái</th>
+                    </tr>
 
-                        <?php foreach ($jobs as $job): ?>
-                            <tr>
-                                <td><?= $job['booking_id'] ?></td>
-                                <td><?= $job['ten_tour'] ?></td>
-                                <td><?= $job['ngay_dien_ra'] ?></td>
-                                <td><?= $job['ngay_ket_thuc'] ?></td>
-                                <td><?= $job['so_cho'] ?></td>
-                                <td><img src="<?= BASE_URL . $job['anh_tour'] ?>" width="120px"></td>
-                                <?php
+                    <?php foreach ($jobs as $job): ?>
+                    <tr>
+                        <td><?= $job['booking_id'] ?></td>
+                        <td><?= $job['ten_tour'] ?></td>
+                        <td><?= $job['ngay_dien_ra'] ?></td>
+                        <td><?= $job['ngay_ket_thuc'] ?></td>
+                        <td><?= $job['so_cho'] ?></td>
+                        <td><?= $job['noi_xuat_phat'] ?></td>
+                        <td><?= $job['diem_den'] ?></td>
+                        <td><img src="<?= BASE_URL . $job['anh_tour'] ?>" width="120px"></td>
+                        <?php
                             $today = date("Y-m-d");
 
                             if ($job['ngay_ket_thuc'] < $today) {
@@ -53,21 +57,21 @@
                                 $status = "pending";
                             }
                             ?>
-                            <td>
-                                <?php if ($status == "done"): ?>
-                                    <span class="badge bg-success">✔ Hoàn thành</span>
+                        <td>
+                            <?php if ($status == "done"): ?>
+                            <span class="badge bg-success">✔ Hoàn thành</span>
 
-                                <?php elseif ($status == "pending"): ?>
-                                    <span class="badge bg-primary">⌛ Sắp diễn ra</span>
+                            <?php elseif ($status == "pending"): ?>
+                            <span class="badge bg-primary">⌛ Sắp diễn ra</span>
 
-                                <?php elseif ($status == "in_progress"): ?>
-                                    <span class="badge bg-danger">🔥 Đang diễn ra</span>
-                                <?php endif; ?>
-                            </td>
+                            <?php elseif ($status == "in_progress"): ?>
+                            <span class="badge bg-danger">🔥 Đang diễn ra</span>
+                            <?php endif; ?>
+                        </td>
 
-                            </tr>
-                        <?php endforeach ?>
-                    </table>
+                    </tr>
+                    <?php endforeach ?>
+                </table>
                 <?php endif ?>
             </div>
         </div>
@@ -75,10 +79,10 @@
 
 </div>
 <style>
-    body {
-        background: linear-gradient(to right, #CFE8FF, #FAD4EC);
-        min-height: 100vh;
-    }
+body {
+    background: linear-gradient(to right, #CFE8FF, #FAD4EC);
+    min-height: 100vh;
+}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>

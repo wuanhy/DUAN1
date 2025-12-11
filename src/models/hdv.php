@@ -17,6 +17,8 @@ class Hdv extends BaseModel
                 tb_booking.ngay_ket_thuc,
                 tb_tour.anh_tour,
                 tb_tour.ten_tour,
+                tb_tour.noi_xuat_phat,
+                tb_tour.diem_den,
                 (
                     SELECT tb_assignment.guide_id
                     FROM tb_assignment 
@@ -51,7 +53,7 @@ class Hdv extends BaseModel
     }
     public function getJobs($guide_id)
     {
-        $sql = "SELECT tb_booking.booking_id, tb_tour.ten_tour, tb_booking.ngay_dien_ra, tb_booking.so_cho, tb_booking.status , tb_booking.ngay_ket_thuc , tb_tour.anh_tour
+        $sql = "SELECT tb_booking.booking_id, tb_tour.ten_tour, tb_booking.ngay_dien_ra, tb_booking.so_cho, tb_booking.status , tb_booking.ngay_ket_thuc , tb_tour.anh_tour,tb_tour.noi_xuat_phat,tb_tour.diem_den
             FROM tb_assignment 
             JOIN tb_booking  ON tb_assignment.booking_id = tb_booking.booking_id
             JOIN tb_tour  ON tb_booking.tour_id = tb_tour.tour_id

@@ -11,7 +11,9 @@ class TourStatisticsModel extends BaseModel{
                 tb_booking.so_cho,
                 tb_booking.status,
                 tb_tour.anh_tour,
-                tb_booking.ngay_ket_thuc
+                tb_booking.ngay_ket_thuc,
+                tb_tour.noi_xuat_phat,
+                tb_tour.diem_den
             FROM tb_booking 
             JOIN tb_tour  ON tb_booking.tour_id = tb_tour.tour_id
             ORDER BY tb_booking.ngay_dien_ra DESC

@@ -26,19 +26,25 @@
                         <th>ID Booking</th>
                         <th>Tên Tour</th>
                         <th>Ngày diễn ra</th>
+                        <th>Ngày kết thúc</th>
                         <th>Số chỗ</th>
+                        <th>Nơi xuất phát</th>
+                        <th>Điểm đến</th>
                         <th>Ảnh tour</th>
                         <th>Trạng thái</th>
                     </tr>
 
                     <?php foreach ($listdata as $row): ?>
-                        <tr>
-                            <td><?= $row['booking_id'] ?></td>
-                            <td><?= $row['ten_tour'] ?></td>
-                            <td><?= $row['ngay_dien_ra'] ?></td>
-                            <td><?= $row['so_cho'] ?></td>
-                            <td><img src="<?= BASE_URL . $row['anh_tour']  ?>" width="80px"></td>
-                            <?php
+                    <tr>
+                        <td><?= $row['booking_id'] ?></td>
+                        <td><?= $row['ten_tour'] ?></td>
+                        <td><?= $row['ngay_dien_ra'] ?></td>
+                        <td><?= $row['ngay_ket_thuc'] ?></td>
+                        <td><?= $row['so_cho'] ?></td>
+                        <td><?= $row['noi_xuat_phat'] ?></td>
+                        <td><?= $row['diem_den'] ?></td>
+                        <td><img src="<?= BASE_URL . $row['anh_tour']  ?>" width="80px"></td>
+                        <?php
                             $today = date("Y-m-d");
                             if ($row['ngay_dien_ra'] < $today) {
                                 $status = "done";
@@ -48,19 +54,19 @@
                                 $status = "pending";
                             }
                             ?>
-                            <td>
-                                <?php if ($status == "done"): ?>
-                                    <span class="badge bg-success">✔ Hoàn thành</span>
+                        <td>
+                            <?php if ($status == "done"): ?>
+                            <span class="badge bg-success">✔ Hoàn thành</span>
 
-                                <?php elseif ($status == "pending"): ?>
-                                    <span class="badge bg-primary">⌛ Sắp diễn ra</span>
+                            <?php elseif ($status == "pending"): ?>
+                            <span class="badge bg-primary">⌛ Sắp diễn ra</span>
 
-                                <?php elseif ($status == "in_progress"): ?>
-                                    <span class="badge bg-danger">🔥 Đang diễn ra</span>
-                                <?php endif; ?>
-                            </td>
+                            <?php elseif ($status == "in_progress"): ?>
+                            <span class="badge bg-danger">🔥 Đang diễn ra</span>
+                            <?php endif; ?>
+                        </td>
 
-                        </tr>
+                    </tr>
                     <?php endforeach ?>
                 </table>
             </div>
@@ -68,10 +74,10 @@
 
     </div>
     <style>
-        body {
-            background: linear-gradient(to right, #CFE8FF, #FAD4EC);
-            min-height: 100vh;
-        }
+    body {
+        background: linear-gradient(to right, #CFE8FF, #FAD4EC);
+        min-height: 100vh;
+    }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
